@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Task Summary</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_host">Firefly Host</string>
+    <string name="prompt_token">Secret Token</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_incorrect_token">The token is incorrect</string>
+</resources>
