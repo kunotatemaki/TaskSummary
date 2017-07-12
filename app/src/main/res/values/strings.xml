@@ -5,6 +5,10 @@
     <string name="prompt_host">Firefly Host</string>
     <string name="prompt_token">Secret Token</string>
     <string name="action_sign_in">Sign in</string>
+    <string name="error">Error</string>
     <string name="error_field_required">This field is required</string>
     <string name="error_incorrect_token">The token is incorrect</string>
+    <string name="error_invalid_token">The token is incorrect</string>
+    <string name="error_invalid_host">Please check the host name</string>
+    <string name="error_internet_connection">Please check your internet connection</string>
 </resources>
