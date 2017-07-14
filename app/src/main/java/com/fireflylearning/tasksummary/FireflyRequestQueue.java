@@ -31,12 +31,14 @@ public class FireflyRequestQueue {
     private static FireflyRequestQueue mInstance;
 
     private RequestQueue mRequestQueue;
+    private Context mContext;
     private String mHost;
     private String mToken;
 
     public static void initialise(Context context, String host, String token)
     {
         mInstance = new FireflyRequestQueue();
+        mInstance.mContext = context;
         mInstance.mHost = host;
         mInstance.mToken = token;
         mInstance.mRequestQueue = Volley.newRequestQueue(context.getApplicationContext());
@@ -68,7 +70,9 @@ public class FireflyRequestQueue {
         mRequestQueue.add(request);
     }
 
-    public void RunGraphqlQuery(final String query, final Listener<JSONObject> listner, final ErrorListener errorListner) {
+    public void RunGraphqlQuery(int queryResourceId, final Listener<JSONObject> listner, final ErrorListener errorListner) {
+
+        final String query = mContext.getResources().getString(queryResourceId);
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
