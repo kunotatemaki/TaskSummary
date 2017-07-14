@@ -8,7 +8,5 @@ import android.app.Application;
 
 public class TaskSummary extends Application {
     @Override
-    public void onCreate() {
-        super.onCreate();
-    }
+    public void onCreate() { super.onCreate(); }
 }

@@ -3,6 +3,7 @@ package com.fireflylearning.tasksummary;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -174,33 +175,33 @@ public class LoginActivity extends AppCompatActivity {
 
     private void checkToken(String host, String token) {
 
-        FireflyRequestQueue.initialise(getApplicationContext(), host);
+        FireflyRequestQueue.initialise(getApplicationContext(), host, token);
 
-        FireflyRequestQueue requestQueue = FireflyRequestQueue.getInstance();
-
-        StringRequest request = new StringRequest(
-                Request.Method.GET,
-                requestQueue.buildUrl("login/api/checktoken?ffauth_device_id=123&ffauth_secret=" + token),
+        FireflyRequestQueue.getInstance().RunGetRequest(
+                "login/api/checktoken",
                 new Listener<String>() {
-            @Override
-            public void onResponse(String response) {
+                    @Override
+                    public void onResponse(String response) {
 
-                showProgress(false);
-                if(!response.equals("OK")) {
-                    showTokenError(tokenError.hostError);
-                }
-            }
-        },
+                        showProgress(false);
+
+                        if(!response.equals("OK")) {
+                            showTokenError(tokenError.hostError);
+                            return;
+                        }
+
+                        performLogin();
+                    }
+                },
                 new ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
 
-                showProgress(false);
-                showTokenError(error.networkResponse.statusCode == 401 ? tokenError.invalidToken : tokenError.hostError);
-            }
-        });
-
-        requestQueue.addToRequestQueue(request);
+                        showProgress(false);
+                        showTokenError(error.networkResponse.statusCode == 401 ? tokenError.invalidToken : tokenError.hostError);
+                    }
+                }
+        );
     }
 
     private void showTokenError(tokenError tokenError) {
@@ -236,6 +237,14 @@ public class LoginActivity extends AppCompatActivity {
 
         final AlertDialog alert = dialog.create();
         alert.show();
+    }
+
+    private void performLogin() {
+        Intent intent = new Intent(this, TaskListActivity.class);
+        //EditText editText = (EditText) findViewById(R.id.editText);
+        //String message = editText.getText().toString();
+        //intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }
 

@@ -2,8 +2,20 @@ package com.fireflylearning.tasksummary;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response.Listener;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import android.content.Context;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -12,15 +24,21 @@ import android.content.Context;
 
 public class FireflyRequestQueue {
 
+    private final String DeviceId = "AndroidApp";
+    private final String GetParamDeviceId = "ffauth_device_id";
+    private final String GetParamToken = "ffauth_secret";
+
     private static FireflyRequestQueue mInstance;
 
     private RequestQueue mRequestQueue;
     private String mHost;
+    private String mToken;
 
-    public static void initialise(Context context, String host)
+    public static void initialise(Context context, String host, String token)
     {
         mInstance = new FireflyRequestQueue();
         mInstance.mHost = host;
+        mInstance.mToken = token;
         mInstance.mRequestQueue = Volley.newRequestQueue(context.getApplicationContext());
     }
 
@@ -28,15 +46,55 @@ public class FireflyRequestQueue {
         return mInstance;
     }
 
-    public RequestQueue getRequestQueue() {
-        return mRequestQueue;
-    }
-
-    public <T> void addToRequestQueue(Request<T> req) {
-        getRequestQueue().add(req);
-    }
-
     public String buildUrl(String postfix) {
-        return "https://" + mHost + "/" + postfix;
+
+        String query = GetParamDeviceId + "=" + DeviceId + "&" + GetParamToken + "=" + mToken;
+
+        if(postfix.contains("?")) {
+            return "https://" + mHost + "/" + postfix + "&" + query;
+        }
+
+        return "https://" + mHost + "/" + postfix + "?" + query;
+    }
+
+    public void RunGetRequest(String relativeUrl, Listener<String> listner, ErrorListener errorListner) {
+
+        StringRequest request = new StringRequest(
+                Request.Method.GET,
+                buildUrl(relativeUrl),
+                listner,
+                errorListner);
+
+        mRequestQueue.add(request);
+    }
+
+    public void RunGraphqlQuery(final String query, final Listener<JSONObject> listner, final ErrorListener errorListner) {
+
+        StringRequest request = new StringRequest(
+                Request.Method.POST,
+                buildUrl("_api/1.0/graphql"),
+                new Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject json = new JSONObject(response);
+                            listner.onResponse(json.getJSONObject("data"));
+                        } catch (JSONException ex) {
+                            errorListner.onErrorResponse(new VolleyError());
+                        }
+                    }
+                },
+                errorListner)
+        {
+            @Override
+            protected Map<String, String> getParams()
+            {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("data", query);
+                return params;
+            }
+        };
+
+        mRequestQueue.add(request);
     }
 }
