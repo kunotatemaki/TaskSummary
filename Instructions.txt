@@ -5,7 +5,7 @@ Firefly will be taking on the development of our Android app ‘Firefly for Stud
 School Code: APPDEVDEMO
 Credentials: sstudent / sstudent
 
-The scenario is: The attached project contains an app which is aimed at teachers to give them a summary of all their historical tasks. Our product team regularly visit may of our clients and discuss what they are having problems with and new features they would like to see. We also get feedback from the play store.
+The scenario is: The attached project contains an app which is aimed at teachers to give them a summary of all their historical tasks. Our product team regularly visit many of our clients and discuss what they are having problems with and new features they would like to see. We also get feedback from the play store.
 
 As a result, we would like to make the following changes to the app:
 
