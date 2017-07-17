@@ -1,0 +1,24 @@
+The objective of this coding exercise is to demonstrate your ability to write high quality, tested, re-usable and maintainable code.
+
+Firefly will be taking on the development of our Android app ‘Firefly for Students’ and as initially the sole android developer, you will be responsible for understanding, improving and maintaining its code base. If you are interested in downloading and exploring the app as it currently exists on the play store, you can do so with these details:
+
+School Code: APPDEVDEMO
+Credentials: sstudent / sstudent
+
+The scenario is: The attached project contains an app which is aimed at teachers to give them a summary of all their historical tasks. Our product team regularly visit may of our clients and discuss what they are having problems with and new features they would like to see. We also get feedback from the play store.
+
+As a result, we would like to make the following changes to the app:
+
+1. The teacher would like better visibility of whether a task has been archived or not and to see the task due date. Our designers have created a mockup of a row for an archived and unarchived task. You will need to modify the cell accordingly.
+
+2. Every task has a task description which is an HTML page on the Firefly server. The URL for this page is provided through the API. Add a feature that will allow the user to tap on a task and view the task description. The new screen should slide in and show the task description in a webview with a back button. Because the task description might contain images, a session will need to be created inside the webview.  This can be done by using the following URL: https://<host>/login/api/getsession?ffauth_device_id=<deviceId>&ffauth_secret=<secret>&Prelogin=/<url from api>
+
+Please note the following:
+ - Much of the work in building the URL has been done in FireflyRequestQueue.java
+ - You will need to URL encode the Prelogin parameter
+ - Notice the / character in the Prelogin parameter!
+
+3. In order to improve the responsiveness of the app, we would like to store the data read from the API. This would mean the user would not need to log in again if the app restarted (e.g. while offline). Create the database that is able to store tasks from the API. Tasks should be added into the database when they are downloaded and the task list screen should read from the database.
+
+While making these changes add tests as required and feel free to re-factor as necessary.
+
