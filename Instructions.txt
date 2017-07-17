@@ -9,7 +9,7 @@ The scenario is: The attached project contains an app which is aimed at teachers
 
 As a result, we would like to make the following changes to the app:
 
-1. The teacher would like better visibility of whether a task has been archived or not and to see the task due date. Our designers have created a mockup of a row for an archived and unarchived task. You will need to modify the cell accordingly.
+1. The teacher would like better visibility of whether a task has been archived or not and to see the task due date. Our designers have created a mockup of a row for an archived and unarchived task (see HistoricalTasksMockup.png). You will need to modify the cell accordingly.
 
 2. Every task has a task description which is an HTML page on the Firefly server. The URL for this page is provided through the API. Add a feature that will allow the user to tap on a task and view the task description. The new screen should slide in and show the task description in a webview with a back button. Because the task description might contain images, a session will need to be created inside the webview.  This can be done by using the following URL: https://<host>/login/api/getsession?ffauth_device_id=<deviceId>&ffauth_secret=<secret>&Prelogin=/<url from api>
 
