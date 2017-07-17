@@ -10,6 +10,7 @@ import java.util.Date;
 public class Task {
     public int id;
     public String title;
+    public String description_page_url;
     public Date set;
     public Date due;
     public Boolean archived;
