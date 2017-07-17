@@ -48,7 +48,7 @@ public class FireflyRequestQueue {
         return mInstance;
     }
 
-    public String buildUrl(String postfix) {
+    private String BuildUrl(String postfix) {
 
         String query = GetParamDeviceId + "=" + DeviceId + "&" + GetParamToken + "=" + mToken;
 
@@ -63,7 +63,7 @@ public class FireflyRequestQueue {
 
         StringRequest request = new StringRequest(
                 Request.Method.GET,
-                buildUrl(relativeUrl),
+                BuildUrl(relativeUrl),
                 listner,
                 errorListner);
 
@@ -76,7 +76,7 @@ public class FireflyRequestQueue {
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
-                buildUrl("_api/1.0/graphql"),
+                BuildUrl("_api/1.0/graphql"),
                 new Listener<String>() {
                     @Override
                     public void onResponse(String response) {
