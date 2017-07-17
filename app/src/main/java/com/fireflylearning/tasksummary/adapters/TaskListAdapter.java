@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary;
+package com.fireflylearning.tasksummary.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.fireflylearning.tasksummary.R;
+import com.fireflylearning.tasksummary.objects.Task;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

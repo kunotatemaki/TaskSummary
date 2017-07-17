@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary;
+package com.fireflylearning.tasksummary.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -23,6 +23,9 @@ import android.content.DialogInterface;
 import com.android.volley.Response.Listener;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
+import com.fireflylearning.tasksummary.FireflyRequestQueue;
+import com.fireflylearning.tasksummary.R;
+import com.fireflylearning.tasksummary.activities.TaskListActivity;
 
 
 /**

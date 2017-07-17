@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary;
+package com.fireflylearning.tasksummary.objects;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +11,7 @@ public class Task {
     public int id;
     public String title;
     public Date set;
+    public Date due;
     public Boolean archived;
     public Boolean draft;
     public Boolean show_in_markbook;
@@ -20,7 +21,7 @@ public class Task {
 
     public String toFlagsString()
     {
-        ArrayList<String> flags = new ArrayList<String>();
+        ArrayList<String> flags = new ArrayList<>();
 
         if(archived)
             flags.add("archived");

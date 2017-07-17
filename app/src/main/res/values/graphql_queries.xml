@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tasks_query">query Query { tasks(set_by:\"DB:Cloud:DB:SIMSemp:89\") {id, title, set, archived, draft, show_in_markbook, highlight_in_markbook, show_in_parent_portal, hide_addressees } }</string>
+    <string name="tasks_query">query Query { tasks(set_by:\"DB:Cloud:DB:SIMSemp:89\") {id, title, set, due, archived, draft, show_in_markbook, highlight_in_markbook, show_in_parent_portal, hide_addressees } }</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary;
+package com.fireflylearning.tasksummary.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,10 @@ import android.widget.TextView;
 import com.android.volley.Response.Listener;
 import com.android.volley.Response.ErrorListener;
 import com.android.volley.VolleyError;
+import com.fireflylearning.tasksummary.FireflyRequestQueue;
+import com.fireflylearning.tasksummary.R;
+import com.fireflylearning.tasksummary.objects.Task;
+import com.fireflylearning.tasksummary.adapters.TaskListAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
