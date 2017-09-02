@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.resources
+package com.fireflylearning.tasksummary.utils.resources
 
 import android.content.Context
 import android.support.annotation.VisibleForTesting

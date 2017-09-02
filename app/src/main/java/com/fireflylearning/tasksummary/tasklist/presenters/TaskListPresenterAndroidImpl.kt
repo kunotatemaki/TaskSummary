@@ -6,7 +6,7 @@ import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
-import com.fireflylearning.tasksummary.resources.ResourcesManager
+import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
 import com.fireflylearning.tasksummary.tasklist.views.TaksListView

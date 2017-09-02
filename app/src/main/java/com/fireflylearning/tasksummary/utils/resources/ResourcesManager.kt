@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.resources
+package com.fireflylearning.tasksummary.utils.resources
 
 /**
  * Created by Roll on 31/8/17.

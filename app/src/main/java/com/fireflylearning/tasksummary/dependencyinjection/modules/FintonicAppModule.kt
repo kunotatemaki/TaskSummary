@@ -6,8 +6,8 @@ import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
-import com.fireflylearning.tasksummary.resources.ResourcesManager
-import com.fireflylearning.tasksummary.resources.ResourcesManagerAndroidImpl
+import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
+import com.fireflylearning.tasksummary.utils.resources.ResourcesManagerAndroidImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

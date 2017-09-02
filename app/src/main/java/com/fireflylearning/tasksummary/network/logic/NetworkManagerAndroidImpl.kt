@@ -6,7 +6,7 @@ import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
-import com.fireflylearning.tasksummary.resources.ResourcesManager
+import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import retrofit2.Call
 import retrofit2.Callback
