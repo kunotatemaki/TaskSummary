@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.sheroeslist.lifecycleobservers
+package com.fireflylearning.tasksummary.tasklist.lifecycleobservers
 
 /**
  * Created by Roll on 31/8/17.

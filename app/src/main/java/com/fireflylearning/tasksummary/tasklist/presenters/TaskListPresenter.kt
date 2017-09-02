@@ -1,7 +1,7 @@
-package com.fireflylearning.tasksummary.sheroeslist.presenters
+package com.fireflylearning.tasksummary.tasklist.presenters
 
 import com.fireflylearning.tasksummary.model.Task
-import com.fireflylearning.tasksummary.sheroeslist.views.TaskView
+import com.fireflylearning.tasksummary.tasklist.views.TaskView
 
 /**
  * Created by Roll on 31/8/17.

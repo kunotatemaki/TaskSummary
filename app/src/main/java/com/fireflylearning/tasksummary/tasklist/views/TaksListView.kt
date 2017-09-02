@@ -1,8 +1,8 @@
-package com.fireflylearning.tasksummary.sheroeslist.views
+package com.fireflylearning.tasksummary.tasklist.views
 
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.model.Task
-import com.fireflylearning.tasksummary.sheroeslist.lifecycleobservers.TaskListLifecycleObserver
+import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 
 /**
  * Created by Roll on 31/8/17.

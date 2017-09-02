@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.sheroeslist.adapters
+package com.fireflylearning.tasksummary.tasklist.adapters
 
 import android.databinding.DataBindingUtil
 import android.support.v7.widget.RecyclerView
@@ -8,8 +8,8 @@ import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.SuperheroItemBinding
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.model.Task
-import com.fireflylearning.tasksummary.sheroeslist.presenters.TaskListPresenter
-import com.fireflylearning.tasksummary.sheroeslist.viewholders.TaskListViewHolder
+import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
+import com.fireflylearning.tasksummary.tasklist.viewholders.TaskListViewHolder
 import com.fireflylearning.tasksummary.utils.ui.GlideBindingComponent
 import javax.inject.Inject
 

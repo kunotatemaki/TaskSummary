@@ -1,9 +1,9 @@
-package com.fireflylearning.tasksummary.sheroeslist.viewholders
+package com.fireflylearning.tasksummary.tasklist.viewholders
 
 import android.support.v7.widget.RecyclerView
 import com.fireflylearning.tasksummary.databinding.SuperheroItemBinding
 import com.fireflylearning.tasksummary.model.Task
-import com.fireflylearning.tasksummary.sheroeslist.presenters.TaskListPresenter
+import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 
 /**
  * Created by Roll on 31/8/17.

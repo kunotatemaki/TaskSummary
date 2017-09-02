@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.sheroeslist.livedataobservers
+package com.fireflylearning.tasksummary.tasklist.livedataobservers
 
 import com.fireflylearning.tasksummary.model.Task
 

@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.sheroeslist.presenters
+package com.fireflylearning.tasksummary.tasklist.presenters
 
 import android.support.annotation.VisibleForTesting
 import com.fireflylearning.tasksummary.R
@@ -8,9 +8,9 @@ import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
-import com.fireflylearning.tasksummary.sheroeslist.livedataobservers.MyLivedataObserver
-import com.fireflylearning.tasksummary.sheroeslist.views.TaksListView
-import com.fireflylearning.tasksummary.sheroeslist.views.TaskView
+import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
+import com.fireflylearning.tasksummary.tasklist.views.TaksListView
+import com.fireflylearning.tasksummary.tasklist.views.TaskView
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 

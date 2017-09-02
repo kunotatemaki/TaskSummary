@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.sheroeslist.viewmodels
+package com.fireflylearning.tasksummary.tasklist.viewmodels
 
 import android.arch.lifecycle.ViewModel
 import com.fireflylearning.tasksummary.model.CustomLiveData

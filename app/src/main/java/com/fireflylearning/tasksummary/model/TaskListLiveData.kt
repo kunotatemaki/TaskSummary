@@ -4,7 +4,7 @@ import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
-import com.fireflylearning.tasksummary.sheroeslist.livedataobservers.MyLivedataObserver
+import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
 import javax.inject.Inject
 
 

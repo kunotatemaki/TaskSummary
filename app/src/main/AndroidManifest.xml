@@ -23,5 +23,8 @@
         <activity
             android:name=".activities.TaskListActivity"
             android:label="@string/task_list_label" />
+        <activity android:name=".tasklist.views.TaskListActivity"
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 </manifest>

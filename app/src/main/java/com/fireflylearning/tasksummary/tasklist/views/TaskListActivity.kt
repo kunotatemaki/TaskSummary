@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.sheroeslist.views
+package com.fireflylearning.tasksummary.tasklist.views
 
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModelProviders
@@ -16,10 +16,10 @@ import com.fireflylearning.tasksummary.dependencyinjection.modules.SuperHeroList
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.model.Task
-import com.fireflylearning.tasksummary.sheroeslist.adapters.TaskListAdapter
-import com.fireflylearning.tasksummary.sheroeslist.lifecycleobservers.TaskListLifecycleObserver
-import com.fireflylearning.tasksummary.sheroeslist.presenters.TaskListPresenter
-import com.fireflylearning.tasksummary.sheroeslist.viewmodels.TaskListViewModel
+import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
+import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
+import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
+import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import javax.inject.Inject

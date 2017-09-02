@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.fireflylearning.tasksummary.model.Task"/>
-        <import type="com.fireflylearning.tasksummary.sheroeslist.presenters.TaskListPresenter"/>
-        <import type="com.fireflylearning.tasksummary.sheroeslist.views.TaskView"/>
+        <import type="com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter"/>
+        <import type="com.fireflylearning.tasksummary.tasklist.views.TaskView"/>
         <variable
             name="superhero"
             type="Task"/>
@@ -34,7 +34,7 @@
 
         >
 
-        <com.fireflylearning.tasksummary.sheroeslist.views.TaskViewAndroidImpl
+        <com.fireflylearning.tasksummary.tasklist.views.TaskViewAndroidImpl
             android:id="@+id/avatar"
             android:layout_width="@dimen/pic_size"
             android:layout_height="@dimen/pic_size"

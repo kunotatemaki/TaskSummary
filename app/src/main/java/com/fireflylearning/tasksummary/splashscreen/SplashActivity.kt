@@ -3,7 +3,7 @@ package com.fireflylearning.tasksummary.splashscreen
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.fireflylearning.tasksummary.sheroeslist.views.TaskListActivity
+import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity
 
 /**
  * Created by Roll on 1/9/17.
