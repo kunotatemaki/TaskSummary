@@ -50,16 +50,17 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
                 if (response?.isSuccessful as Boolean) {
                     val list : MutableList<Task> = arrayListOf()
                     //map photos to observable value
-                    /*response.body()
-                            ?.superheroes
+                    response.body()
+                            ?.tasks
+                            ?.tasksList
                             ?.mapTo(list) {
                         Task(it)
-                    }*/
+                    }
                     tasks.setLivedataValue(list)
 
                 } else {
 
-                    log.d(this, "respuesta vacía")
+                    log.d(this, "empty response")
                     tasks.setLivedataValue(arrayListOf())
                 }
             }

@@ -69,9 +69,9 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
     }
 
     override fun superHeroClicked(superHeroView: TaskView, superHero: Task) {
-        log.d(this, "pulsado: " + superHero.name)
+        /*log.d(this, "pulsado: " + superHero.name)
         mView.safe {
             mView.get()!!.showSuperHeroDetails(superHeroView, superHero)
-        }
+        }*/
     }
 }

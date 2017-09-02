@@ -1,57 +1,41 @@
 package com.fireflylearning.tasksummary.model
 
-import android.os.Parcel
-import android.os.Parcelable
 import com.fireflylearning.tasksummary.network.model.TaskElementResponse
+import java.text.SimpleDateFormat
+import java.util.*
 
 /**
  * Created by Roll on 31/8/17.
  */
 
-class Task constructor(val name: String?,
-                       val photo: String?,
-                       val realName: String?,
-                       val height: String?,
-                       val power: String?,
-                       val abilities: String?,
-                       val groups: String?) : Parcelable {
-    /*constructor(superhero: TaskElementResponse) : this(
-            name = superhero.name,
-            photo = superhero.photo,
-            realName = superhero.realName,
-            height = superhero.height,
-            power = superhero.power,
-            abilities = superhero.abilities,
-            groups = superhero.groups
-    )*/
+//todo quitar los elementos antiguos
+class Task constructor(val id: Int?,
+                       val title: String?,
+                       val description_page_url: String?,
+                       val set: Date?,
+                       val due: Date?,
+                       val archived: Boolean?,
+                       val draft: Boolean?,
+                       val show_in_markbook: Boolean?,
+                       val highlight_in_markbook: Boolean?,
+                       val show_in_parent_portal: Boolean?,
+                       val hide_addressees: Boolean? = null) {
 
-    constructor(source: Parcel) : this(
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString(),
-            source.readString()
+
+            
+    constructor(task: TaskElementResponse) : this(
+            id = task.id,
+            title = task.title,
+            description_page_url = task.descriptionPageUrl,
+            set = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'").parse(task.set),
+            due= if (task.due!=null) SimpleDateFormat("yyyy-MM-dd").parse(task.due) else  null,
+            archived = task.archived,
+            draft = task.draft,
+            show_in_markbook = task.showInMarkbook,
+            highlight_in_markbook = task.highlightInMarkbook,
+            show_in_parent_portal = task.showInParentPortal,
+            hide_addressees = task.hideAddressees
     )
 
-    override fun describeContents() = 0
-
-    override fun writeToParcel(dest: Parcel, flags: Int) = with(dest) {
-        writeString(name)
-        writeString(photo)
-        writeString(realName)
-        writeString(height)
-        writeString(power)
-        writeString(abilities)
-        writeString(groups)
-    }
-
-    companion object {
-        @JvmField
-        val CREATOR: Parcelable.Creator<Task> = object : Parcelable.Creator<Task> {
-            override fun createFromParcel(source: Parcel): Task = Task(source)
-            override fun newArray(size: Int): Array<Task?> = arrayOfNulls(size)
-        }
-    }
+    
 }

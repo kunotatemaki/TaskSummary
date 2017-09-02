@@ -39,24 +39,24 @@
             android:layout_width="@dimen/pic_size"
             android:layout_height="@dimen/pic_size"
             android:contentDescription="@string/pic_description"
-            app:imageList="@{superhero.photo}"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginStart="@dimen/horizontal_margin"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:transitionName="@string/activity_image_trans"/>
+            android:transitionName="@string/activity_image_trans"
+            android:layout_marginLeft="@dimen/horizontal_margin" />
 
         <TextView
             android:id="@+id/superhero_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Chicho Terremoto"
-            android:text="@{superhero.name}"
             android:textAppearance="?attr/textAppearanceListItem"
             app:layout_constraintLeft_toRightOf="@+id/avatar"
             android:layout_marginStart="@dimen/horizontal_margin"
             app:layout_constraintTop_toTopOf="@+id/avatar"
-            app:layout_constraintBottom_toBottomOf="@+id/avatar" />
+            app:layout_constraintBottom_toBottomOf="@+id/avatar"
+            android:layout_marginLeft="@dimen/horizontal_margin" />
 
     </android.support.constraint.ConstraintLayout>
 
