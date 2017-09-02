@@ -15,9 +15,11 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:clickable="true"
         android:focusable="true"
+        android:paddingTop="@dimen/vertical_margin"
+        android:paddingBottom="@dimen/vertical_margin"
         android:foreground="?selectableItemBackground"
         android:onClick="@{()->presenter.taskClicked(task)}"
         >
@@ -34,7 +36,6 @@
             android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="@dimen/vertical_margin"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginLeft="@dimen/horizontal_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"

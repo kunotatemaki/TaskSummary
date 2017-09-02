@@ -11,13 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff39a054-c164-4958-9111-44a0a89a9f98" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/res/layout/superhero_item.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/adapters/TaskListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/adapters/TaskListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/adapters/TaskListAdapter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/adapters/TaskListAdapter.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenter.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenterAndroidImpl.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenterAndroidImpl.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/viewholders/TaskListViewHolder.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/viewholders/TaskListViewHolder.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml" />
     </list>
     <ignored path="Task Summary.iws" />
@@ -72,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetworkManagerAndroidImpl.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NetworkManagerAndroidImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+            <state relative-caret-position="226">
+              <caret line="63" column="21" lean-forward="false" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
               <folding>
                 <element signature="e#55#836#0" expanded="true" />
               </folding>
@@ -106,29 +100,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_task_list_row.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="activity_task_list_row.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="82" column="39" lean-forward="false" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+            <state relative-caret-position="209">
+              <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
               <folding>
-                <element signature="e#1373#1397#0" expanded="true" />
-                <element signature="e#1437#1463#0" expanded="true" />
-                <element signature="e#1502#1528#0" expanded="true" />
-                <element signature="e#1566#1592#0" expanded="true" />
-                <element signature="e#1632#1658#0" expanded="true" />
-                <element signature="e#2056#2076#0" expanded="true" />
-                <element signature="e#2116#2142#0" expanded="true" />
-                <element signature="e#2180#2206#0" expanded="true" />
-                <element signature="e#2246#2272#0" expanded="true" />
-                <element signature="e#2311#2337#0" expanded="true" />
-                <element signature="e#2774#2794#0" expanded="true" />
-                <element signature="e#2834#2860#0" expanded="true" />
-                <element signature="e#2898#2924#0" expanded="true" />
-                <element signature="e#2964#2990#0" expanded="true" />
-                <element signature="e#3029#3055#0" expanded="true" />
-                <element signature="e#3412#3438#0" expanded="true" />
-                <element signature="e#3478#3504#0" expanded="true" />
+                <element signature="e#754#778#0" expanded="true" />
+                <element signature="e#809#833#0" expanded="true" />
+                <element signature="e#1482#1508#0" expanded="true" />
+                <element signature="e#1547#1573#0" expanded="true" />
+                <element signature="e#1611#1637#0" expanded="true" />
+                <element signature="e#1677#1703#0" expanded="true" />
+                <element signature="e#2101#2121#0" expanded="true" />
+                <element signature="e#2161#2187#0" expanded="true" />
+                <element signature="e#2225#2251#0" expanded="true" />
+                <element signature="e#2291#2317#0" expanded="true" />
+                <element signature="e#2356#2382#0" expanded="true" />
+                <element signature="e#2819#2839#0" expanded="true" />
+                <element signature="e#2879#2905#0" expanded="true" />
+                <element signature="e#2943#2969#0" expanded="true" />
+                <element signature="e#3009#3035#0" expanded="true" />
+                <element signature="e#3074#3100#0" expanded="true" />
+                <element signature="e#3457#3483#0" expanded="true" />
+                <element signature="e#3523#3549#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -2159,10 +2154,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/livedataobservers/MyLivedataObserver.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenterAndroidImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/adapters/TaskListAdapter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/viewholders/TaskListViewHolder.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/adapters/TaskListAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml" />
       </list>
     </option>
   </component>
@@ -2941,7 +2936,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504388970579" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504389230250" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2989,7 +2984,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504388970579" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504389230250" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3172,7 +3167,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504388970580" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504389230252" />
       </method>
     </configuration>
     <list size="1">
@@ -3281,7 +3276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504371940605</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="set task in adapter. first version">
+      <created>1504388981782</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1504388981782</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3295,6 +3297,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2360515" sideWeight="0.51635516" order="3" side_tool="true" content_ui="tabs" />
@@ -3304,13 +3307,13 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38417265" sideWeight="0.5622318" order="3" side_tool="false" content_ui="tabs" x="0" y="285" width="1440" height="329" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38417265" sideWeight="0.5622318" order="3" side_tool="false" content_ui="tabs" x="0" y="285" width="1440" height="329" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32374102" sideWeight="0.490701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32904148" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32904148" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32133996" sideWeight="0.49761903" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -3390,7 +3393,8 @@
     <MESSAGE value="provides preferences manager" />
     <MESSAGE value="load token from stored preference" />
     <MESSAGE value="refactor stuff and adapt adapter to read task row" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor stuff and adapt adapter to read task row" />
+    <MESSAGE value="set task in adapter. first version" />
+    <option name="LAST_COMMIT_MESSAGE" value="set task in adapter. first version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3472,12 +3476,6 @@
           <line>75</line>
           <properties />
           <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt</url>
-          <line>64</line>
-          <properties />
-          <option name="timeStamp" value="58" />
         </line-breakpoint>
       </breakpoints>
       <option name="time" value="59" />
@@ -3890,35 +3888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="82" column="39" lean-forward="false" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
-          <folding>
-            <element signature="e#1373#1397#0" expanded="true" />
-            <element signature="e#1437#1463#0" expanded="true" />
-            <element signature="e#1502#1528#0" expanded="true" />
-            <element signature="e#1566#1592#0" expanded="true" />
-            <element signature="e#1632#1658#0" expanded="true" />
-            <element signature="e#2056#2076#0" expanded="true" />
-            <element signature="e#2116#2142#0" expanded="true" />
-            <element signature="e#2180#2206#0" expanded="true" />
-            <element signature="e#2246#2272#0" expanded="true" />
-            <element signature="e#2311#2337#0" expanded="true" />
-            <element signature="e#2774#2794#0" expanded="true" />
-            <element signature="e#2834#2860#0" expanded="true" />
-            <element signature="e#2898#2924#0" expanded="true" />
-            <element signature="e#2964#2990#0" expanded="true" />
-            <element signature="e#3029#3055#0" expanded="true" />
-            <element signature="e#3412#3438#0" expanded="true" />
-            <element signature="e#3478#3504#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/adapters/TaskListAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
@@ -3949,12 +3918,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+        <state relative-caret-position="226">
+          <caret line="63" column="21" lean-forward="false" selection-start-line="63" selection-start-column="21" selection-end-line="63" selection-end-column="21" />
           <folding>
             <element signature="e#55#836#0" expanded="true" />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="26" column="17" lean-forward="true" selection-start-line="26" selection-start-column="17" selection-end-line="26" selection-end-column="17" />
+          <folding>
+            <element signature="e#754#778#0" expanded="true" />
+            <element signature="e#809#833#0" expanded="true" />
+            <element signature="e#1482#1508#0" expanded="true" />
+            <element signature="e#1547#1573#0" expanded="true" />
+            <element signature="e#1611#1637#0" expanded="true" />
+            <element signature="e#1677#1703#0" expanded="true" />
+            <element signature="e#2101#2121#0" expanded="true" />
+            <element signature="e#2161#2187#0" expanded="true" />
+            <element signature="e#2225#2251#0" expanded="true" />
+            <element signature="e#2291#2317#0" expanded="true" />
+            <element signature="e#2356#2382#0" expanded="true" />
+            <element signature="e#2819#2839#0" expanded="true" />
+            <element signature="e#2879#2905#0" expanded="true" />
+            <element signature="e#2943#2969#0" expanded="true" />
+            <element signature="e#3009#3035#0" expanded="true" />
+            <element signature="e#3074#3100#0" expanded="true" />
+            <element signature="e#3457#3483#0" expanded="true" />
+            <element signature="e#3523#3549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
       </provider>
     </entry>
   </component>
