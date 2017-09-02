@@ -176,7 +176,9 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
 
                         showProgress(false);
+                        // TODO: 26/8/17 aquí da un nullpointer -> error.netw.. es null
                         showTokenError(error.networkResponse.statusCode == 401 ? tokenError.invalidToken : tokenError.hostError);
+
                     }
                 }
         );

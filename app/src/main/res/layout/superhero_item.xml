@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="com.fireflylearning.tasksummary.model.SuperHero"/>
+        <import type="com.fireflylearning.tasksummary.sheroeslist.presenters.SuperHeroListPresenter"/>
+        <import type="com.fireflylearning.tasksummary.sheroeslist.views.SuperHeroView"/>
+        <variable
+            name="superhero"
+            type="SuperHero"/>
+        <variable
+            name="presenter"
+            type="SuperHeroListPresenter"/>
+        <variable
+            name="pic"
+            type="SuperHeroView"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/superhero_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/horizontal_margin"
+        android:paddingRight="@dimen/horizontal_margin"
+        android:paddingStart="@dimen/horizontal_margin"
+        android:paddingEnd="@dimen/horizontal_margin"
+        android:paddingTop="@dimen/vertical_margin"
+        android:paddingBottom="@dimen/vertical_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{()->presenter.superHeroClicked(avatar, superhero)}"
+
+        >
+
+        <com.fireflylearning.tasksummary.sheroeslist.views.SuperHeroViewAndroidImpl
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/pic_size"
+            android:layout_height="@dimen/pic_size"
+            android:contentDescription="@string/pic_description"
+            app:imageList="@{superhero.photo}"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:transitionName="@string/activity_image_trans"/>
+
+        <TextView
+            android:id="@+id/superhero_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Chicho Terremoto"
+            android:text="@{superhero.name}"
+            android:textAppearance="?attr/textAppearanceListItem"
+            app:layout_constraintLeft_toRightOf="@+id/avatar"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            app:layout_constraintTop_toTopOf="@+id/avatar"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
