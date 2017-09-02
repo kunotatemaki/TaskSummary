@@ -51,7 +51,7 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
                 return@safe
             }else{
                 mView.get()!!.showLoader()
-                network.getSuperHeroes(myView.getLiveSuperHeroes())
+                network.getListOfTasks(myView.getLiveSuperHeroes())
             }
         }
     }

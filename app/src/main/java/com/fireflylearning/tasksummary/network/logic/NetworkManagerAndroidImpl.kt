@@ -1,13 +1,13 @@
 package com.fireflylearning.tasksummary.network.logic
 
-import android.content.Context
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
-import com.fireflylearning.tasksummary.utils.FintonicConstants
+import com.fireflylearning.tasksummary.resources.ResourcesManager
+import com.fireflylearning.tasksummary.utils.FireflyConstants
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,8 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 import javax.inject.Singleton
-import org.json.JSONObject
-
 
 
 /**
@@ -26,7 +24,7 @@ import org.json.JSONObject
 class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
 
     private val retrofit : Retrofit = Retrofit.Builder()
-            .baseUrl(FintonicConstants.BASE_URL)
+            .baseUrl(FireflyConstants.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -34,16 +32,17 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
     lateinit var log : LoggerHelper
 
     @Inject
-    lateinit var context: Context
+    lateinit var resources: ResourcesManager
 
-    override fun getSuperHeroes(superHeroes: CustomLiveData<MutableList<Task>>) {
+    override fun getListOfTasks(tasks: CustomLiveData<MutableList<Task>>) {
 
-        val fintonicEndpoints = retrofit.create(FireflyEndpoints::class.java)
+        val fireflyEndpoints = retrofit.create(FireflyEndpoints::class.java)
 
-        val query = context.getResources().getString(R.string.tasks_query)
-        val paramObject = JSONObject()
-        paramObject.put("data", query)
-        val myCall : Call<TaskServerResponse> = fintonicEndpoints.getTasks("AndroidApp",
+        //obtain query from reosurces file
+        val query = resources.getString(R.string.tasks_query)
+
+        //todo sacar los valores de las propiedades
+        val myCall : Call<TaskServerResponse> = fireflyEndpoints.getTasks(FireflyConstants.DEVICE_ID,
                 "secret1", query)
 
         myCall.enqueue(object : Callback<TaskServerResponse> {
@@ -56,18 +55,18 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
                             ?.mapTo(list) {
                         Task(it)
                     }*/
-                    superHeroes.setLivedataValue(list)
+                    tasks.setLivedataValue(list)
 
                 } else {
 
                     log.d(this, "respuesta vacía")
-                    superHeroes.setLivedataValue(arrayListOf())
+                    tasks.setLivedataValue(arrayListOf())
                 }
             }
 
             override fun onFailure(call: Call<TaskServerResponse>?, t: Throwable?) {
                 log.d(this, t?.message.toString())
-                superHeroes.setLivedataValue(arrayListOf())
+                tasks.setLivedataValue(arrayListOf())
 
             }
         })

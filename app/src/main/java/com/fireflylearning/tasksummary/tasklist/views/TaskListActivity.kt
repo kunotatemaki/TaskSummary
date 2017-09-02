@@ -116,7 +116,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
 
     override fun showSuperHeroDetails(superHeroView: TaskView, superhero: Task) {
         /*val intent = Intent(this, SuperHeroDetailActivity::class.java)
-        intent.putExtra(FintonicConstants.SUPERHERO, superhero)
+        intent.putExtra(FireflyConstants.SUPERHERO, superhero)
         //trainsition
         if(superHeroView is View) {
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, superHeroView, getString(R.string.activity_image_trans))

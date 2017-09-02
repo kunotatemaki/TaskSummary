@@ -3,9 +3,9 @@ package com.fireflylearning.tasksummary.utils
 /**
  * Created by Roll on 31/8/17.
  */
-object FintonicConstants {
+object FireflyConstants {
 
     val BASE_URL : String = "https://appdev.tryfirefly.com/"
-
+    val DEVICE_ID : String = "AndroidApp"
 
 }

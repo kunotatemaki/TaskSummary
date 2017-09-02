@@ -8,6 +8,6 @@ import com.fireflylearning.tasksummary.model.Task
  */
 interface NetworkManager {
 
-    fun getSuperHeroes(superHeroes: CustomLiveData<MutableList<Task>>)
+    fun getListOfTasks(tasks: CustomLiveData<MutableList<Task>>)
 
 }
