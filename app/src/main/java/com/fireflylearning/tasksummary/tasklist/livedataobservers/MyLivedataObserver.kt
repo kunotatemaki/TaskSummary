@@ -7,6 +7,6 @@ import com.fireflylearning.tasksummary.model.Task
  */
 interface MyLivedataObserver {
 
-    fun handleChangesInObservedSuperHeroes(superheroes: MutableList<Task>)
+    fun handleChangesInObservedTasks(tasks: MutableList<Task>)
 
 }

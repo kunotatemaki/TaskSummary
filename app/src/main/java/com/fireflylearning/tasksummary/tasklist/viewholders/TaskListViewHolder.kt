@@ -8,10 +8,10 @@ import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 /**
  * Created by Roll on 31/8/17.
  */
-class TaskListViewHolder(val binding: SuperheroItemBinding): RecyclerView.ViewHolder(binding.root) {
+class TaskListViewHolder(private val binding: SuperheroItemBinding): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(superhero: Task, presenter: TaskListPresenter) {
-        binding.superhero = superhero
+    fun bind(task: Task, presenter: TaskListPresenter) {
+        binding.task = task
         binding.presenter = presenter
         binding.executePendingBindings()
     }

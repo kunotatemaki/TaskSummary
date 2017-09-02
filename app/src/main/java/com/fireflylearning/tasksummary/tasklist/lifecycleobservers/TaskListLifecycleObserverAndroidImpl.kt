@@ -39,7 +39,7 @@ class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakRe
         //force presenter to observe data (repos and user)
         if (presenter is MyLivedataObserver) {
             mView.safe {
-                mView.get()!!.getLiveSuperHeroes().addObserverToLivedata(mView.get()!! as LifecycleRegistryOwner, presenter as MyLivedataObserver)
+                mView.get()!!.getLiveTaks().addObserverToLivedata(mView.get()!! as LifecycleRegistryOwner, presenter as MyLivedataObserver)
             }
         }
     }
@@ -47,7 +47,7 @@ class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakRe
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun actionInOnResume() {
         log.d(this, "observer's onstart")
-        presenter.loadSuperHeroes()
+        presenter.loadTasks()
     }
 
 

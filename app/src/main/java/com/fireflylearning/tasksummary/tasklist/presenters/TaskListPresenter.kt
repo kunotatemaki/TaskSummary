@@ -7,8 +7,8 @@ import com.fireflylearning.tasksummary.tasklist.views.TaskView
  * Created by Roll on 31/8/17.
  */
 interface TaskListPresenter {
-    fun loadSuperHeroes()
+    fun loadTasks()
 
-    fun superHeroClicked(superHeroView: TaskView, superHero: Task)
+    fun taskClicked(superHeroView: TaskView, superHero: Task)
 
 }

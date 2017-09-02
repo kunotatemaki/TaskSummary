@@ -59,6 +59,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
                 .inject(this)
         //endregion
 
+        //todo eliminar esto
         preferences.setSecretToken("secret1")
 
         //region DATA BINDING
@@ -89,14 +90,14 @@ class TaskListActivity : BaseActivity(), TaksListView {
         }
     }
 
-    override fun getLiveSuperHeroes(): CustomLiveData<MutableList<Task>> {
-        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).superheroes
+    override fun getLiveTaks(): CustomLiveData<MutableList<Task>> {
+        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).tasks
     }
 
-    override fun setSuperHeroesInView(superHeroes: List<Task>) {
-        log.d(this, "show superheroes in view")
-        adapter.superHeroes.clear()
-        adapter.superHeroes.addAll(superHeroes)
+    override fun setTasksInView(tasks: List<Task>) {
+        log.d(this, "show tasks in view")
+        adapter.tasks.clear()
+        adapter.tasks.addAll(tasks)
         adapter.notifyDataSetChanged()
     }
 
@@ -121,12 +122,12 @@ class TaskListActivity : BaseActivity(), TaksListView {
         mBinding.progressBar.visibility = View.INVISIBLE
     }
 
-    override fun showSuperHeroDetails(superHeroView: TaskView, superhero: Task) {
+    override fun showTaskDetails(taskView: TaskView, superhero: Task) {
         /*val intent = Intent(this, SuperHeroDetailActivity::class.java)
         intent.putExtra(FireflyConstants.SUPERHERO, superhero)
         //trainsition
-        if(superHeroView is View) {
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, superHeroView, getString(R.string.activity_image_trans))
+        if(taskView is View) {
+            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, taskView, getString(R.string.activity_image_trans))
             startActivity(intent, options.toBundle())
         }else {
             startActivity(intent)
@@ -134,8 +135,8 @@ class TaskListActivity : BaseActivity(), TaksListView {
     }
 
     @VisibleForTesting
-    fun setSuperHeroesList(superHeroes: MutableList<Task>){
-        getLiveSuperHeroes().setLivedataValue(superHeroes)
+    fun setTaskList(tasks: MutableList<Task>){
+        getLiveTaks().setLivedataValue(tasks)
     }
 
     //endregion

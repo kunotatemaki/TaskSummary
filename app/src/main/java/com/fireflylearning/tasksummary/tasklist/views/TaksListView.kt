@@ -11,9 +11,9 @@ interface TaksListView {
 
     fun addLifecycleObserver(observer: TaskListLifecycleObserver)
 
-    fun getLiveSuperHeroes(): CustomLiveData<MutableList<Task>>
+    fun getLiveTaks(): CustomLiveData<MutableList<Task>>
 
-    fun setSuperHeroesInView(superHeroes: List<Task>)
+    fun setTasksInView(tasks: List<Task>)
 
     fun showEmptyList(message: String)
 
@@ -23,5 +23,5 @@ interface TaksListView {
 
     fun hideLoader()
 
-    fun showSuperHeroDetails(superHeroView: TaskView, superhero: Task)
+    fun showTaskDetails(taskView: TaskView, superhero: Task)
 }

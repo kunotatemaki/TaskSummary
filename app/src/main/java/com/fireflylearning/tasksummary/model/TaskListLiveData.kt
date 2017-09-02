@@ -24,7 +24,7 @@ class TaskListLiveData @Inject constructor(): MutableLiveData<MutableList<Task>>
     override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver) {
 
         this.observe(lifecycleRegistryOwner as LifecycleOwner,
-                Observer<MutableList<Task>> { SuperHeroes -> observer.handleChangesInObservedSuperHeroes(SuperHeroes!!) })
+                Observer<MutableList<Task>> { SuperHeroes -> observer.handleChangesInObservedTasks(SuperHeroes!!) })
 
     }
 }

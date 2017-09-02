@@ -30,7 +30,7 @@
         android:clickable="true"
         android:focusable="true"
         android:foreground="?selectableItemBackground"
-        android:onClick="@{()->presenter.superHeroClicked(avatar, superhero)}"
+        android:onClick="@{()->presenter.taskClicked(avatar, superhero)}"
 
         >
 

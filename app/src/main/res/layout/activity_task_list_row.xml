@@ -1,45 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp"
-    android:showDividers="middle"
-    android:divider="@drawable/empty_horizontal_divider"
-    >
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    <import type="com.fireflylearning.tasksummary.model.Task"/>
+    <import type="com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter"/>
+    <variable
+        name="task"
+        type="Task"/>
+    <variable
+        name="presenter"
+        type="TaskListPresenter"/>
+    </data>
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:text="[Task Title]"
-        android:textSize="18sp"
-        android:textStyle="bold" />
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:showDividers="middle"
+        android:divider="@drawable/empty_horizontal_divider"
+        >
 
         <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
+            android:id="@+id/title"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="[Set Date/Time]"
-            android:textSize="14sp" />
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="[Task Title]"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/flags"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:elevation="9dp"
-            android:gravity="end"
-            android:text="[Task Flags]"
-            android:textStyle="italic" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                tools:text="[Set Date/Time]"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/flags"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:elevation="9dp"
+                android:gravity="end"
+                tools:text="[Task Flags]"
+                android:textStyle="italic" />
+        </LinearLayout>
+
     </LinearLayout>
-
-</LinearLayout>
+</layout>

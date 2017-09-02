@@ -20,11 +20,11 @@ import javax.inject.Inject
 class TaskListAdapter @Inject constructor(val presenter: TaskListPresenter):
         RecyclerView.Adapter<TaskListViewHolder>() {
 
-    val superHeroes: MutableList<Task> = mutableListOf()
+    val tasks: MutableList<Task> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TaskListViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
-        val binding = DataBindingUtil.inflate<SuperheroItemBinding>(inflater, R.layout.superhero_item, parent,
+        val binding = DataBindingUtil.inflate<SuperheroItemBinding>(inflater, R.layout.activity_task_list_row, parent,
                 false, GlideBindingComponent())
 
 
@@ -32,12 +32,12 @@ class TaskListAdapter @Inject constructor(val presenter: TaskListPresenter):
     }
 
     override fun onBindViewHolder(holder: TaskListViewHolder?, position: Int) {
-        val superHero: Task = superHeroes[position]
-        holder?.bind(superHero, presenter)
+        val task: Task = tasks[position]
+        holder?.bind(task, presenter)
     }
 
     override fun getItemCount(): Int {
-        return superHeroes.size
+        return tasks.size
     }
 
 }

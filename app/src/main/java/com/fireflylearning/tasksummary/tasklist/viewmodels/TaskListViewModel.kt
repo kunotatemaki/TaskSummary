@@ -10,5 +10,5 @@ import com.fireflylearning.tasksummary.model.Task
  */
 class TaskListViewModel : ViewModel() {
     var showingEmpty: Boolean = false
-    val superheroes: CustomLiveData<MutableList<Task>> = TaskListLiveData()
+    val tasks: CustomLiveData<MutableList<Task>> = TaskListLiveData()
 }

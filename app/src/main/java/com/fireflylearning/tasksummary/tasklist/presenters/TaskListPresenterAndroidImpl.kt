@@ -40,38 +40,38 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
     }
 
 
-    override fun loadSuperHeroes() {
+    override fun loadTasks() {
         mView.safe {
             val myView = mView.get()!!
 
-            if(myView.getLiveSuperHeroes().getLivedataValue()?.isEmpty() == false){
+            if(myView.getLiveTaks().getLivedataValue()?.isEmpty() == false){
                 //no hace falta forzar a la vista a cargar los datos de la caché, porque
                 //el livedata notificará a su observador (this) de su último valor cuando se suscriba
                 //así que se llamará a handle... y se actualizará ahí
                 return@safe
             }else{
                 mView.get()!!.showLoader()
-                network.getListOfTasks(myView.getLiveSuperHeroes())
+                network.getListOfTasks(myView.getLiveTaks())
             }
         }
     }
 
-    override fun handleChangesInObservedSuperHeroes(superheroes: MutableList<Task>) {
+    override fun handleChangesInObservedTasks(tasks: MutableList<Task>) {
         mView.safe {
             val myView = mView.get()!!
             myView.hideLoader()
-            if(superheroes.size == 0){
+            if(tasks.size == 0){
                 myView.showEmptyList(resources.getString(R.string.no_superheroes))
             }else {
-                mView.get()!!.setSuperHeroesInView(superheroes)
+                mView.get()!!.setTasksInView(tasks)
             }
         }
     }
 
-    override fun superHeroClicked(superHeroView: TaskView, superHero: Task) {
+    override fun taskClicked(superHeroView: TaskView, superHero: Task) {
         /*log.d(this, "pulsado: " + superHero.name)
         mView.safe {
-            mView.get()!!.showSuperHeroDetails(superHeroView, superHero)
+            mView.get()!!.showTaskDetails(superHeroView, superHero)
         }*/
     }
 }
