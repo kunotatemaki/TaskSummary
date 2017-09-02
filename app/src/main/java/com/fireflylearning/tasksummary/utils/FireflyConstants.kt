@@ -7,5 +7,6 @@ object FireflyConstants {
 
     val BASE_URL : String = "https://appdev.tryfirefly.com/"
     val DEVICE_ID : String = "AndroidApp"
+    val SECRET_TOKEN: String = "secret_token"
 
 }

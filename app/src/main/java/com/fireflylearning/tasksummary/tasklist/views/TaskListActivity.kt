@@ -12,7 +12,7 @@ import android.view.View
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityMainBinding
-import com.fireflylearning.tasksummary.dependencyinjection.modules.SuperHeroListModule
+import com.fireflylearning.tasksummary.dependencyinjection.modules.TaskListModule
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.model.Task
@@ -49,7 +49,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
         super.onCreate(savedInstanceState)
 
         //region DEPENDENCY INJECTION
-        (application as FireflyApp).mComponent.getSuperHeroListSubcomponent(SuperHeroListModule(this))
+        (application as FireflyApp).mComponent.getSuperHeroListSubcomponent(TaskListModule(this))
                 .inject(this)
         //endregion
 

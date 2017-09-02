@@ -53,9 +53,10 @@ class AndroidPreferences @Inject constructor(){
         prefs.edit().putFloat(key, value).apply()
     }
 
-
-
-
+    fun deleteVarFromSharedPreferences(key: String){
+        val prefs = PreferenceManager.getDefaultSharedPreferences(context)
+        prefs.edit().remove(key).apply()
+    }
 
 
 }

@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference
  */
 @Module
 @CustomScopes.ActivityScope
-class SuperHeroListModule(private var mView: TaksListView) {
+class TaskListModule(private var mView: TaksListView) {
 
     @Provides
     fun providesSuperHeroListPresenter(presenterAndroidImpl: TaskListPresenterAndroidImpl) : TaskListPresenter {
