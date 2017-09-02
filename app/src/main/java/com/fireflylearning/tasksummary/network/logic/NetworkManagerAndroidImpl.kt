@@ -8,6 +8,7 @@ import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.FireflyConstants
+import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -34,6 +35,9 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
     @Inject
     lateinit var resources: ResourcesManager
 
+    @Inject
+    lateinit var preferences: PreferencesManager
+
     override fun getListOfTasks(tasks: CustomLiveData<MutableList<Task>>) {
 
         val fireflyEndpoints = retrofit.create(FireflyEndpoints::class.java)
@@ -41,9 +45,11 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
         //obtain query from reosurces file
         val query = resources.getString(R.string.tasks_query)
 
-        //todo sacar los valores de las propiedades
+        //obtain stored token
+        val secretToken = preferences.getSecretToken()
+
         val myCall : Call<TaskServerResponse> = fireflyEndpoints.getTasks(FireflyConstants.DEVICE_ID,
-                "secret1", query)
+                secretToken, query)
 
         myCall.enqueue(object : Callback<TaskServerResponse> {
             override fun onResponse(call: Call<TaskServerResponse>?, response: Response<TaskServerResponse>?) {

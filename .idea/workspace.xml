@@ -11,17 +11,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff39a054-c164-4958-9111-44a0a89a9f98" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/components/FintonicAppComponent.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/components/FireflyAppComponent.kt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/FintonicAppModule.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/FireflyAppModule.kt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/SuperHeroListModule.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/subcomponents/SuperHeroListSubcomponent.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/subcomponents/TaskListSubcomponent.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyApp.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyApp.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaskListActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaskListActivity.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/FireflyConstants.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/FireflyConstants.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/AndroidPreferences.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/AndroidPreferences.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManager.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManager.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManagerImpl.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManagerImpl.kt" />
     </list>
     <ignored path="Task Summary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -56,44 +50,32 @@
       <file leaf-file-name="NetworkManagerAndroidImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="43" column="51" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+            <state relative-caret-position="126">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
-                <element signature="e#55#760#0" expanded="true" />
-                <element signature="e#1402#1443#0" expanded="true" />
+                <element signature="e#55#836#0" expanded="true" />
+                <element signature="e#1540#1581#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskServerResponse.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/model/TaskServerResponse.kt">
+      <file leaf-file-name="TaksListView.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaksListView.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="20" column="48" lean-forward="false" selection-start-line="20" selection-start-column="48" selection-end-line="20" selection-end-column="48" />
+            <state relative-caret-position="34">
+              <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResourcesManager.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/resources/ResourcesManager.kt">
+      <file leaf-file-name="TaskListActivity.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaskListActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="10" lean-forward="false" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
+            <state relative-caret-position="295">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResourcesManagerAndroidImpl.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/resources/ResourcesManagerAndroidImpl.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="6" lean-forward="false" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-              <folding>
-                <element signature="e#57#261#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -128,6 +110,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="FireflyApp.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyApp.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+              <folding>
+                <element signature="e#41#341#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="AndroidPreferences.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/AndroidPreferences.kt">
           <provider selected="true" editor-type-id="text-editor">
@@ -138,7 +132,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FireflyAppModule.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="FireflyAppModule.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/FireflyAppModule.kt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="481">
@@ -151,8 +145,8 @@
       <file leaf-file-name="TaskListModule.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+            <state relative-caret-position="165">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -174,10 +168,12 @@
       <find>query</find>
       <find>superhero</find>
       <find>private v</find>
+      <find>SuperHero</find>
     </findStrings>
     <replaceStrings>
       <replace>task</replace>
       <replace>v</replace>
+      <replace>Task</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -2084,8 +2080,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/resources/ResourcesManager.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/resources/ResourcesManagerAndroidImpl.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/sherodetails/lifecycleobservers/SuperHeroDetailLifecycleObserver.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/sherodetails/lifecycleobservers/SuperHeroDetailLifecycleObserverAndroidImpl.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/sherodetails/presenters/SuperHeroDetailPresenter.kt" />
@@ -2127,14 +2121,16 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/superhero_item.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/presenters/TaskListPresenterAndroidImpl.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/model/Task.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/resources/ResourcesManager.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManager.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/FireflyConstants.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/AndroidPreferences.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManagerImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/FireflyAppModule.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaskListActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyApp.kt" />
       </list>
     </option>
   </component>
@@ -2411,7 +2407,103 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tasklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaskSummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasksummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasklist" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaskSummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasksummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="objects" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaskSummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasksummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaskSummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasksummary" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="network" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2683,7 +2775,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504371073927" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504371309534" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2731,7 +2823,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504371073928" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504371309534" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2914,7 +3006,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504371073928" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504371309536" />
       </method>
     </configuration>
     <list size="1">
@@ -3002,7 +3094,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504370448596</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="provides preferences manager">
+      <created>1504371082461</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1504371082461</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3016,6 +3115,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="811" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2360515" sideWeight="0.51635516" order="3" side_tool="true" content_ui="tabs" />
@@ -3037,7 +3137,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24969475" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294964" sideWeight="0.50572246" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2360515" sideWeight="0.48364487" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2360515" sideWeight="0.48364487" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32805756" sideWeight="0.49427754" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -3108,7 +3208,8 @@
     <MESSAGE value="refactor stuff" />
     <MESSAGE value="parse response in my classes (using retrofit)" />
     <MESSAGE value="add preferences manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="add preferences manager" />
+    <MESSAGE value="provides preferences manager" />
+    <option name="LAST_COMMIT_MESSAGE" value="provides preferences manager" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3181,24 +3282,24 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt</url>
-          <line>62</line>
+          <line>68</line>
           <properties />
           <option name="timeStamp" value="51" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt</url>
-          <line>69</line>
+          <line>75</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt</url>
-          <line>58</line>
+          <line>64</line>
           <properties />
           <option name="timeStamp" value="54" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="56" />
+      <option name="time" value="58" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -3209,16 +3310,6 @@
           <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
             <element signature="e#64#283#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaksListView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="e#59#274#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3300,16 +3391,6 @@
       </provider>
       <provider editor-type-id="android-designer2">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyApp.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="25" lean-forward="false" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
-          <folding>
-            <element signature="e#41#342#0" expanded="true" />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/sherodetails/views/SuperHeroDetailActivity.kt">
@@ -3398,16 +3479,6 @@
           <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
           <folding>
             <element signature="e#50#300#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaskListActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding>
-            <element signature="e#56#1357#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3627,17 +3698,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="43" column="51" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
-          <folding>
-            <element signature="e#55#760#0" expanded="true" />
-            <element signature="e#1402#1443#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/preferences/PreferencesManager.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -3662,18 +3722,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="33" column="5" lean-forward="false" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/FireflyAppModule.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="481">
           <caret line="51" column="26" lean-forward="false" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/TaskListModule.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaksListView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="9" column="10" lean-forward="false" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/FireflyApp.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="34" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="34" />
+          <folding>
+            <element signature="e#41#341#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="e#55#836#0" expanded="true" />
+            <element signature="e#1540#1581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/tasklist/views/TaskListActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>

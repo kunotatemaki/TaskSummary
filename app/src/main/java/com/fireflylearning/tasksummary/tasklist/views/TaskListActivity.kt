@@ -22,6 +22,7 @@ import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
+import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
 import javax.inject.Inject
 
 
@@ -40,9 +41,14 @@ class TaskListActivity : BaseActivity(), TaksListView {
     @Inject
     protected lateinit var adapter: TaskListAdapter
 
+    @Inject
+    lateinit var preferences: PreferencesManager
+
     private lateinit var mRecyclerView: RecyclerView
 
     private lateinit var mBinding: ActivityMainBinding
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,6 +59,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
                 .inject(this)
         //endregion
 
+        preferences.setSecretToken("secret1")
 
         //region DATA BINDING
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)

@@ -18,18 +18,18 @@ import java.lang.ref.WeakReference
 class TaskListModule(private var mView: TaksListView) {
 
     @Provides
-    fun providesSuperHeroListPresenter(presenterAndroidImpl: TaskListPresenterAndroidImpl) : TaskListPresenter {
+    fun providesTaskListPresenter(presenterAndroidImpl: TaskListPresenterAndroidImpl) : TaskListPresenter {
         return presenterAndroidImpl
     }
 
     @Provides
-    fun providesSuperHeroListView(): WeakReference<TaksListView>{
+    fun providesTaskListView(): WeakReference<TaksListView>{
         return WeakReference(mView)
     }
 
 
     @Provides
-    fun providesSuperHeroListLifecycleObserver(observer: TaskListLifecycleObserverAndroidImpl): TaskListLifecycleObserver {
+    fun providesTaskListLifecycleObserver(observer: TaskListLifecycleObserverAndroidImpl): TaskListLifecycleObserver {
         return observer
     }
 
