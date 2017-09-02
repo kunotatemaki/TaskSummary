@@ -5,7 +5,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.databinding.SuperheroItemBinding
+import com.fireflylearning.tasksummary.databinding.ActivityTaskListRowBinding
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
@@ -24,7 +24,7 @@ class TaskListAdapter @Inject constructor(val presenter: TaskListPresenter):
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TaskListViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
-        val binding = DataBindingUtil.inflate<SuperheroItemBinding>(inflater, R.layout.activity_task_list_row, parent,
+        val binding = DataBindingUtil.inflate<ActivityTaskListRowBinding>(inflater, R.layout.activity_task_list_row, parent,
                 false, GlideBindingComponent())
 
 

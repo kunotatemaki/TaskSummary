@@ -40,7 +40,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
             viewHolder = new ViewHolder();
             viewHolder.title = taskView.findViewById(R.id.title);
             viewHolder.flags = taskView.findViewById(R.id.flags);
-            viewHolder.date = taskView.findViewById(R.id.date);
+            viewHolder.date = taskView.findViewById(R.id.date_set);
             taskView.setTag(viewHolder);
         } else {
             taskView = convertView;

@@ -13,48 +13,76 @@
         type="TaskListPresenter"/>
     </data>
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:showDividers="middle"
-        android:divider="@drawable/empty_horizontal_divider"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{()->presenter.taskClicked(task)}"
         >
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
             tools:text="[Task Title]"
+            android:text="@{task.title}"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="@dimen/vertical_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginRight="@dimen/horizontal_margin"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:text="[Set Date/Time]"
-                android:textSize="14sp" />
+        <TextView
+            android:id="@+id/date_set"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="[Set Date/Time]"
+            android:text="[Set Date/Time]"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginRight="@dimen/horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
+            android:textSize="14sp" />
 
-            <TextView
-                android:id="@+id/flags"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:elevation="9dp"
-                android:gravity="end"
-                tools:text="[Task Flags]"
-                android:textStyle="italic" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/date_due"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="[Due Date/Time]"
+            android:text="[Due Date/Time]"
+            app:layout_constraintTop_toBottomOf="@id/date_set"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/text_margin"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginRight="@dimen/horizontal_margin"
+            android:layout_marginLeft="@dimen/horizontal_margin"
+            android:textSize="14sp" />
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/flags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBaseline_toBaselineOf="@id/date_set"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginRight="@dimen/horizontal_margin"
+            tools:text="[Task Flags]"
+            android:text="[Task Flags]"
+            android:textStyle="italic" />
+
+
+    </android.support.constraint.ConstraintLayout>
 </layout>

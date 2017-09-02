@@ -9,6 +9,6 @@ import com.fireflylearning.tasksummary.tasklist.views.TaskView
 interface TaskListPresenter {
     fun loadTasks()
 
-    fun taskClicked(superHeroView: TaskView, superHero: Task)
+    fun taskClicked(task: Task)
 
 }
