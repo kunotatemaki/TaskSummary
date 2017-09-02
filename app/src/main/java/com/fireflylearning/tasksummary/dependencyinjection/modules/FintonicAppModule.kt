@@ -3,7 +3,7 @@ package com.fireflylearning.tasksummary.dependencyinjection.modules
 import android.content.Context
 import com.fireflylearning.tasksummary.utils.logger.AndroidLoggerHelperImpl
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.FintonicApp
+import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
 import com.fireflylearning.tasksummary.resources.ResourcesManager
@@ -17,10 +17,10 @@ import javax.inject.Singleton
  */
 @Module
 @Singleton
-class FintonicAppModule(private val application: FintonicApp) {
+class FintonicAppModule(private val application: FireflyApp) {
 
     @Provides
-    fun providesFintonicApp() : FintonicApp {
+    fun providesFintonicApp() : FireflyApp {
         return application
     }
 

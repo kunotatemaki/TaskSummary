@@ -11,20 +11,20 @@ import javax.inject.Inject
 /**
  * Created by Roll on 24/8/17.
  */
-class SuperHeroesLiveData @Inject constructor(): MutableLiveData<MutableList<SuperHero>>(), CustomLiveData<MutableList<SuperHero>> {
+class TaskListLiveData @Inject constructor(): MutableLiveData<MutableList<Task>>(), CustomLiveData<MutableList<Task>> {
 
-    override fun setLivedataValue(value: MutableList<SuperHero>) {
+    override fun setLivedataValue(value: MutableList<Task>) {
         this.value = value
     }
 
-    override fun getLivedataValue(): MutableList<SuperHero>? {
+    override fun getLivedataValue(): MutableList<Task>? {
         return this.value
     }
 
     override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver) {
 
         this.observe(lifecycleRegistryOwner as LifecycleOwner,
-                Observer<MutableList<SuperHero>> { SuperHeroes -> observer.handleChangesInObservedSuperHeroes(SuperHeroes!!) })
+                Observer<MutableList<Task>> { SuperHeroes -> observer.handleChangesInObservedSuperHeroes(SuperHeroes!!) })
 
     }
 }

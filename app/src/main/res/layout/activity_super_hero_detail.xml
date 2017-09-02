@@ -4,10 +4,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <import type="com.fireflylearning.tasksummary.model.SuperHero"/>
+        <import type="com.fireflylearning.tasksummary.model.Task"/>
         <variable
             name="superhero"
-            type="SuperHero"/>
+            type="Task"/>
     </data>
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/global_container"

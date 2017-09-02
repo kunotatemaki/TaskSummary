@@ -8,7 +8,7 @@ import com.fireflylearning.tasksummary.dependencyinjection.modules.FintonicAppMo
 /**
  * Created by Roll on 31/8/17.
  */
-class FintonicApp: Application() {
+class FireflyApp : Application() {
 
     lateinit var mComponent: FintonicAppComponent
     override fun onCreate() {

@@ -2,20 +2,20 @@ package com.fireflylearning.tasksummary.model
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.fireflylearning.tasksummary.network.model.SuperHeroElementRespose
+import com.fireflylearning.tasksummary.network.model.TaskElementResponse
 
 /**
  * Created by Roll on 31/8/17.
  */
 
-class SuperHero constructor(val name: String?,
-                            val photo: String?,
-                            val realName: String?,
-                            val height: String?,
-                            val power: String?,
-                            val abilities: String?,
-                            val groups: String?) : Parcelable {
-    constructor(superhero: SuperHeroElementRespose) : this(
+class Task constructor(val name: String?,
+                       val photo: String?,
+                       val realName: String?,
+                       val height: String?,
+                       val power: String?,
+                       val abilities: String?,
+                       val groups: String?) : Parcelable {
+    constructor(superhero: TaskElementResponse) : this(
             name = superhero.name,
             photo = superhero.photo,
             realName = superhero.realName,
@@ -49,9 +49,9 @@ class SuperHero constructor(val name: String?,
 
     companion object {
         @JvmField
-        val CREATOR: Parcelable.Creator<SuperHero> = object : Parcelable.Creator<SuperHero> {
-            override fun createFromParcel(source: Parcel): SuperHero = SuperHero(source)
-            override fun newArray(size: Int): Array<SuperHero?> = arrayOfNulls(size)
+        val CREATOR: Parcelable.Creator<Task> = object : Parcelable.Creator<Task> {
+            override fun createFromParcel(source: Parcel): Task = Task(source)
+            override fun newArray(size: Int): Array<Task?> = arrayOfNulls(size)
         }
     }
 }

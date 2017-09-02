@@ -8,8 +8,8 @@ import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.sheroeslist.livedataobservers.MyLivedataObserver
-import com.fireflylearning.tasksummary.sheroeslist.presenters.SuperHeroListPresenter
-import com.fireflylearning.tasksummary.sheroeslist.views.SuperHeroListView
+import com.fireflylearning.tasksummary.sheroeslist.presenters.TaskListPresenter
+import com.fireflylearning.tasksummary.sheroeslist.views.TaksListView
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
@@ -17,18 +17,18 @@ import javax.inject.Inject
  * Created by Roll on 31/8/17.
  */
 @CustomScopes.ActivityScope
-class SuperHeroListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakReference<SuperHeroListView>)
-    : SuperHeroListLifecycleObserver, LifecycleObserver {
+class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakReference<TaksListView>)
+    : TaskListLifecycleObserver, LifecycleObserver {
 
     @Inject
-    lateinit var presenter: SuperHeroListPresenter
+    lateinit var presenter: TaskListPresenter
 
     @Inject
     lateinit var log: LoggerHelper
 
     init {
         mView.safe{
-            mView.get()!!.addLifecycleObserver(this@SuperHeroListLifecycleObserverAndroidImpl)
+            mView.get()!!.addLifecycleObserver(this@TaskListLifecycleObserverAndroidImpl)
         }
     }
 

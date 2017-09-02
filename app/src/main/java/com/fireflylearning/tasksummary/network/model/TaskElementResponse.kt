@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 /**
  * Created by Roll on 31/8/17.
  */
-class SuperHeroElementRespose {
+class TaskElementResponse {
 
     @SerializedName("name")
     @Expose

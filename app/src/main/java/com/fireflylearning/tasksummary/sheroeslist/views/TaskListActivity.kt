@@ -2,7 +2,6 @@ package com.fireflylearning.tasksummary.sheroeslist.views
 
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.annotation.VisibleForTesting
@@ -10,39 +9,36 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import com.fireflylearning.tasksummary.model.CustomLiveData
-import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.FintonicApp
-import com.fireflylearning.tasksummary.dependencyinjection.modules.SuperHeroListModule
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
-import com.fireflylearning.tasksummary.model.SuperHero
-import com.fireflylearning.tasksummary.sherodetails.views.SuperHeroDetailActivity
-import com.fireflylearning.tasksummary.sheroeslist.adapters.SuperHeroListAdapter
-import com.fireflylearning.tasksummary.sheroeslist.lifecycleobservers.SuperHeroListLifecycleObserver
-import com.fireflylearning.tasksummary.sheroeslist.presenters.SuperHeroListPresenter
-import com.fireflylearning.tasksummary.sheroeslist.viewmodels.SuperHeroListViewModel
-import com.fireflylearning.tasksummary.utils.FintonicConstants
-import com.fireflylearning.tasksummary.utils.ui.BaseActivity
-import javax.inject.Inject
-import android.support.v4.app.ActivityOptionsCompat
+import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityMainBinding
+import com.fireflylearning.tasksummary.dependencyinjection.modules.SuperHeroListModule
+import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.model.CustomLiveData
+import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.sheroeslist.adapters.TaskListAdapter
+import com.fireflylearning.tasksummary.sheroeslist.lifecycleobservers.TaskListLifecycleObserver
+import com.fireflylearning.tasksummary.sheroeslist.presenters.TaskListPresenter
+import com.fireflylearning.tasksummary.sheroeslist.viewmodels.TaskListViewModel
+import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
+import com.fireflylearning.tasksummary.utils.ui.BaseActivity
+import javax.inject.Inject
 
 
 @CustomScopes.ActivityScope
-class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
+class TaskListActivity : BaseActivity(), TaksListView {
 
     @Inject
-    lateinit var presenter: SuperHeroListPresenter
+    lateinit var presenter: TaskListPresenter
 
     @Inject
-    lateinit var observer: SuperHeroListLifecycleObserver
+    lateinit var observer: TaskListLifecycleObserver
 
     @Inject
     lateinit var log: LoggerHelper
 
     @Inject
-    protected lateinit var adapter: SuperHeroListAdapter
+    protected lateinit var adapter: TaskListAdapter
 
     private lateinit var mRecyclerView: RecyclerView
 
@@ -53,7 +49,7 @@ class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
         super.onCreate(savedInstanceState)
 
         //region DEPENDENCY INJECTION
-        (application as FintonicApp).mComponent.getSuperHeroListSubcomponent(SuperHeroListModule(this))
+        (application as FireflyApp).mComponent.getSuperHeroListSubcomponent(SuperHeroListModule(this))
                 .inject(this)
         //endregion
 
@@ -62,7 +58,7 @@ class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //endregion
 
-        mBinding.showMessage = ViewModelProviders.of(this).get(SuperHeroListViewModel::class.java).showingEmpty
+        mBinding.showMessage = ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty
 
         //set the mAdapter for the recycler view
         mRecyclerView = mBinding.superheroList
@@ -80,17 +76,17 @@ class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
 
 
     //region SUPERHEROLISTVIEW INTERFACE
-    override fun addLifecycleObserver(observer: SuperHeroListLifecycleObserver) {
+    override fun addLifecycleObserver(observer: TaskListLifecycleObserver) {
         if(observer is LifecycleObserver){
             lifecycle.addObserver(observer)
         }
     }
 
-    override fun getLiveSuperHeroes(): CustomLiveData<MutableList<SuperHero>> {
-        return ViewModelProviders.of(this).get(SuperHeroListViewModel::class.java).superheroes
+    override fun getLiveSuperHeroes(): CustomLiveData<MutableList<Task>> {
+        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).superheroes
     }
 
-    override fun setSuperHeroesInView(superHeroes: List<SuperHero>) {
+    override fun setSuperHeroesInView(superHeroes: List<Task>) {
         log.d(this, "show superheroes in view")
         adapter.superHeroes.clear()
         adapter.superHeroes.addAll(superHeroes)
@@ -98,12 +94,12 @@ class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
     }
 
     override fun hideEmptyList() {
-        ViewModelProviders.of(this).get(SuperHeroListViewModel::class.java).showingEmpty = false
+        ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty = false
         mBinding.errorMessage.visibility = View.INVISIBLE
     }
 
     override fun showEmptyList(message: String) {
-        ViewModelProviders.of(this).get(SuperHeroListViewModel::class.java).showingEmpty = true
+        ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty = true
         mBinding.errorMessage.visibility = View.VISIBLE
 
     }
@@ -118,8 +114,8 @@ class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
         mBinding.progressBar.visibility = View.INVISIBLE
     }
 
-    override fun showSuperHeroDetails(superHeroView: SuperHeroView, superhero: SuperHero) {
-        val intent = Intent(this, SuperHeroDetailActivity::class.java)
+    override fun showSuperHeroDetails(superHeroView: TaskView, superhero: Task) {
+        /*val intent = Intent(this, SuperHeroDetailActivity::class.java)
         intent.putExtra(FintonicConstants.SUPERHERO, superhero)
         //trainsition
         if(superHeroView is View) {
@@ -127,11 +123,11 @@ class SuperHeroListActivity : BaseActivity(), SuperHeroListView {
             startActivity(intent, options.toBundle())
         }else {
             startActivity(intent)
-        }
+        }*/
     }
 
     @VisibleForTesting
-    fun setSuperHeroesList(superHeroes: MutableList<SuperHero>){
+    fun setSuperHeroesList(superHeroes: MutableList<Task>){
         getLiveSuperHeroes().setLivedataValue(superHeroes)
     }
 

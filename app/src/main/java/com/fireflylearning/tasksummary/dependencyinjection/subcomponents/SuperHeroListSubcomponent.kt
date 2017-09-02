@@ -2,7 +2,7 @@ package com.fireflylearning.tasksummary.dependencyinjection.subcomponents
 
 import com.fireflylearning.tasksummary.dependencyinjection.modules.SuperHeroListModule
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
-import com.fireflylearning.tasksummary.sheroeslist.views.SuperHeroListActivity
+import com.fireflylearning.tasksummary.sheroeslist.views.TaskListActivity
 import dagger.Subcomponent
 
 /**
@@ -11,6 +11,6 @@ import dagger.Subcomponent
 @CustomScopes.ActivityScope
 @Subcomponent(modules = arrayOf(SuperHeroListModule::class))
 interface SuperHeroListSubcomponent {
-    fun inject(activity: SuperHeroListActivity)
+    fun inject(activity: TaskListActivity)
 }
 

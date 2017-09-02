@@ -7,8 +7,8 @@ import android.widget.ImageView
 /**
  * Created by Roll on 1/9/17.
  */
-class SuperHeroViewAndroidImpl @JvmOverloads constructor(
+class TaskViewAndroidImpl @JvmOverloads constructor(
         context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : ImageView(context, attrs, defStyleAttr), SuperHeroView {
+) : ImageView(context, attrs, defStyleAttr), TaskView {
 
 }

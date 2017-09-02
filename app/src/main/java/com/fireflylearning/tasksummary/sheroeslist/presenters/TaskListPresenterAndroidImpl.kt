@@ -4,13 +4,13 @@ import android.support.annotation.VisibleForTesting
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
-import com.fireflylearning.tasksummary.model.SuperHero
+import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.sheroeslist.livedataobservers.MyLivedataObserver
-import com.fireflylearning.tasksummary.sheroeslist.views.SuperHeroListView
-import com.fireflylearning.tasksummary.sheroeslist.views.SuperHeroView
+import com.fireflylearning.tasksummary.sheroeslist.views.TaksListView
+import com.fireflylearning.tasksummary.sheroeslist.views.TaskView
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 
@@ -18,8 +18,8 @@ import javax.inject.Inject
  * Created by Roll on 31/8/17.
  */
 @CustomScopes.ActivityScope
-class SuperHeroListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<SuperHeroListView>)
-    : SuperHeroListPresenter, MyLivedataObserver {
+class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<TaksListView>)
+    : TaskListPresenter, MyLivedataObserver {
 
     @Inject
     lateinit var log: LoggerHelper
@@ -31,7 +31,7 @@ class SuperHeroListPresenterAndroidImpl @Inject constructor(val mView: WeakRefer
     lateinit var resources: ResourcesManager
 
     @VisibleForTesting
-    constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<SuperHeroListView>,
+    constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<TaksListView>,
                 network: NetworkManager) : this(mView) {
         this.resources = resources
         this.log = log
@@ -56,7 +56,7 @@ class SuperHeroListPresenterAndroidImpl @Inject constructor(val mView: WeakRefer
         }
     }
 
-    override fun handleChangesInObservedSuperHeroes(superheroes: MutableList<SuperHero>) {
+    override fun handleChangesInObservedSuperHeroes(superheroes: MutableList<Task>) {
         mView.safe {
             val myView = mView.get()!!
             myView.hideLoader()
@@ -68,7 +68,7 @@ class SuperHeroListPresenterAndroidImpl @Inject constructor(val mView: WeakRefer
         }
     }
 
-    override fun superHeroClicked(superHeroView: SuperHeroView, superHero: SuperHero) {
+    override fun superHeroClicked(superHeroView: TaskView, superHero: Task) {
         log.d(this, "pulsado: " + superHero.name)
         mView.safe {
             mView.get()!!.showSuperHeroDetails(superHeroView, superHero)

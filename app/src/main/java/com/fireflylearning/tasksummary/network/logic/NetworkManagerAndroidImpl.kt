@@ -2,9 +2,9 @@ package com.fireflylearning.tasksummary.network.logic
 
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.model.SuperHero
-import com.fireflylearning.tasksummary.network.endpoints.FintonicEndpoints
-import com.fireflylearning.tasksummary.network.model.SuperHeroesResponse
+import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
+import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.FintonicConstants
 import retrofit2.Call
 import retrofit2.Callback
@@ -28,20 +28,20 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
     @Inject
     lateinit var log : LoggerHelper
 
-    override fun getSuperHeroes(superHeroes: CustomLiveData<MutableList<SuperHero>>) {
+    override fun getSuperHeroes(superHeroes: CustomLiveData<MutableList<Task>>) {
 
-        val fintonicEndpoints = retrofit.create(FintonicEndpoints::class.java)
+        val fintonicEndpoints = retrofit.create(FireflyEndpoints::class.java)
 
-        val myCall : Call<SuperHeroesResponse> = fintonicEndpoints.getSuperHeroes()
-        myCall.enqueue(object : Callback<SuperHeroesResponse> {
-            override fun onResponse(call: Call<SuperHeroesResponse>?, response: Response<SuperHeroesResponse>?) {
+        val myCall : Call<TaskServerResponse> = fintonicEndpoints.getSuperHeroes()
+        myCall.enqueue(object : Callback<TaskServerResponse> {
+            override fun onResponse(call: Call<TaskServerResponse>?, response: Response<TaskServerResponse>?) {
                 if (response?.isSuccessful as Boolean) {
-                    val list : MutableList<SuperHero> = arrayListOf()
+                    val list : MutableList<Task> = arrayListOf()
                     //map photos to observable value
                     response.body()
                             ?.superheroes
                             ?.mapTo(list) {
-                        SuperHero(it)
+                        Task(it)
                     }
                     superHeroes.setLivedataValue(list)
 
@@ -52,7 +52,7 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
                 }
             }
 
-            override fun onFailure(call: Call<SuperHeroesResponse>?, t: Throwable?) {
+            override fun onFailure(call: Call<TaskServerResponse>?, t: Throwable?) {
                 log.d(this, t?.message.toString())
                 superHeroes.setLivedataValue(arrayListOf())
 
