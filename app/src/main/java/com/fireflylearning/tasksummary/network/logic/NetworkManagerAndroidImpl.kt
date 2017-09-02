@@ -1,5 +1,7 @@
 package com.fireflylearning.tasksummary.network.logic
 
+import android.content.Context
+import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.model.Task
@@ -13,6 +15,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 import javax.inject.Singleton
+import org.json.JSONObject
+
+
 
 /**
  * Created by Roll on 31/8/17.
@@ -28,21 +33,29 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
     @Inject
     lateinit var log : LoggerHelper
 
+    @Inject
+    lateinit var context: Context
+
     override fun getSuperHeroes(superHeroes: CustomLiveData<MutableList<Task>>) {
 
         val fintonicEndpoints = retrofit.create(FireflyEndpoints::class.java)
 
-        val myCall : Call<TaskServerResponse> = fintonicEndpoints.getSuperHeroes()
+        val query = context.getResources().getString(R.string.tasks_query)
+        val paramObject = JSONObject()
+        paramObject.put("data", query)
+        val myCall : Call<TaskServerResponse> = fintonicEndpoints.getTasks("AndroidApp",
+                "secret1", query)
+
         myCall.enqueue(object : Callback<TaskServerResponse> {
             override fun onResponse(call: Call<TaskServerResponse>?, response: Response<TaskServerResponse>?) {
                 if (response?.isSuccessful as Boolean) {
                     val list : MutableList<Task> = arrayListOf()
                     //map photos to observable value
-                    response.body()
+                    /*response.body()
                             ?.superheroes
                             ?.mapTo(list) {
                         Task(it)
-                    }
+                    }*/
                     superHeroes.setLivedataValue(list)
 
                 } else {

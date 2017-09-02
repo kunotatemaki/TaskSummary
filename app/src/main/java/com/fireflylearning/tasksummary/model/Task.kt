@@ -15,7 +15,7 @@ class Task constructor(val name: String?,
                        val power: String?,
                        val abilities: String?,
                        val groups: String?) : Parcelable {
-    constructor(superhero: TaskElementResponse) : this(
+    /*constructor(superhero: TaskElementResponse) : this(
             name = superhero.name,
             photo = superhero.photo,
             realName = superhero.realName,
@@ -23,7 +23,7 @@ class Task constructor(val name: String?,
             power = superhero.power,
             abilities = superhero.abilities,
             groups = superhero.groups
-    )
+    )*/
 
     constructor(source: Parcel) : this(
             source.readString(),

@@ -1,5 +1,7 @@
 package com.fireflylearning.tasksummary.network.model
 
+import com.google.gson.JsonArray
+import com.google.gson.JsonObject
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
@@ -8,8 +10,15 @@ import com.google.gson.annotations.SerializedName
  */
 class TaskServerResponse {
 
-    @SerializedName("superheroes")
+    @SerializedName("data")
     @Expose
-    var superheroes: List<TaskElementResponse>? = null
+    var tasks: TaskListServerResponse? = null
+
+
+    class TaskListServerResponse{
+        @SerializedName("tasks")
+        @Expose
+        var tasksList: List<TaskElementResponse>? = null
+    }
 
 }

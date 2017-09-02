@@ -5,7 +5,7 @@ package com.fireflylearning.tasksummary.utils
  */
 object FintonicConstants {
 
-    val BASE_URL : String = "https://api.myjson.com/"
-    val SUPERHERO: String = "superhero"
+    val BASE_URL : String = "https://appdev.tryfirefly.com/"
+
 
 }

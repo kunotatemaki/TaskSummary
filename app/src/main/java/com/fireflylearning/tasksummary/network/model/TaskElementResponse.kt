@@ -8,26 +8,37 @@ import com.google.gson.annotations.SerializedName
  */
 class TaskElementResponse {
 
-    @SerializedName("name")
+    @SerializedName("id")
     @Expose
-    val name: String? = null
-    @SerializedName("photo")
+    private val id: Int? = null
+    @SerializedName("title")
     @Expose
-    val photo: String? = null
-    @SerializedName("realName")
+    private val title: String? = null
+    @SerializedName("set")
     @Expose
-    val realName: String? = null
-    @SerializedName("height")
+    private val set: String? = null
+    @SerializedName("due")
     @Expose
-    val height: String? = null
-    @SerializedName("power")
+    private val due: String? = null
+    @SerializedName("archived")
     @Expose
-    val power: String? = null
-    @SerializedName("abilities")
+    private val archived: Boolean? = null
+    @SerializedName("draft")
     @Expose
-    val abilities: String? = null
-    @SerializedName("groups")
+    private val draft: Boolean? = null
+    @SerializedName("show_in_markbook")
     @Expose
-    val groups: String? = null
-
+    private val showInMarkbook: Boolean? = null
+    @SerializedName("highlight_in_markbook")
+    @Expose
+    private val highlightInMarkbook: Boolean? = null
+    @SerializedName("show_in_parent_portal")
+    @Expose
+    private val showInParentPortal: Boolean? = null
+    @SerializedName("hide_addressees")
+    @Expose
+    private val hideAddressees: Boolean? = null
+    @SerializedName("description_page_url")
+    @Expose
+    private val descriptionPageUrl: Any? = null
 }
