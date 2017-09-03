@@ -9,4 +9,12 @@ interface LoginView {
 
     fun addLifecycleObserver(observer: LoginLifecycleObserver)
 
+    fun showErrorInHost()
+
+    fun showErrorInToken()
+
+    fun goToTaskListView()
+
+    fun showErrorFromResponse()
+
 }

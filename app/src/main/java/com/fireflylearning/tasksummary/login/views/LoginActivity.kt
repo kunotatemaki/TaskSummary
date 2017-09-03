@@ -19,6 +19,10 @@ import javax.inject.Inject
 @CustomScopes.ActivityScope
 class LoginActivity : BaseActivity(), LoginView {
 
+    internal enum class TOKEN_ERROR {
+        NETWORK_ERROR, HOST_ERROR, INVALID_ERROR
+    }
+
     @Inject
     lateinit var log: LoggerHelper
 
@@ -42,9 +46,31 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
 
+    // region LOGIN VIEW
     override fun addLifecycleObserver(observer: LoginLifecycleObserver) {
         if(observer is LifecycleObserver){
             lifecycle.addObserver(observer)
         }
     }
+
+    override fun showErrorInHost() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showErrorInToken() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun goToTaskListView() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showErrorFromResponse() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+
+    //endregion
 }
+
+//todo hacer lo del texeditor

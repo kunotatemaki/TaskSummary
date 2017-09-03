@@ -11,15 +11,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ff39a054-c164-4958-9111-44a0a89a9f98" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/TaskSetComparator.kt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenter.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenterAndroidImpl.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenterAndroidImpl.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt" />
     </list>
     <ignored path="Task Summary.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,16 +85,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginPresenter.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenter.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LoginPresenterAndroidImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenterAndroidImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,18 +100,33 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="77" column="33" lean-forward="false" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+            <state relative-caret-position="169">
+              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+              <folding>
+                <element signature="e#2146#2292#0" expanded="true" />
+                <element signature="e#2291#2292#0" expanded="true" />
+                <element signature="e#2918#2958#0" expanded="true" />
+                <element signature="e#3149#3189#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginView.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LoginActivity.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="117">
-              <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="134">
+              <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="107" />
               <folding>
                 <element signature="e#53#870#0" expanded="true" />
               </folding>
@@ -144,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NetworkManagerAndroidImpl.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NetworkManagerAndroidImpl.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+            <state relative-caret-position="350">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding>
                 <element signature="e#55#836#0" expanded="true" />
                 <element signature="e#1070#1109#1" expanded="true" />
@@ -175,8 +175,8 @@
       <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="458">
-              <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
+            <state relative-caret-position="118">
+              <caret line="21" column="59" lean-forward="true" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
               <folding>
                 <element signature="e#968#986#0" expanded="true" />
               </folding>
@@ -2159,18 +2159,18 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/resources/ResourcesManager.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/lifecycleobservers/LoginLifecycleObserver.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/lifecycleobservers/LoginLifecycleObserverAndroidImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/modules/SuperHeroDetailModule.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/subcomponents/SuperHeroDetailSubcomponent.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/components/FireflyAppComponent.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenter.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/presenters/LoginPresenterAndroidImpl.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/utils/FireflyConstants.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt" />
       </list>
     </option>
   </component>
@@ -2829,7 +2829,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504444026940" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504444580032" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2877,7 +2877,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504444026940" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504444580033" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -3060,7 +3060,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504444026941" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1504444580033" />
       </method>
     </configuration>
     <list size="1">
@@ -3225,7 +3225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1504441394732</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="move host to strings file from constants file, to get the value in the xml">
+      <created>1504444050401</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1504444050401</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3307,7 +3314,8 @@
     <MESSAGE value="order list of tasks by date set" />
     <MESSAGE value="add structure for login activity" />
     <MESSAGE value="add new activity for login (refactored and without logic yet)" />
-    <option name="LAST_COMMIT_MESSAGE" value="add new activity for login (refactored and without logic yet)" />
+    <MESSAGE value="move host to strings file from constants file, to get the value in the xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="move host to strings file from constants file, to get the value in the xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3751,14 +3759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" lean-forward="false" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/dependencyinjection/subcomponents/SuperHeroDetailSubcomponent.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -3795,16 +3795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding>
-            <element signature="e#53#870#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_task_list_row.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1149">
@@ -3818,14 +3808,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="77" column="33" lean-forward="false" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="55">
@@ -3837,19 +3819,6 @@
         </state>
       </provider>
       <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="31" column="28" lean-forward="false" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="28" />
-          <folding>
-            <element signature="e#968#986#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
         <state />
       </provider>
     </entry>
@@ -3871,11 +3840,55 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/network/logic/NetworkManagerAndroidImpl.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="37" column="27" lean-forward="false" selection-start-line="37" selection-start-column="27" selection-end-line="37" selection-end-column="27" />
+        <state relative-caret-position="350">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
             <element signature="e#55#836#0" expanded="true" />
             <element signature="e#1070#1109#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="21" column="59" lean-forward="true" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
+          <folding>
+            <element signature="e#968#986#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/activities/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+          <folding>
+            <element signature="e#2146#2292#0" expanded="true" />
+            <element signature="e#2291#2292#0" expanded="true" />
+            <element signature="e#2918#2958#0" expanded="true" />
+            <element signature="e#3149#3189#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginView.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="30" lean-forward="false" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/fireflylearning/tasksummary/login/views/LoginActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="56" column="8" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="107" />
+          <folding>
+            <element signature="e#53#870#0" expanded="true" />
           </folding>
         </state>
       </provider>
