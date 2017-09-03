@@ -2,6 +2,8 @@ package com.fireflylearning.tasksummary.utils.resources
 
 import android.content.Context
 import android.support.annotation.VisibleForTesting
+import android.support.v4.content.res.ResourcesCompat
+import com.fireflylearning.tasksummary.R
 import javax.inject.Singleton
 import javax.inject.Inject
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
@@ -31,4 +33,7 @@ class ResourcesManagerAndroidImpl @Inject constructor(): ResourcesManager {
 
     }
 
+    override fun getColor(resId: Int): Int {
+        return ResourcesCompat.getColor(context.resources, resId, null)
+    }
 }

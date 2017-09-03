@@ -5,4 +5,6 @@ package com.fireflylearning.tasksummary.utils.resources
  */
 interface ResourcesManager {
     fun getString(resId: Int): String
+
+    fun getColor(resId: Int): Int
 }
