@@ -24,10 +24,9 @@ import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
+import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import javax.inject.Inject
-import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ThisClassReceiver
 
 
 @CustomScopes.ActivityScope
@@ -155,10 +154,15 @@ class TaskListActivity : BaseActivity(), TaksListView {
         return ViewModelProviders.of(this).get(TaskListViewModel::class.java).host
     }
 
+    override fun goToLogin() {
+        finish()
+    }
+
     @VisibleForTesting
     fun setTaskList(tasks: MutableList<Task>){
         getLiveTaks().setLivedataValue(tasks)
     }
+
 
     //endregion
 }

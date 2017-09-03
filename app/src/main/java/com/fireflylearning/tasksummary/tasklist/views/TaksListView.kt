@@ -28,4 +28,6 @@ interface TaksListView {
     fun getTokenFromChache() : String
 
     fun getHostFromChache() : String
+
+    fun goToLogin()
 }

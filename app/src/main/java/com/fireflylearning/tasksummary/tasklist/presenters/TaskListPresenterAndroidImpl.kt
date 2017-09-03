@@ -89,5 +89,7 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
 
     override fun closeSession() {
         preferences.deleteSecretToken()
+        preferences.deleteHost()
+        mView.get()!!.goToLogin()
     }
 }
