@@ -7,6 +7,7 @@ import android.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.EditText
 import android.widget.TextView
@@ -124,6 +125,16 @@ class LoginActivity : BaseActivity(), LoginView {
 
     override fun getLiveStatus(): CustomLiveData<FireflyConstants.TokenError> {
         return ViewModelProviders.of(this).get(LoginViewModel::class.java).status
+    }
+
+    override fun showProgressBar() {
+        mBinding.signInButton.visibility = View.INVISIBLE
+        mBinding.loginProgress.visibility = View.VISIBLE
+    }
+
+    override fun hideProgressBar() {
+        mBinding.signInButton.visibility = View.VISIBLE
+        mBinding.loginProgress.visibility = View.GONE
     }
 
     //endregion

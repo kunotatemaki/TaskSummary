@@ -20,4 +20,9 @@ interface LoginView {
     fun getLiveStatus(): CustomLiveData<FireflyConstants.TokenError>
 
     fun showErrorFromResponse(error: FireflyConstants.TokenError)
+
+    fun showProgressBar()
+
+    fun hideProgressBar()
+
 }

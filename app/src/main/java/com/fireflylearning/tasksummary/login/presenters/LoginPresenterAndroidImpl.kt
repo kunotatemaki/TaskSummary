@@ -55,6 +55,7 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
             preferences.setHost(host)
             preferences.setSecretToken(token)
 
+            mView.get()!!.showProgressBar()
             network.login(host, token, mView.get()!!.getLiveStatus())
 
         }
@@ -65,7 +66,7 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
     override fun handleChangesInObservedStatus(status: FireflyConstants.TokenError) {
         log.d(this, "status updated")
         mView.safe {
-
+            mView.get()!!.hideProgressBar()
             when (status) {
                 FireflyConstants.TokenError.RESPONSE_OK -> {
                     //todo lanzar el task
