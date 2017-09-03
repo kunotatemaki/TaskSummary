@@ -25,4 +25,12 @@
     <string name="power">Power:</string>
     <string name="abilities">Abilities:</string>
     <string name="groups">Groups:</string>
+    <string name="draft">draft</string>
+    <string name="markbook_highlighted">markbook (highlighted)</string>
+    <string name="markbook">markbook</string>
+    <string name="show_in_parent_portal">parents</string>
+    <string name="hide_addressees">no addressees</string>
+    <string name="set">Set:</string>
+    <string name="due">Due:</string>
+    <string name="no_due">No due date</string>
 </resources>

@@ -10,6 +10,8 @@ import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.viewholders.TaskListViewHolder
+import com.fireflylearning.tasksummary.utils.TaskUtils
+import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.ui.GlideBindingComponent
 import javax.inject.Inject
 
@@ -19,6 +21,12 @@ import javax.inject.Inject
 @CustomScopes.ActivityScope
 class TaskListAdapter @Inject constructor(val presenter: TaskListPresenter):
         RecyclerView.Adapter<TaskListViewHolder>() {
+
+    @Inject
+    lateinit var taskUtils: TaskUtils
+
+    @Inject
+    lateinit var resources: ResourcesManager
 
     val tasks: MutableList<Task> = mutableListOf()
 
@@ -33,7 +41,7 @@ class TaskListAdapter @Inject constructor(val presenter: TaskListPresenter):
 
     override fun onBindViewHolder(holder: TaskListViewHolder?, position: Int) {
         val task: Task = tasks[position]
-        holder?.bind(task, presenter)
+        holder?.bind(task, presenter, taskUtils, resources)
     }
 
     override fun getItemCount(): Int {

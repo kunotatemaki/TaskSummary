@@ -10,8 +10,8 @@ import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
 import com.fireflylearning.tasksummary.tasklist.views.TaksListView
-import com.fireflylearning.tasksummary.tasklist.views.TaskView
 import java.lang.ref.WeakReference
+import java.util.ArrayList
 import javax.inject.Inject
 
 /**

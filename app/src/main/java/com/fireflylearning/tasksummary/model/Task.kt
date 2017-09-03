@@ -17,10 +17,9 @@ class Task constructor(val id: Int?,
                        val archived: Boolean?,
                        val draft: Boolean?,
                        val show_in_markbook: Boolean?,
-                       val highlight_in_markbook: Boolean?,
+                       var highlight_in_markbook: Boolean?,
                        val show_in_parent_portal: Boolean?,
                        val hide_addressees: Boolean? = null) {
-
 
             
     constructor(task: TaskElementResponse) : this(
@@ -37,5 +36,4 @@ class Task constructor(val id: Int?,
             hide_addressees = task.hideAddressees
     )
 
-    
 }
