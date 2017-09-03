@@ -2,6 +2,7 @@ package com.fireflylearning.tasksummary.tasklist.views
 
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.annotation.VisibleForTesting
@@ -16,6 +17,7 @@ import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityMainBinding
 import com.fireflylearning.tasksummary.dependencyinjection.modules.TaskListModule
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
@@ -66,6 +68,8 @@ class TaskListActivity : BaseActivity(), TaksListView {
         ViewModelProviders.of(this).get(TaskListViewModel::class.java).token = intent.extras[FireflyConstants.SECRET_TOKEN] as String
         ViewModelProviders.of(this).get(TaskListViewModel::class.java).host = intent.extras[FireflyConstants.HOST] as String
 
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
         //region DATA BINDING
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //endregion
@@ -155,6 +159,9 @@ class TaskListActivity : BaseActivity(), TaksListView {
     }
 
     override fun goToLogin() {
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
+        startActivity(intent)
         finish()
     }
 
