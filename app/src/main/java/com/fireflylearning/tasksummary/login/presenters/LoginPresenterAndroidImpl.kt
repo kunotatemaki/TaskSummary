@@ -52,6 +52,10 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
             }
 
             // Store values at the time of the login attempt.
+            mView.get()!!.storeHostInChache(host)
+            mView.get()!!.storeTokenInChache(token)
+
+            //todo solo si ha marcado el check
             preferences.setHost(host)
             preferences.setSecretToken(token)
 

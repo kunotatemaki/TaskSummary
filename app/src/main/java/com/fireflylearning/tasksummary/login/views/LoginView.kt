@@ -25,4 +25,8 @@ interface LoginView {
 
     fun hideProgressBar()
 
+    fun storeTokenInChache(token: String)
+
+    fun storeHostInChache(host: String)
+
 }

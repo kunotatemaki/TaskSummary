@@ -137,6 +137,14 @@ class LoginActivity : BaseActivity(), LoginView {
         mBinding.loginProgress.visibility = View.GONE
     }
 
+    override fun storeTokenInChache(token: String) {
+        ViewModelProviders.of(this).get(LoginViewModel::class.java).token = token
+    }
+
+    override fun storeHostInChache(host: String) {
+        ViewModelProviders.of(this).get(LoginViewModel::class.java).host = host
+    }
+
     //endregion
 }
 
