@@ -23,5 +23,5 @@ interface TaksListView {
 
     fun hideLoader()
 
-    fun showTaskDetails(taskView: TaskView, superhero: Task)
+    fun showTaskDetails(task: Task)
 }

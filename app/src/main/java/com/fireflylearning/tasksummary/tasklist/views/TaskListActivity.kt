@@ -8,6 +8,8 @@ import android.support.annotation.VisibleForTesting
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.R
@@ -82,6 +84,22 @@ class TaskListActivity : BaseActivity(), TaksListView {
 
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.task_list_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when(item?.itemId){
+            R.id.close_sesion -> {
+                log.d(this, "cerrar sesion")
+                presenter.closeSession()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
     //region SUPERHEROLISTVIEW INTERFACE
     override fun addLifecycleObserver(observer: TaskListLifecycleObserver) {
@@ -122,9 +140,9 @@ class TaskListActivity : BaseActivity(), TaksListView {
         mBinding.progressBar.visibility = View.INVISIBLE
     }
 
-    override fun showTaskDetails(taskView: TaskView, superhero: Task) {
+    override fun showTaskDetails(task: Task) {
         /*val intent = Intent(this, SuperHeroDetailActivity::class.java)
-        intent.putExtra(FireflyConstants.SUPERHERO, superhero)
+        intent.putExtra(FireflyConstants.SUPERHERO, task)
         //trainsition
         if(taskView is View) {
             val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, taskView, getString(R.string.activity_image_trans))

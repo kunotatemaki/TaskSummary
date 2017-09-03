@@ -10,6 +10,7 @@ import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
 import com.fireflylearning.tasksummary.tasklist.views.TaksListView
+import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
 import java.lang.ref.WeakReference
 import java.util.ArrayList
 import javax.inject.Inject
@@ -29,6 +30,9 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
 
     @Inject
     lateinit var resources: ResourcesManager
+
+    @Inject
+    lateinit var preferences: PreferencesManager
 
     @VisibleForTesting
     constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<TaksListView>,
@@ -73,5 +77,9 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
         /*mView.safe {
             mView.get()!!.showTaskDetails(superHeroView, superHero)
         }*/
+    }
+
+    override fun closeSession() {
+        preferences.deleteSecretToken()
     }
 }

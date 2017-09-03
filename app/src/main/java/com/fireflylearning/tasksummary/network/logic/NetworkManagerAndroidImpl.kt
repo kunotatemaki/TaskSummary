@@ -64,10 +64,10 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
                             ?.mapTo(list) {
                         Task(it)
                     }
-                    //todo ordenar la lista
+
+                    //order the list by task's date set
                     val sortedList = list.sortedWith(compareBy({ it.set }))
 
-                    //Collections.sort<Task>(list, TaskSetComparator())
                     tasks.setLivedataValue(sortedList as MutableList<Task>)
 
                 } else {
