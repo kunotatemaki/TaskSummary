@@ -8,12 +8,14 @@ import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.FireflyConstants
+import com.fireflylearning.tasksummary.utils.TaskSetComparator
 import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -62,7 +64,11 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
                             ?.mapTo(list) {
                         Task(it)
                     }
-                    tasks.setLivedataValue(list)
+                    //todo ordenar la lista
+                    val sortedList = list.sortedWith(compareBy({ it.set }))
+
+                    //Collections.sort<Task>(list, TaskSetComparator())
+                    tasks.setLivedataValue(sortedList as MutableList<Task>)
 
                 } else {
 
