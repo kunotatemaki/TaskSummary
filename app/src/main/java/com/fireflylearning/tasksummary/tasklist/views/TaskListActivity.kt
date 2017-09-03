@@ -57,7 +57,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
         super.onCreate(savedInstanceState)
 
         //region DEPENDENCY INJECTION
-        (application as FireflyApp).mComponent.getSuperHeroListSubcomponent(TaskListModule(this))
+        (application as FireflyApp).mComponent.getTaskListSubcomponent(TaskListModule(this))
                 .inject(this)
         //endregion
 
@@ -141,7 +141,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
     }
 
     override fun showTaskDetails(task: Task) {
-        /*val intent = Intent(this, SuperHeroDetailActivity::class.java)
+        /*val intent = Intent(this, LoginActivity::class.java)
         intent.putExtra(FireflyConstants.SUPERHERO, task)
         //trainsition
         if(taskView is View) {

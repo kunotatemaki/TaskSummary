@@ -7,4 +7,5 @@ interface ResourcesManager {
     fun getString(resId: Int): String
 
     fun getColor(resId: Int): Int
+
 }
