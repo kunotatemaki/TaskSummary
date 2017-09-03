@@ -150,6 +150,9 @@ class LoginActivity : BaseActivity(), LoginView {
         ViewModelProviders.of(this).get(LoginViewModel::class.java).host = host
     }
 
+    override fun storeCredentials(): Boolean {
+        return mBinding.storeCredentials.isChecked
+    }
 
     //endregion
 }

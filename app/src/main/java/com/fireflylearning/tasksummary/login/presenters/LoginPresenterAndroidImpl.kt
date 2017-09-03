@@ -55,9 +55,10 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
             mView.get()!!.storeHostInChache(host)
             mView.get()!!.storeTokenInChache(token)
 
-            //todo solo si ha marcado el check
-            preferences.setHost(host)
-            preferences.setSecretToken(token)
+            if(mView.get()!!.storeCredentials()) {
+                preferences.setHost(host)
+                preferences.setSecretToken(token)
+            }
 
             mView.get()!!.showProgressBar()
             network.login(host, token, mView.get()!!.getLiveStatus())

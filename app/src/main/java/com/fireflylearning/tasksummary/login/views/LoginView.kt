@@ -29,4 +29,6 @@ interface LoginView {
 
     fun storeHostInChache(host: String)
 
+    fun storeCredentials(): Boolean
+
 }

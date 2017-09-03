@@ -91,6 +91,20 @@
                 app:layout_constraintRight_toRightOf="@id/sign_in_button"
                 android:visibility="gone" />
 
+        <CheckBox
+            android:id="@+id/store_credentials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="remember data"
+            android:text="@string/remain_logged"
+            android:layout_marginTop="@dimen/vertical_margin"
+            app:layout_constraintTop_toBottomOf="@id/sign_in_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
         </android.support.constraint.ConstraintLayout>
+
+
     </ScrollView>
 </layout>
