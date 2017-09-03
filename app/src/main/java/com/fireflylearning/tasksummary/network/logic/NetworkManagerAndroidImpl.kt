@@ -8,14 +8,12 @@ import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.fireflylearning.tasksummary.utils.TaskSetComparator
 import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,18 +22,15 @@ import javax.inject.Singleton
  * Created by Roll on 31/8/17.
  */
 @Singleton
-class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
+class NetworkManagerAndroidImpl @Inject constructor(val resources: ResourcesManager): NetworkManager {
 
-    private val retrofit : Retrofit = Retrofit.Builder()
-            .baseUrl(FireflyConstants.BASE_URL)
+    private val retrofit: Retrofit = Retrofit.Builder()
+            .baseUrl(resources.getString(R.string.base_host))
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
     @Inject
     lateinit var log : LoggerHelper
-
-    @Inject
-    lateinit var resources: ResourcesManager
 
     @Inject
     lateinit var preferences: PreferencesManager

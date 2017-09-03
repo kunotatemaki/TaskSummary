@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.fireflylearning.tasksummary.login.presenters.LoginPresenter"/>
+        <variable
+            name="presenter"
+            type="LoginPresenter"/>
+    </data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,7 +47,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/prompt_host"
-                        android:text="appdev.tryfirefly.com" />
+                        android:text="@string/base_host" />
                 </android.support.design.widget.TextInputLayout>
 
                 <android.support.design.widget.TextInputLayout
@@ -67,6 +73,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
                     android:text="@string/action_sign_in"
+                    android:onClick="@{()->presenter.attemptLogin(token.getText().toString())}"
                     android:textStyle="bold" />
 
             </LinearLayout>
