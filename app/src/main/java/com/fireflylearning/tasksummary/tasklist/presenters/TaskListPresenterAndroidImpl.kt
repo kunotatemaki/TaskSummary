@@ -57,7 +57,9 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
                 mView.get()!!.showLoader()
                 //todo meter aquí la clave y el host que pase en el intent
                 val host: String = resources.getString(R.string.base_host)
-                network.getListOfTasks(host, "secret1", myView.getLiveTaks())
+                network.getListOfTasks(mView.get()!!.getHostFromChache(),
+                        mView.get()!!.getTokenFromChache(),
+                        myView.getLiveTaks())
             }
         }
     }

@@ -3,6 +3,7 @@ package com.fireflylearning.tasksummary.login.views
 import android.app.AlertDialog
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
@@ -20,6 +21,7 @@ import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleOb
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
 import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
 import com.fireflylearning.tasksummary.model.CustomLiveData
+import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
@@ -95,7 +97,10 @@ class LoginActivity : BaseActivity(), LoginView {
     }
 
     override fun goToTaskListView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(this, TaskListActivity::class.java)
+        intent.putExtra(FireflyConstants.HOST, ViewModelProviders.of(this).get(LoginViewModel::class.java).host)
+        intent.putExtra(FireflyConstants.SECRET_TOKEN, ViewModelProviders.of(this).get(LoginViewModel::class.java).token)
+        startActivity(intent)
     }
 
     override fun showErrorFromResponse(error: FireflyConstants.TokenError) {
@@ -144,6 +149,7 @@ class LoginActivity : BaseActivity(), LoginView {
     override fun storeHostInChache(host: String) {
         ViewModelProviders.of(this).get(LoginViewModel::class.java).host = host
     }
+
 
     //endregion
 }

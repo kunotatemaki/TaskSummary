@@ -73,7 +73,7 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
             mView.get()!!.hideProgressBar()
             when (status) {
                 FireflyConstants.TokenError.RESPONSE_OK -> {
-                    //todo lanzar el task
+                    mView.get()!!.goToTaskListView()
                 }
                 FireflyConstants.TokenError.NO_OP -> {
                 }

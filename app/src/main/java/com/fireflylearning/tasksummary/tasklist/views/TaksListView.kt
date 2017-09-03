@@ -24,4 +24,8 @@ interface TaksListView {
     fun hideLoader()
 
     fun showTaskDetails(task: Task)
+
+    fun getTokenFromChache() : String
+
+    fun getHostFromChache() : String
 }

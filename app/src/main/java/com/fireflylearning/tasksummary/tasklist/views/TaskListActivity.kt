@@ -22,10 +22,12 @@ import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
+import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import javax.inject.Inject
+import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ThisClassReceiver
 
 
 @CustomScopes.ActivityScope
@@ -61,8 +63,9 @@ class TaskListActivity : BaseActivity(), TaksListView {
                 .inject(this)
         //endregion
 
-        //todo eliminar esto
-        preferences.setSecretToken("secret1")
+        //get token and host from intent
+        ViewModelProviders.of(this).get(TaskListViewModel::class.java).token = intent.extras[FireflyConstants.SECRET_TOKEN] as String
+        ViewModelProviders.of(this).get(TaskListViewModel::class.java).host = intent.extras[FireflyConstants.HOST] as String
 
         //region DATA BINDING
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
@@ -141,15 +144,15 @@ class TaskListActivity : BaseActivity(), TaksListView {
     }
 
     override fun showTaskDetails(task: Task) {
-        /*val intent = Intent(this, LoginActivity::class.java)
-        intent.putExtra(FireflyConstants.SUPERHERO, task)
-        //trainsition
-        if(taskView is View) {
-            val options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, taskView, getString(R.string.activity_image_trans))
-            startActivity(intent, options.toBundle())
-        }else {
-            startActivity(intent)
-        }*/
+
+    }
+
+    override fun getTokenFromChache(): String {
+        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).token
+    }
+
+    override fun getHostFromChache(): String {
+        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).host
     }
 
     @VisibleForTesting
