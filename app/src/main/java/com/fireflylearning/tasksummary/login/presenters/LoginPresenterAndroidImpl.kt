@@ -55,10 +55,6 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
             mView.get()!!.storeHostInChache(host)
             mView.get()!!.storeTokenInChache(token)
 
-            if(mView.get()!!.storeCredentials()) {
-                preferences.setHost(host)
-                preferences.setSecretToken(token)
-            }
 
             mView.get()!!.showProgressBar()
             network.login(host, token, mView.get()!!.getLiveStatus())
@@ -74,6 +70,11 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
             mView.get()!!.hideProgressBar()
             when (status) {
                 FireflyConstants.TokenError.RESPONSE_OK -> {
+                    if(mView.get()!!.storeCredentials()) {
+                        preferences.setHost(mView.get()!!.getHostFromChache())
+                        preferences.setSecretToken(mView.get()!!.getTokenFromChache())
+                    }
+
                     mView.get()!!.goToTaskListView()
                 }
                 FireflyConstants.TokenError.NO_OP -> {

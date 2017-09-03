@@ -21,6 +21,7 @@ import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleOb
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
 import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
 import com.fireflylearning.tasksummary.model.CustomLiveData
+import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
 import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
@@ -152,6 +153,14 @@ class LoginActivity : BaseActivity(), LoginView {
 
     override fun storeCredentials(): Boolean {
         return mBinding.storeCredentials.isChecked
+    }
+
+    override fun getTokenFromChache(): String {
+        return ViewModelProviders.of(this).get(LoginViewModel::class.java).token
+    }
+
+    override fun getHostFromChache(): String {
+        return ViewModelProviders.of(this).get(LoginViewModel::class.java).host
     }
 
     //endregion

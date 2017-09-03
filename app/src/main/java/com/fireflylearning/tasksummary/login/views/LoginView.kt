@@ -31,4 +31,8 @@ interface LoginView {
 
     fun storeCredentials(): Boolean
 
+    fun getTokenFromChache() : String
+
+    fun getHostFromChache() : String
+
 }
