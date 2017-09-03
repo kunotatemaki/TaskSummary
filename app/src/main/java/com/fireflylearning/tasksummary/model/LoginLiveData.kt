@@ -5,28 +5,29 @@ import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
+import com.fireflylearning.tasksummary.utils.FireflyConstants
 import javax.inject.Inject
-
 
 /**
  * Created by Roll on 24/8/17.
  */
-class TaskListLiveData @Inject constructor(): MutableLiveData<MutableList<Task>>(), CustomLiveData<MutableList<Task>> {
+class LoginLiveData @Inject constructor(): MutableLiveData<FireflyConstants.TokenError>(), CustomLiveData<FireflyConstants.TokenError> {
 
-    override fun setLivedataValue(value: MutableList<Task>) {
+    override fun setLivedataValue(value: FireflyConstants.TokenError) {
         this.value = value
     }
 
-    override fun getLivedataValue(): MutableList<Task>? {
-        return this.value
+    override fun getLivedataValue(): FireflyConstants.TokenError? {
+        this.value?.let {
+            return this.value
+        }
+        return FireflyConstants.TokenError.NO_OP
     }
 
     override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver) {
 
         this.observe(lifecycleRegistryOwner as LifecycleOwner,
-                Observer<MutableList<Task>> { Tasks -> observer.handleChangesInObservedTasks(Tasks!!) })
+                Observer<FireflyConstants.TokenError> { status -> observer.handleChangesInObservedStatus(status!!) })
 
     }
-
-
 }

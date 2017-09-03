@@ -36,5 +36,6 @@
     <string name="close_session">Close Session</string>
 
 
-    <string name="base_host" translatable="false">https://appdev.tryfirefly.com</string>
+    <string name="base_host" translatable="false">appdev.tryfirefly.com</string>
+    <string name="accept">Accept</string>
 </resources>

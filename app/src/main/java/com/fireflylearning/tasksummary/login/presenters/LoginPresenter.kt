@@ -5,6 +5,6 @@ package com.fireflylearning.tasksummary.login.presenters
  */
 interface LoginPresenter {
 
-    fun attemptLogin(secret: String)
+    fun attemptLogin(host: String, token: String)
 
 }

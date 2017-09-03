@@ -8,11 +8,11 @@ import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
-import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
 import com.fireflylearning.tasksummary.tasklist.views.TaksListView
-import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
+import com.fireflylearning.tasksummary.utils.FireflyConstants
+import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
+import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import java.lang.ref.WeakReference
-import java.util.ArrayList
 import javax.inject.Inject
 
 /**
@@ -55,7 +55,9 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
                 return@safe
             }else{
                 mView.get()!!.showLoader()
-                network.getListOfTasks(myView.getLiveTaks())
+                //todo meter aquí la clave y el host que pase en el intent
+                val host: String = resources.getString(R.string.base_host)
+                network.getListOfTasks(host, "secret1", myView.getLiveTaks())
             }
         }
     }
@@ -70,6 +72,10 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
                 mView.get()!!.setTasksInView(tasks)
             }
         }
+    }
+
+    override fun handleChangesInObservedStatus(status: FireflyConstants.TokenError) {
+        //do nothing
     }
 
     override fun taskClicked(task: Task) {

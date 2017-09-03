@@ -1,7 +1,6 @@
 package com.fireflylearning.tasksummary.dependencyinjection.modules
 
 import android.content.Context
-import android.content.SharedPreferences
 import com.fireflylearning.tasksummary.utils.logger.AndroidLoggerHelperImpl
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.FireflyApp
@@ -9,8 +8,8 @@ import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManagerAndroidImpl
-import com.rukiasoft.newrukiapics.preferences.implementations.PreferencesManagerImpl
-import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
+import com.fireflylearning.tasksummary.utils.preferences.PreferencesManagerImpl
+import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -48,7 +47,7 @@ class FireflyAppModule(private val application: FireflyApp) {
     }
 
     @Provides
-    fun providesPreferencesManager(preferences: PreferencesManagerImpl): PreferencesManager{
+    fun providesPreferencesManager(preferences: PreferencesManagerImpl): PreferencesManager {
         return preferences
     }
 }

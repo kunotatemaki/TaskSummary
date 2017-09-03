@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.model
 
 import android.arch.lifecycle.LifecycleRegistryOwner
-import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
+import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 
 
 /**

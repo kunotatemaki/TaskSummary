@@ -1,4 +1,4 @@
-package com.rukiasoft.newrukiapics.preferences.implementations
+package com.fireflylearning.tasksummary.utils.preferences
 
 import android.content.Context
 import android.preference.PreferenceManager

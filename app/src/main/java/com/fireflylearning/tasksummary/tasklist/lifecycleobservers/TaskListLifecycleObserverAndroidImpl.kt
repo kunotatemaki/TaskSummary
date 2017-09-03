@@ -7,9 +7,9 @@ import android.arch.lifecycle.OnLifecycleEvent
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.safe
-import com.fireflylearning.tasksummary.tasklist.livedataobservers.MyLivedataObserver
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.views.TaksListView
+import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import java.lang.ref.WeakReference
 import javax.inject.Inject
 

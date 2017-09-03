@@ -1,14 +1,16 @@
 package com.fireflylearning.tasksummary.network.logic
 
+import android.text.TextUtils
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.model.CustomLiveData
-import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.model.Task
 import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
+import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
+import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
+import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,61 +24,119 @@ import javax.inject.Singleton
  * Created by Roll on 31/8/17.
  */
 @Singleton
-class NetworkManagerAndroidImpl @Inject constructor(val resources: ResourcesManager): NetworkManager {
+class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
 
-    private val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl(resources.getString(R.string.base_host))
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
+    private var retrofit: Retrofit? = null
 
     @Inject
     lateinit var log : LoggerHelper
 
     @Inject
+    lateinit var resources: ResourcesManager
+
+    @Inject
     lateinit var preferences: PreferencesManager
 
-    override fun getListOfTasks(tasks: CustomLiveData<MutableList<Task>>) {
+    override fun getListOfTasks(host: String, token: String, tasks: CustomLiveData<MutableList<Task>>) {
 
-        val fireflyEndpoints = retrofit.create(FireflyEndpoints::class.java)
+        configureEndpoint(host)
 
-        //obtain query from reosurces file
-        val query = resources.getString(R.string.tasks_query)
+        retrofit?.let {
+            val fireflyEndpoints = retrofit!!.create(FireflyEndpoints::class.java)
 
-        //obtain stored token
-        val secretToken = preferences.getSecretToken()
+            //obtain query from reosurces file
+            val query = resources.getString(R.string.tasks_query)
 
-        val myCall : Call<TaskServerResponse> = fireflyEndpoints.getTasks(FireflyConstants.DEVICE_ID,
-                secretToken, query)
+            val myCall: Call<TaskServerResponse> = fireflyEndpoints.getTasks(FireflyConstants.DEVICE_ID,
+                    token, query)
 
-        myCall.enqueue(object : Callback<TaskServerResponse> {
-            override fun onResponse(call: Call<TaskServerResponse>?, response: Response<TaskServerResponse>?) {
-                if (response?.isSuccessful as Boolean) {
-                    val list : MutableList<Task> = arrayListOf()
-                    //map photos to observable value
-                    response.body()
-                            ?.tasks
-                            ?.tasksList
-                            ?.mapTo(list) {
-                        Task(it)
+            myCall.enqueue(object : Callback<TaskServerResponse> {
+                override fun onResponse(call: Call<TaskServerResponse>?, response: Response<TaskServerResponse>?) {
+                    if (response?.isSuccessful as Boolean) {
+                        val list: MutableList<Task> = arrayListOf()
+                        //map photos to observable value
+                        response.body()
+                                ?.tasks
+                                ?.tasksList
+                                ?.mapTo(list) {
+                                    Task(it)
+                                }
+
+                        //order the list by task's date set
+                        val sortedList = list.sortedWith(compareBy({ it.set }))
+
+                        tasks.setLivedataValue(sortedList as MutableList<Task>)
+
+                    } else {
+
+                        log.d(this, "empty response")
+                        tasks.setLivedataValue(arrayListOf())
                     }
-
-                    //order the list by task's date set
-                    val sortedList = list.sortedWith(compareBy({ it.set }))
-
-                    tasks.setLivedataValue(sortedList as MutableList<Task>)
-
-                } else {
-
-                    log.d(this, "empty response")
-                    tasks.setLivedataValue(arrayListOf())
                 }
-            }
 
-            override fun onFailure(call: Call<TaskServerResponse>?, t: Throwable?) {
-                log.d(this, t?.message.toString())
-                tasks.setLivedataValue(arrayListOf())
+                override fun onFailure(call: Call<TaskServerResponse>?, t: Throwable?) {
+                    log.d(this, t?.message.toString())
+                    tasks.setLivedataValue(arrayListOf())
 
-            }
-        })
+                }
+            })
+        }
+    }
+
+    override fun login(host: String, token: String, status: CustomLiveData<FireflyConstants.TokenError>) {
+
+        configureEndpoint(host)
+
+        retrofit?.let {
+            val fireflyEndpoints = retrofit!!.create(FireflyEndpoints::class.java)
+
+            val myCall: Call<ResponseBody> = fireflyEndpoints.login(FireflyConstants.DEVICE_ID,
+                    token)
+
+            myCall.enqueue(object : Callback<ResponseBody> {
+                override fun onResponse(call: Call<ResponseBody>?, response: Response<ResponseBody>?) {
+                    if (response?.isSuccessful as Boolean) {
+                        val stringResponse: String? = response.body()?.string()
+                        stringResponse?.let {
+                            if(stringResponse == "OK"){
+                                status.setLivedataValue(FireflyConstants.TokenError.RESPONSE_OK)
+                                return
+                            }
+                        }
+                        status.setLivedataValue(FireflyConstants.TokenError.HOST_ERROR)
+
+                    } else {
+                        log.d(this, "empty response")
+                        when(response.code()) {
+                            401 -> {
+                                status.setLivedataValue(FireflyConstants.TokenError.INVALID_TOKEN)
+                            }
+                            else -> {
+                                status.setLivedataValue(FireflyConstants.TokenError.HOST_ERROR)
+                            }
+                        }
+                    }
+                }
+
+                override fun onFailure(call: Call<ResponseBody>?, t: Throwable?) {
+                    log.d(this, t?.message.toString())
+                    status.setLivedataValue(FireflyConstants.TokenError.NETWORK_ERROR)
+
+                }
+            })
+        }
+    }
+
+    private fun configureEndpoint(host: String){
+        val myHost: String? = if(host.contains("https://")) {
+            host
+        }else{
+            TextUtils.concat("https://", host).toString()
+        }
+        retrofit = Retrofit.Builder()
+        .baseUrl(myHost)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build()
+
     }
 }

@@ -1,6 +1,8 @@
 package com.fireflylearning.tasksummary.login.views
 
 import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleObserver
+import com.fireflylearning.tasksummary.model.CustomLiveData
+import com.fireflylearning.tasksummary.utils.FireflyConstants
 
 /**
  * Created by Roll on 31/8/17.
@@ -9,12 +11,13 @@ interface LoginView {
 
     fun addLifecycleObserver(observer: LoginLifecycleObserver)
 
-    fun showErrorInHost()
+    fun showErrorInHost(state: Boolean)
 
-    fun showErrorInToken()
+    fun showErrorInToken(state: Boolean)
 
     fun goToTaskListView()
 
-    fun showErrorFromResponse()
+    fun getLiveStatus(): CustomLiveData<FireflyConstants.TokenError>
 
+    fun showErrorFromResponse(error: FireflyConstants.TokenError)
 }

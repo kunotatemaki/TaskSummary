@@ -1,7 +1,6 @@
-package com.rukiasoft.newrukiapics.preferences.implementations
+package com.fireflylearning.tasksummary.utils.preferences
 
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.rukiasoft.newrukiapics.preferences.interfaces.PreferencesManager
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,5 +23,17 @@ class PreferencesManagerImpl @Inject constructor() : PreferencesManager {
 
     override fun getSecretToken(): String {
         return prefs.getStringFromPreferences(FireflyConstants.SECRET_TOKEN)
+    }
+
+    override fun getHost(): String {
+        return prefs.getStringFromPreferences(FireflyConstants.HOST)
+    }
+
+    override fun setHost(host: String) {
+        prefs.setStringFromPreferences(FireflyConstants.HOST, host)
+    }
+
+    override fun deleteHost() {
+        prefs.deleteVarFromSharedPreferences(FireflyConstants.HOST)
     }
 }
