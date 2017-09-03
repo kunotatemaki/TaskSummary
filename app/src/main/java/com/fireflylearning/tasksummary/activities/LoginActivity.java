@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
         mTokenView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == R.id.token_action || id == EditorInfo.IME_NULL) {
+                if (id == 9 || id == EditorInfo.IME_NULL) {
                     attemptLogin();
                     return true;
                 }

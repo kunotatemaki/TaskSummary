@@ -3,14 +3,15 @@ package com.fireflylearning.tasksummary.login.views
 import android.app.AlertDialog
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModelProviders
-import android.content.DialogInterface
 import android.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
 import android.widget.EditText
+import android.widget.TextView
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.activities.LoginActivity
 import com.fireflylearning.tasksummary.databinding.ActivityLoginBinding
 import com.fireflylearning.tasksummary.dependencyinjection.modules.LoginModule
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
@@ -49,6 +50,14 @@ class LoginActivity : BaseActivity(), LoginView {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_login, GlideBindingComponent())
 
         mBinding.presenter = presenter
+
+        mBinding.token.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
+            if (id == resources.getInteger(R.integer.ime_action)) {
+                presenter.attemptLogin(mBinding.host.text.toString(), mBinding.token.text.toString())
+                return@OnEditorActionListener true
+            }
+            false
+        })
 
     }
 
