@@ -17,6 +17,11 @@ object FireflyConstants {
         RESPONSE_OK (4)
     }
 
+    enum class TaskOrigin(val value: Int) {
+        FROM_NETWORK (0),
+        FROM_DB (1)
+    }
+
     val DATABASE_NAME: String = "firefly-database"
 
 }

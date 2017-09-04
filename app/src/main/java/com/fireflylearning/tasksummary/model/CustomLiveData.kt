@@ -1,6 +1,7 @@
 package com.fireflylearning.tasksummary.model
 
 import android.arch.lifecycle.LifecycleRegistryOwner
+import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 
 
@@ -9,7 +10,7 @@ import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
  */
 interface CustomLiveData<T> {
 
-    fun forceStorageInLocalDatabaseOnNewData(force: Boolean)
+    fun setTaskOrigin(origin: FireflyConstants.TaskOrigin)
 
     fun setLivedataValue(value: T)
 

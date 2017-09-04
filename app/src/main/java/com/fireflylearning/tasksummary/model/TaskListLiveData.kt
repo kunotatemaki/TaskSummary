@@ -5,6 +5,7 @@ import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import com.fireflylearning.tasksummary.persistence.entities.Task
+import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import javax.inject.Inject
 
@@ -14,7 +15,7 @@ import javax.inject.Inject
  */
 class TaskListLiveData @Inject constructor(): MutableLiveData<MutableList<Task>>(), CustomLiveData<MutableList<Task>> {
 
-    private var saveInLocalStorage = false
+    private var taskOrigin: FireflyConstants.TaskOrigin = FireflyConstants.TaskOrigin.FROM_DB
 
     override fun setLivedataValue(value: MutableList<Task>) {
         this.value = value
@@ -27,11 +28,11 @@ class TaskListLiveData @Inject constructor(): MutableLiveData<MutableList<Task>>
     override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver) {
 
         this.observe(lifecycleRegistryOwner as LifecycleOwner,
-                Observer<MutableList<Task>> { Tasks -> observer.handleChangesInObservedTasks(Tasks!!, saveInLocalStorage) })
+                Observer<MutableList<Task>> { Tasks -> observer.handleChangesInObservedTasks(Tasks!!, taskOrigin) })
 
     }
 
-    override fun forceStorageInLocalDatabaseOnNewData(force: Boolean) {
-        saveInLocalStorage = force
+    override fun setTaskOrigin(origin: FireflyConstants.TaskOrigin) {
+        taskOrigin = origin
     }
 }

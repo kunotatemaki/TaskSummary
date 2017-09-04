@@ -47,7 +47,7 @@ class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakRe
     @OnLifecycleEvent(Lifecycle.Event.ON_START)
     fun actionInOnResume() {
         log.d(this, "observer's onstart")
-        presenter.loadTasks()
+        presenter.loadTasksFromNetwork()
     }
 
 

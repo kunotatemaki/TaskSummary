@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import com.fireflylearning.tasksummary.FireflyApp;
 import com.fireflylearning.tasksummary.model.CustomLiveData;
 import com.fireflylearning.tasksummary.persistence.entities.Task;
+import com.fireflylearning.tasksummary.utils.FireflyConstants;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class PersistenceManagerImplAndroid implements PersistenceManager {
 
             @Override
             protected void onPostExecute(List<Task> tasks) {
-                liveTasks.forceStorageInLocalDatabaseOnNewData(false);
+                liveTasks.setTaskOrigin(FireflyConstants.TaskOrigin.FROM_DB);
                 List<Task> taskList = liveTasks.getLivedataValue();
                 if(taskList == null){
                     taskList = new ArrayList<>();

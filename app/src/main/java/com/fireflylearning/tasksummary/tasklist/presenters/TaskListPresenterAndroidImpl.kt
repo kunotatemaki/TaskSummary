@@ -48,7 +48,7 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
     }
 
 
-    override fun loadTasks() {
+    override fun loadTasksFromNetwork() {
         mView.safe {
             val myView = mView.get()!!
 
@@ -59,8 +59,6 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
                 return@safe
             }else{
                 mView.get()!!.showLoader()
-                //todo meter aquí la clave y el host que pase en el intent
-                val host: String = resources.getString(R.string.base_host)
                 network.getListOfTasks(mView.get()!!.getHostFromChache(),
                         mView.get()!!.getTokenFromChache(),
                         myView.getLiveTaks())
@@ -68,15 +66,32 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
         }
     }
 
-    override fun handleChangesInObservedTasks(tasks: MutableList<Task>, save: Boolean) {
+    override fun loadTasksFromDb() {
+        mView.safe {
+            val myView = mView.get()!!
+            myView.showLoader()
+            persistence.loadTasks(myView.getLiveTaks())
+
+        }
+    }
+
+    override fun handleChangesInObservedTasks(tasks: MutableList<Task>, origin: FireflyConstants.TaskOrigin) {
         mView.safe {
             val myView = mView.get()!!
             myView.hideLoader()
             if(tasks.size == 0){
-                myView.showEmptyList(resources.getString(R.string.no_tasks))
+                //no tasks. If there are task in database, show them. Else, show empty message
+                when(origin){
+
+                    FireflyConstants.TaskOrigin.FROM_NETWORK -> loadTasksFromDb();
+                    FireflyConstants.TaskOrigin.FROM_DB -> myView.showEmptyList(resources.getString(R.string.no_tasks))
+                }
+
+
             }else {
                 mView.get()!!.setTasksInView(tasks)
-                if(save){
+                if(origin == FireflyConstants.TaskOrigin.FROM_NETWORK ){
+                    //data from network -> store in db
                     persistence.insertListOfTasks(tasks)
                 }
             }

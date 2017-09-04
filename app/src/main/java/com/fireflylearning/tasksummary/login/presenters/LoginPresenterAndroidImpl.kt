@@ -86,7 +86,7 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
 
     }
 
-    override fun handleChangesInObservedTasks(tasks: MutableList<Task>, save: Boolean) {
+    override fun handleChangesInObservedTasks(tasks: MutableList<Task>, origin: FireflyConstants.TaskOrigin) {
         //do nothing
     }
     // endregion

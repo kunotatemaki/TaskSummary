@@ -10,6 +10,6 @@ import com.fireflylearning.tasksummary.utils.FireflyConstants
 interface MyLivedataObserver {
 
     fun handleChangesInObservedStatus(status: FireflyConstants.TokenError)
-    fun handleChangesInObservedTasks(tasks: MutableList<Task>, save: Boolean)
+    fun handleChangesInObservedTasks(tasks: MutableList<Task>, origin: FireflyConstants.TaskOrigin)
 
 }

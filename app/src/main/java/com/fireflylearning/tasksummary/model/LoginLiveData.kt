@@ -31,7 +31,7 @@ class LoginLiveData @Inject constructor(): MutableLiveData<FireflyConstants.Toke
 
     }
 
-    override fun forceStorageInLocalDatabaseOnNewData(force: Boolean) {
-
+    override fun setTaskOrigin(origin: FireflyConstants.TaskOrigin) {
+        //do nothing
     }
 }

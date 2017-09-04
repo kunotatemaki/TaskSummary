@@ -63,21 +63,23 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
                                 }
 
                         //order the list by task's date set
-                        val sortedList = list.sortedWith(compareBy({ it.set }))
+                        val sortedList: List<Task> = list.sortedWith(compareBy({ it.set }))
 
-                        tasks.forceStorageInLocalDatabaseOnNewData(true)
+                        tasks.setTaskOrigin(FireflyConstants.TaskOrigin.FROM_NETWORK)
 
                         tasks.setLivedataValue(sortedList as MutableList<Task>)
 
                     } else {
 
                         log.d(this, "empty response")
+                        tasks.setTaskOrigin(FireflyConstants.TaskOrigin.FROM_NETWORK)
                         tasks.setLivedataValue(arrayListOf())
                     }
                 }
 
                 override fun onFailure(call: Call<TaskServerResponse>?, t: Throwable?) {
                     log.d(this, t?.message.toString())
+                    tasks.setTaskOrigin(FireflyConstants.TaskOrigin.FROM_NETWORK)
                     tasks.setLivedataValue(arrayListOf())
 
                 }

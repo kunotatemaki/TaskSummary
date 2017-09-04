@@ -103,6 +103,7 @@ class LoginActivity : BaseActivity(), LoginView {
         intent.putExtra(FireflyConstants.HOST, ViewModelProviders.of(this).get(LoginViewModel::class.java).host)
         intent.putExtra(FireflyConstants.SECRET_TOKEN, ViewModelProviders.of(this).get(LoginViewModel::class.java).token)
         startActivity(intent)
+        finish()
     }
 
     override fun showErrorFromResponse(error: FireflyConstants.TokenError) {
