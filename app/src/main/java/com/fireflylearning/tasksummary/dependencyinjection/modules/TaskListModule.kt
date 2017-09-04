@@ -5,7 +5,7 @@ import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifec
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserverAndroidImpl
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenterAndroidImpl
-import com.fireflylearning.tasksummary.tasklist.views.TaksListView
+import com.fireflylearning.tasksummary.tasklist.views.TaskListView
 import dagger.Module
 import dagger.Provides
 import java.lang.ref.WeakReference
@@ -15,7 +15,7 @@ import java.lang.ref.WeakReference
  */
 @Module
 @CustomScopes.ActivityScope
-class TaskListModule(private var mView: TaksListView) {
+class TaskListModule(private var mView: TaskListView) {
 
     @Provides
     fun providesTaskListPresenter(presenterAndroidImpl: TaskListPresenterAndroidImpl) : TaskListPresenter {
@@ -23,7 +23,7 @@ class TaskListModule(private var mView: TaksListView) {
     }
 
     @Provides
-    fun providesTaskListView(): WeakReference<TaksListView>{
+    fun providesTaskListView(): WeakReference<TaskListView>{
         return WeakReference(mView)
     }
 

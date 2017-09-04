@@ -1,8 +1,6 @@
 package com.fireflylearning.tasksummary.tasklist.presenters
 
 import android.support.annotation.VisibleForTesting
-import android.text.TextUtils
-import android.view.TextureView
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
@@ -11,7 +9,7 @@ import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
-import com.fireflylearning.tasksummary.tasklist.views.TaksListView
+import com.fireflylearning.tasksummary.tasklist.views.TaskListView
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
@@ -22,7 +20,7 @@ import javax.inject.Inject
  * Created by Roll on 31/8/17.
  */
 @CustomScopes.ActivityScope
-class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<TaksListView>)
+open class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<TaskListView>)
     : TaskListPresenter, MyLivedataObserver {
 
     @Inject
@@ -41,11 +39,13 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
     lateinit var persistence: PersistenceManager
 
     @VisibleForTesting
-    constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<TaksListView>,
-                network: NetworkManager) : this(mView) {
+    constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<TaskListView>,
+                network: NetworkManager, persistence: PersistenceManager, preferences: PreferencesManager) : this(mView) {
         this.resources = resources
         this.log = log
         this.network = network
+        this.persistence = persistence
+        this.preferences = preferences
 
     }
 

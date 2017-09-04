@@ -8,7 +8,7 @@ import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
-import com.fireflylearning.tasksummary.tasklist.views.TaksListView
+import com.fireflylearning.tasksummary.tasklist.views.TaskListView
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import java.lang.ref.WeakReference
 import javax.inject.Inject
@@ -17,7 +17,7 @@ import javax.inject.Inject
  * Created by Roll on 31/8/17.
  */
 @CustomScopes.ActivityScope
-class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakReference<TaksListView>)
+class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakReference<TaskListView>)
     : TaskListLifecycleObserver, LifecycleObserver {
 
     @Inject

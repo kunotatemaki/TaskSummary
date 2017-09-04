@@ -7,7 +7,7 @@ import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifec
 /**
  * Created by Roll on 31/8/17.
  */
-interface TaksListView {
+interface TaskListView {
 
     fun addLifecycleObserver(observer: TaskListLifecycleObserver)
 

@@ -34,7 +34,7 @@ import javax.inject.Inject
 
 
 @CustomScopes.ActivityScope
-class TaskListActivity : BaseActivity(), TaksListView {
+class TaskListActivity : BaseActivity(), TaskListView {
 
     @Inject
     lateinit var presenter: TaskListPresenter
