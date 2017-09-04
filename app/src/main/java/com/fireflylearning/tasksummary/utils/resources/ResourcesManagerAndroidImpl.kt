@@ -36,4 +36,5 @@ class ResourcesManagerAndroidImpl @Inject constructor(): ResourcesManager {
     override fun getColor(resId: Int): Int {
         return ResourcesCompat.getColor(context.resources, resId, null)
     }
+
 }

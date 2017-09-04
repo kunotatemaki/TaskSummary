@@ -16,15 +16,7 @@
 
 
     <string name="no_tasks">No tasks to show</string>
-    <string name="pic_description">Image of the superhero</string>
-    <string name="title_activity_super_hero_detail">SuperHeroDetailActivity</string>
     <string name="action_settings">Settings</string>
-    <string name="activity_image_trans" translatable="false">shared_image</string>
-    <string name="real_name">Real Name:</string>
-    <string name="height">Height:</string>
-    <string name="power">Power:</string>
-    <string name="abilities">Abilities:</string>
-    <string name="groups">Groups:</string>
     <string name="draft">draft</string>
     <string name="markbook_highlighted">markbook (highlighted)</string>
     <string name="markbook">markbook</string>
