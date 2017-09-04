@@ -55,7 +55,6 @@
                     android:id="@+id/token"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="secret1"
                     android:imeActionId="@integer/ime_action"
                     android:imeActionLabel="@string/action_sign_in"
                     android:imeOptions="actionUnspecified"
