@@ -23,11 +23,13 @@ interface TaksListView {
 
     fun hideLoader()
 
-    fun showTaskDetails(task: Task)
+    fun showTaskDetails(url: String)
 
     fun getTokenFromChache() : String
 
     fun getHostFromChache() : String
+
+    fun showMessage(message: String)
 
     fun goToLogin()
 }

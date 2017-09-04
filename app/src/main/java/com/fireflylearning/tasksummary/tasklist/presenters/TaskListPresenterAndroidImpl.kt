@@ -1,6 +1,8 @@
 package com.fireflylearning.tasksummary.tasklist.presenters
 
 import android.support.annotation.VisibleForTesting
+import android.text.TextUtils
+import android.view.TextureView
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
@@ -104,9 +106,19 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
 
     override fun taskClicked(task: Task) {
         log.d(this, "clicked: " + task.title)
-        /*mView.safe {
-            mView.get()!!.showTaskDetails(superHeroView, superHero)
-        }*/
+        mView.safe {
+            if(task.descriptionPageUrl == null){
+                mView.get()!!.showMessage(resources.getString(R.string.no_description))
+            }else{
+                var url = resources.getString(R.string.details_url)
+                url = url.replace("<host>", mView.get()!!.getHostFromChache())
+                url = url.replace("<deviceId>", FireflyConstants.DEVICE_ID)
+                url = url.replace("<secret>", mView.get()!!.getTokenFromChache())
+                url = url.replace("<url from api>", task.descriptionPageUrl)
+                log.d(this, url)
+                mView.get()!!.showTaskDetails(url)
+            }
+        }
     }
 
     override fun closeSession() {

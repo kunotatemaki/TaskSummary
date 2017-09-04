@@ -26,5 +26,10 @@
         <activity android:name=".tasklist.views.TaskListActivity"
             android:theme="@style/AppTheme">
         </activity>
+        <activity android:name=".taskdetails.ActivityDetails"
+            android:theme="@style/AppTheme"/>
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".tasklist.views.TaskListActivity" />
     </application>
 </manifest>

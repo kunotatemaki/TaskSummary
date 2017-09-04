@@ -6,6 +6,7 @@ import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.annotation.VisibleForTesting
+import android.support.design.widget.Snackbar
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -20,6 +21,7 @@ import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
+import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
@@ -77,7 +79,7 @@ class TaskListActivity : BaseActivity(), TaksListView {
         mBinding.showMessage = ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty
 
         //set the mAdapter for the recycler view
-        mRecyclerView = mBinding.superheroList
+        mRecyclerView = mBinding.taskList
 
         // use a linear layout manager
         val mLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -146,8 +148,14 @@ class TaskListActivity : BaseActivity(), TaksListView {
         mBinding.progressBar.visibility = View.INVISIBLE
     }
 
-    override fun showTaskDetails(task: Task) {
+    override fun showTaskDetails(url: String) {
+        val intent = Intent(this, ActivityDetails::class.java)
+        intent.putExtra(FireflyConstants.URL, url)
+        startActivity(intent)
+    }
 
+    override fun showMessage(message: String) {
+        Snackbar.make(mBinding.root, message, Snackbar.LENGTH_LONG).show()
     }
 
     override fun getTokenFromChache(): String {

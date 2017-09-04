@@ -29,6 +29,8 @@
 
 
     <string name="base_host" translatable="false">appdev.tryfirefly.com</string>
+    <string name="details_url" translatable="false">https://&lt;host&gt;/login/api/getsession?ffauth_device_id=&lt;deviceId&gt;&amp;ffauth_secret=&lt;secret&gt;&amp;Prelogin=/&lt;url from api&gt;</string>
     <string name="accept">Accept</string>
     <string name="remain_logged">Remain Logged</string>
+    <string name="no_description">No description associated with this task</string>
 </resources>

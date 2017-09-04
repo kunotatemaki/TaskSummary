@@ -8,6 +8,7 @@ object FireflyConstants {
     val DEVICE_ID : String = "AndroidApp"
     val SECRET_TOKEN: String = "secret_token"
     val HOST: String = "host"
+    val URL: String = "task_url"
 
     enum class TokenError(val value: Int) {
         NO_OP (0),

@@ -6,6 +6,7 @@ import com.fireflylearning.tasksummary.dependencyinjection.modules.TaskListModul
 import com.fireflylearning.tasksummary.dependencyinjection.subcomponents.LoginSubcomponent
 import com.fireflylearning.tasksummary.dependencyinjection.subcomponents.TaskListSubcomponent
 import com.fireflylearning.tasksummary.splashscreen.SplashActivity
+import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
 import dagger.Component
 import javax.inject.Singleton
 
@@ -18,4 +19,5 @@ interface FireflyAppComponent {
     fun getTaskListSubcomponent(module: TaskListModule): TaskListSubcomponent
     fun getLoginSubcomponent(module: LoginModule): LoginSubcomponent
     fun inject(activity: SplashActivity)
+    fun inject(activity: ActivityDetails)
 }
