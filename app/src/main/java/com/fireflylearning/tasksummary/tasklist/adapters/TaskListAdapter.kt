@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityTaskListRowBinding
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.viewholders.TaskListViewHolder
 import com.fireflylearning.tasksummary.utils.TaskUtils

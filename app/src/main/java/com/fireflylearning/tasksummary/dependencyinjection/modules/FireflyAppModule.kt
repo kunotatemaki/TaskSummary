@@ -6,6 +6,8 @@ import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
+import com.fireflylearning.tasksummary.persistence.PersistenceManager
+import com.fireflylearning.tasksummary.persistence.PersistenceManagerImplAndroid
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManagerAndroidImpl
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManagerImpl
@@ -49,5 +51,10 @@ class FireflyAppModule(private val application: FireflyApp) {
     @Provides
     fun providesPreferencesManager(preferences: PreferencesManagerImpl): PreferencesManager {
         return preferences
+    }
+
+    @Provides
+    fun providesPersistenceManager(persistence: PersistenceManagerImplAndroid): PersistenceManager{
+        return persistence
     }
 }

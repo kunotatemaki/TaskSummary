@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
-        <import type="com.fireflylearning.tasksummary.model.Task"/>
+        <import type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
         <import type="com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter"/>
         <import type="com.fireflylearning.tasksummary.utils.TaskUtils"/>
         <import type="com.fireflylearning.tasksummary.utils.resources.ResourcesManager"/>
         <import type="com.fireflylearning.tasksummary.R"/>
         <variable
             name="task"
-            type="Task"/>
+            type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
         <variable
             name="presenter"
             type="TaskListPresenter"/>

@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.network.logic
 
 import com.fireflylearning.tasksummary.model.CustomLiveData
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 
 /**

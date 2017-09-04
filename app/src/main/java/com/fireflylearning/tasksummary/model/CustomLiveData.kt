@@ -9,6 +9,8 @@ import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
  */
 interface CustomLiveData<T> {
 
+    fun forceStorageInLocalDatabaseOnNewData(force: Boolean)
+
     fun setLivedataValue(value: T)
 
     fun getLivedataValue(): T?

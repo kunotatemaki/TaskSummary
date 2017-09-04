@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.utils.ui
 
 
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 
 /**
@@ -10,6 +10,6 @@ import com.fireflylearning.tasksummary.utils.FireflyConstants
 interface MyLivedataObserver {
 
     fun handleChangesInObservedStatus(status: FireflyConstants.TokenError)
-    fun handleChangesInObservedTasks(tasks: MutableList<Task>)
+    fun handleChangesInObservedTasks(tasks: MutableList<Task>, save: Boolean)
 
 }

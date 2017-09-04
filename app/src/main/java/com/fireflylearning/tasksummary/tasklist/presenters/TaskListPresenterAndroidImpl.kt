@@ -4,8 +4,9 @@ import android.support.annotation.VisibleForTesting
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
+import com.fireflylearning.tasksummary.persistence.PersistenceManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.views.TaksListView
@@ -33,6 +34,9 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
 
     @Inject
     lateinit var preferences: PreferencesManager
+
+    @Inject
+    lateinit var persistence: PersistenceManager
 
     @VisibleForTesting
     constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<TaksListView>,
@@ -64,14 +68,17 @@ class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<
         }
     }
 
-    override fun handleChangesInObservedTasks(tasks: MutableList<Task>) {
+    override fun handleChangesInObservedTasks(tasks: MutableList<Task>, save: Boolean) {
         mView.safe {
             val myView = mView.get()!!
             myView.hideLoader()
             if(tasks.size == 0){
-                myView.showEmptyList(resources.getString(R.string.no_superheroes))
+                myView.showEmptyList(resources.getString(R.string.no_tasks))
             }else {
                 mView.get()!!.setTasksInView(tasks)
+                if(save){
+                    persistence.insertListOfTasks(tasks)
+                }
             }
         }
     }

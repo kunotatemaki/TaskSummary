@@ -1,6 +1,6 @@
 package com.fireflylearning.tasksummary.tasklist.presenters
 
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 
 /**
  * Created by Roll on 31/8/17.

@@ -26,19 +26,19 @@ class TaskElementResponse {
     @SerializedName("draft")
     @Expose
     val draft: Boolean? = null
-    @SerializedName("show_in_markbook")
+    @SerializedName("showInMarkbook")
     @Expose
     val showInMarkbook: Boolean? = null
-    @SerializedName("highlight_in_markbook")
+    @SerializedName("highlightInMarkbook")
     @Expose
     val highlightInMarkbook: Boolean? = null
-    @SerializedName("show_in_parent_portal")
+    @SerializedName("showInParentPortal")
     @Expose
     val showInParentPortal: Boolean? = null
-    @SerializedName("hide_addressees")
+    @SerializedName("hideAddressees")
     @Expose
     val hideAddressees: Boolean? = null
-    @SerializedName("description_page_url")
+    @SerializedName("descriptionPageUrl")
     @Expose
     val descriptionPageUrl: String? = null
 }

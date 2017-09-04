@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.utils
 
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import java.text.SimpleDateFormat
 import java.util.ArrayList
@@ -28,9 +28,9 @@ class TaskUtils @Inject constructor(){
             }
         }
 
-        task.show_in_markbook?.let markbook@ {
-            task.highlight_in_markbook?.let {
-                if(task.highlight_in_markbook!!) {
+        task.showInMarkbook?.let markbook@ {
+            task.highlightInMarkbook?.let {
+                if(task.highlightInMarkbook!!) {
                     flags.add(resources.getString(R.string.markbook_highlighted))
                     return@markbook
                 }
@@ -38,14 +38,14 @@ class TaskUtils @Inject constructor(){
             flags.add(resources.getString(R.string.markbook))
         }
 
-        task.show_in_parent_portal?.let {
-            if (task.show_in_parent_portal) {
+        task.showInParentPortal?.let {
+            if (task.showInParentPortal) {
                 flags.add(resources.getString(R.string.show_in_parent_portal))
             }
         }
 
-        task.hide_addressees?.let {
-            if (task.hide_addressees) {
+        task.hideAddressees?.let {
+            if (task.hideAddressees) {
                 flags.add(resources.getString(R.string.hide_addressees))
             }
         }

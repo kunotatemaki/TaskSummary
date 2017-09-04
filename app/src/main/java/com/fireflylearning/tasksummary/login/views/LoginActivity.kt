@@ -3,6 +3,7 @@ package com.fireflylearning.tasksummary.login.views
 import android.app.AlertDialog
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.ViewModelProviders
+import android.content.DialogInterface
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Build
@@ -123,6 +124,17 @@ class LoginActivity : BaseActivity(), LoginView {
         dialog.setMessage(message)
 
         dialog.setPositiveButton(resources.getString(R.string.accept)) { _, _ -> }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            dialog.setOnDismissListener {
+                log.d(this, "cerrado")
+                getLiveStatus().setLivedataValue(FireflyConstants.TokenError.NO_OP)
+            }
+        }else{
+            dialog.create().setOnDismissListener{
+                log.d(this, "cerrado")
+                getLiveStatus().setLivedataValue(FireflyConstants.TokenError.NO_OP)
+            }
+        }
 
         val alert = dialog.create()
         alert.show()

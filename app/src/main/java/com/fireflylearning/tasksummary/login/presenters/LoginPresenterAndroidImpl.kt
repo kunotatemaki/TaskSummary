@@ -3,7 +3,7 @@ package com.fireflylearning.tasksummary.login.presenters
 import android.text.TextUtils
 import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginView
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.utils.FireflyConstants
@@ -86,7 +86,7 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
 
     }
 
-    override fun handleChangesInObservedTasks(tasks: MutableList<Task>) {
+    override fun handleChangesInObservedTasks(tasks: MutableList<Task>, save: Boolean) {
         //do nothing
     }
     // endregion

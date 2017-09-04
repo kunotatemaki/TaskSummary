@@ -17,4 +17,6 @@ object FireflyConstants {
         RESPONSE_OK (4)
     }
 
+    val DATABASE_NAME: String = "firefly-database"
+
 }

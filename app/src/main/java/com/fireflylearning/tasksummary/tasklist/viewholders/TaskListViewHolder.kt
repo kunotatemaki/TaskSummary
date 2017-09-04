@@ -2,7 +2,7 @@ package com.fireflylearning.tasksummary.tasklist.viewholders
 
 import android.support.v7.widget.RecyclerView
 import com.fireflylearning.tasksummary.databinding.ActivityTaskListRowBinding
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.utils.TaskUtils
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager

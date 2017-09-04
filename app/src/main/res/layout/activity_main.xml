@@ -25,7 +25,7 @@
             android:layout_marginRight="@dimen/horizontal_margin"
             android:layout_marginTop="@dimen/vertical_margin"
             android:visibility="@{safeUnbox(showMessage)? View.VISIBLE : View.GONE}"
-            android:text="@string/no_superheroes"
+            android:text="@string/no_tasks"
             android:textAppearance="@style/TextAppearance.AppCompat.Light.SearchResult.Title"
             app:layout_constraintLeft_toLeftOf="@+id/superhero_list"
             app:layout_constraintRight_toRightOf="@+id/superhero_list"

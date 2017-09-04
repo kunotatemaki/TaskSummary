@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.tasklist.views
 
 import com.fireflylearning.tasksummary.model.CustomLiveData
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 
 /**

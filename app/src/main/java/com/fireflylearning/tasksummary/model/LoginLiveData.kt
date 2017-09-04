@@ -30,4 +30,8 @@ class LoginLiveData @Inject constructor(): MutableLiveData<FireflyConstants.Toke
                 Observer<FireflyConstants.TokenError> { status -> observer.handleChangesInObservedStatus(status!!) })
 
     }
+
+    override fun forceStorageInLocalDatabaseOnNewData(force: Boolean) {
+
+    }
 }

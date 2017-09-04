@@ -3,7 +3,7 @@ package com.fireflylearning.tasksummary.network.logic
 import android.text.TextUtils
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.model.CustomLiveData
-import com.fireflylearning.tasksummary.model.Task
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.FireflyConstants
@@ -64,6 +64,8 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
 
                         //order the list by task's date set
                         val sortedList = list.sortedWith(compareBy({ it.set }))
+
+                        tasks.forceStorageInLocalDatabaseOnNewData(true)
 
                         tasks.setLivedataValue(sortedList as MutableList<Task>)
 
@@ -140,3 +142,5 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
 
     }
 }
+
+//todo probar lo de la rotación en el login para ver si vuelve a mostrar el modal

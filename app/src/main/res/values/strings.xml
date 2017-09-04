@@ -15,7 +15,7 @@
     <string name="task_list_error">An error occurred while loading data</string>
 
 
-    <string name="no_superheroes">No superheroes to show</string>
+    <string name="no_tasks">No tasks to show</string>
     <string name="pic_description">Image of the superhero</string>
     <string name="title_activity_super_hero_detail">SuperHeroDetailActivity</string>
     <string name="action_settings">Settings</string>
