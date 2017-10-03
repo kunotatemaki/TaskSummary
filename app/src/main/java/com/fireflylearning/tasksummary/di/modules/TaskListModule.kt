@@ -1,6 +1,6 @@
-package com.fireflylearning.tasksummary.dependencyinjection.modules
+package com.fireflylearning.tasksummary.di.modules
 
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserverAndroidImpl
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter

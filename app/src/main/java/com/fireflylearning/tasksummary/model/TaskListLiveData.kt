@@ -1,7 +1,6 @@
 package com.fireflylearning.tasksummary.model
 
 import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import com.fireflylearning.tasksummary.persistence.entities.Task
@@ -25,9 +24,9 @@ class TaskListLiveData @Inject constructor(): MutableLiveData<MutableList<Task>>
         return this.value
     }
 
-    override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver) {
+    override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleOwner, observer: MyLivedataObserver) {
 
-        this.observe(lifecycleRegistryOwner as LifecycleOwner,
+        this.observe(lifecycleRegistryOwner,
                 Observer<MutableList<Task>> { Tasks -> observer.handleChangesInObservedTasks(Tasks!!, taskOrigin) })
 
     }

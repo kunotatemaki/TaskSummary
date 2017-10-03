@@ -1,7 +1,7 @@
-package com.fireflylearning.tasksummary.dependencyinjection.subcomponents
+package com.fireflylearning.tasksummary.di.subcomponents
 
-import com.fireflylearning.tasksummary.dependencyinjection.modules.TaskListModule
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.modules.TaskListModule
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity
 import dagger.Subcomponent
 

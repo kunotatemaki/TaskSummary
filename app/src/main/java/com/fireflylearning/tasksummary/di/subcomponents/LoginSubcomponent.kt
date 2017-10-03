@@ -1,7 +1,7 @@
-package com.fireflylearning.tasksummary.dependencyinjection.subcomponents
+package com.fireflylearning.tasksummary.di.subcomponents
 
-import com.fireflylearning.tasksummary.dependencyinjection.modules.LoginModule
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.modules.LoginModule
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import dagger.Subcomponent
 

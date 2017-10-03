@@ -1,10 +1,10 @@
-package com.fireflylearning.tasksummary.dependencyinjection.components
+package com.fireflylearning.tasksummary.di.components
 
-import com.fireflylearning.tasksummary.dependencyinjection.modules.FireflyAppModule
-import com.fireflylearning.tasksummary.dependencyinjection.modules.LoginModule
-import com.fireflylearning.tasksummary.dependencyinjection.modules.TaskListModule
-import com.fireflylearning.tasksummary.dependencyinjection.subcomponents.LoginSubcomponent
-import com.fireflylearning.tasksummary.dependencyinjection.subcomponents.TaskListSubcomponent
+import com.fireflylearning.tasksummary.di.modules.FireflyAppModule
+import com.fireflylearning.tasksummary.di.modules.LoginModule
+import com.fireflylearning.tasksummary.di.modules.TaskListModule
+import com.fireflylearning.tasksummary.di.subcomponents.LoginSubcomponent
+import com.fireflylearning.tasksummary.di.subcomponents.TaskListSubcomponent
 import com.fireflylearning.tasksummary.splashscreen.SplashActivity
 import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
 import dagger.Component

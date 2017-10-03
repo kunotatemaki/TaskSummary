@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.dependencyinjection.modules
+package com.fireflylearning.tasksummary.di.modules
 
 import android.content.Context
 import com.fireflylearning.tasksummary.utils.logger.AndroidLoggerHelperImpl

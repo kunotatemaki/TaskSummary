@@ -1,11 +1,10 @@
 package com.fireflylearning.tasksummary.model
 
 import android.arch.lifecycle.LifecycleOwner
-import android.arch.lifecycle.LifecycleRegistryOwner
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
-import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import com.fireflylearning.tasksummary.utils.FireflyConstants
+import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import javax.inject.Inject
 
 /**
@@ -24,9 +23,9 @@ class LoginLiveData @Inject constructor(): MutableLiveData<FireflyConstants.Toke
         return FireflyConstants.TokenError.NO_OP
     }
 
-    override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver) {
+    override fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleOwner, observer: MyLivedataObserver) {
 
-        this.observe(lifecycleRegistryOwner as LifecycleOwner,
+        this.observe(lifecycleRegistryOwner,
                 Observer<FireflyConstants.TokenError> { status -> observer.handleChangesInObservedStatus(status!!) })
 
     }

@@ -3,7 +3,7 @@ package com.fireflylearning.tasksummary.tasklist.presenters
 import android.support.annotation.VisibleForTesting
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.persistence.PersistenceManager

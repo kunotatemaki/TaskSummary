@@ -1,6 +1,6 @@
 package com.fireflylearning.tasksummary.model
 
-import android.arch.lifecycle.LifecycleRegistryOwner
+import android.arch.lifecycle.LifecycleOwner
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 
@@ -16,6 +16,6 @@ interface CustomLiveData<T> {
 
     fun getLivedataValue(): T?
 
-    fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleRegistryOwner, observer: MyLivedataObserver)
+    fun addObserverToLivedata(lifecycleRegistryOwner: LifecycleOwner, observer: MyLivedataObserver)
 
 }

@@ -1,7 +1,5 @@
 package com.fireflylearning.tasksummary.utils.ui
 
-import android.arch.lifecycle.LifecycleRegistry
-import android.arch.lifecycle.LifecycleRegistryOwner
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
@@ -11,9 +9,9 @@ import android.widget.TextView
  * Created by Roll on 31/8/17.
  */
 
-open class BaseActivity : AppCompatActivity(), LifecycleRegistryOwner {
+open class BaseActivity : AppCompatActivity(){
 
-    val mLifecycle = LifecycleRegistry(this)
+
 
     protected fun setToolbar(toolbar: Toolbar, backArrow: Boolean) {
         setSupportActionBar(toolbar)
@@ -39,10 +37,6 @@ open class BaseActivity : AppCompatActivity(), LifecycleRegistryOwner {
 
         }
 
-    }
-
-    override fun getLifecycle(): LifecycleRegistry {
-        return mLifecycle
     }
 
 }

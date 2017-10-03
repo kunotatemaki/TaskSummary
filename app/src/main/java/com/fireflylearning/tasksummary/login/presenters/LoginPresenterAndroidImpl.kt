@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.login.presenters
 
 import android.text.TextUtils
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginView
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager

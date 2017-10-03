@@ -2,10 +2,10 @@ package com.fireflylearning.tasksummary.tasklist.lifecycleobservers
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
-import android.arch.lifecycle.LifecycleRegistryOwner
+import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.OnLifecycleEvent
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.views.TaskListView
@@ -39,7 +39,7 @@ class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakRe
         //force presenter to observe data (repos and user)
         if (presenter is MyLivedataObserver) {
             mView.safe {
-                mView.get()!!.getLiveTaks().addObserverToLivedata(mView.get()!! as LifecycleRegistryOwner, presenter as MyLivedataObserver)
+                mView.get()!!.getLiveTaks().addObserverToLivedata(mView.get()!! as LifecycleOwner, presenter as MyLivedataObserver)
             }
         }
     }

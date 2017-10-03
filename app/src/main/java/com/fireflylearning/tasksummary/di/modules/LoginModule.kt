@@ -1,7 +1,7 @@
-package com.fireflylearning.tasksummary.dependencyinjection.modules
+package com.fireflylearning.tasksummary.di.modules
 
 
-import com.fireflylearning.tasksummary.dependencyinjection.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleObserver
 import com.rukiasoft.fintonictest.sherodetails.lifecycleobservers.LoginLifecycleObserverAndroidImpl
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
