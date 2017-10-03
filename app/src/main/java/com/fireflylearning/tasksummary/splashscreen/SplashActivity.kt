@@ -9,19 +9,20 @@ import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
+import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import javax.inject.Inject
 
 /**
  * Created by Roll on 1/9/17.
  */
-class SplashActivity : AppCompatActivity() {
+class SplashActivity : BaseActivity() {
 
     @Inject
     lateinit var preferences : PreferencesManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        (application as FireflyApp).mComponent.inject(this)
+
         val host = preferences.getHost()
         val token = preferences.getSecretToken()
         if(TextUtils.isEmpty(host) && TextUtils.isEmpty(token)){

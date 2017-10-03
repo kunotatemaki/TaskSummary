@@ -17,8 +17,10 @@ import javax.inject.Inject
  * Created by Roll on 31/8/17.
  */
 @CustomScopes.ActivityScope
-class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakReference<TaskListView>)
+class TaskListLifecycleObserverAndroidImpl @Inject constructor(private var taskListView: TaskListView?)
     : TaskListLifecycleObserver, LifecycleObserver {
+
+    private val mView: WeakReference<TaskListView> = WeakReference(taskListView!!)
 
     @Inject
     lateinit var presenter: TaskListPresenter
@@ -26,10 +28,12 @@ class TaskListLifecycleObserverAndroidImpl @Inject constructor(val mView: WeakRe
     @Inject
     lateinit var log: LoggerHelper
 
+
     init {
         mView.safe{
             mView.get()!!.addLifecycleObserver(this@TaskListLifecycleObserverAndroidImpl)
         }
+        taskListView = null
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)

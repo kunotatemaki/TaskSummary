@@ -3,8 +3,8 @@ package com.fireflylearning.tasksummary.login.presenters
 import android.text.TextUtils
 import com.fireflylearning.tasksummary.di.scopes.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginView
-import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
@@ -19,7 +19,9 @@ import javax.inject.Inject
  * Created by Roll on 1/9/17.
  */
 @CustomScopes.ActivityScope
-class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<LoginView>): LoginPresenter, MyLivedataObserver {
+class LoginPresenterAndroidImpl @Inject constructor(private var loginView: LoginView?): LoginPresenter, MyLivedataObserver {
+
+    private val mView: WeakReference<LoginView> = WeakReference(loginView!!)
 
     @Inject
     lateinit var preferences: PreferencesManager
@@ -32,6 +34,10 @@ class LoginPresenterAndroidImpl @Inject constructor(val mView: WeakReference<Log
 
     @Inject
     lateinit var network: NetworkManager
+
+    init {
+        loginView = null
+    }
 
     override fun attemptLogin(host: String, token: String) {
         // Reset errors.

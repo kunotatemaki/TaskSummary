@@ -6,32 +6,31 @@ import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleOb
 import com.rukiasoft.fintonictest.sherodetails.lifecycleobservers.LoginLifecycleObserverAndroidImpl
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenterAndroidImpl
+import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.login.views.LoginView
 import dagger.Module
 import dagger.Provides
 import java.lang.ref.WeakReference
+import dagger.Binds
+
+
 
 /**
  * Created by Roll on 31/8/17.
  */
 @Module
 @CustomScopes.ActivityScope
-class LoginModule(private var mView: LoginView) {
+abstract class LoginModule {
 
-    @Provides
-    fun providesLoginPresenter(presenterAndroidImpl: LoginPresenterAndroidImpl) : LoginPresenter {
-        return presenterAndroidImpl
-    }
+    @Binds
+    internal abstract fun bindMainView(act: LoginActivity): LoginView
 
-    @Provides
-    fun providesLoginView(): WeakReference<LoginView> {
-        return WeakReference(mView)
-    }
+    @Binds
+    internal abstract fun bindLoginPresenter(presenterAndroidImpl: LoginPresenterAndroidImpl) : LoginPresenter
 
 
-    @Provides
-    fun providesLoginLifecycleObserver(observer: LoginLifecycleObserverAndroidImpl): LoginLifecycleObserver {
-        return observer
-    }
+    @Binds
+    internal abstract fun bindLoginLifecycleObserver(observer: LoginLifecycleObserverAndroidImpl): LoginLifecycleObserver
+
 
 }

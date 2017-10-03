@@ -43,9 +43,7 @@ class LoginActivity : BaseActivity(), LoginView {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //dependency injection
-        (application as FireflyApp).mComponent
-                .getLoginSubcomponent(LoginModule(this)).inject(this)
+
 
         //databinding
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_login, GlideBindingComponent())

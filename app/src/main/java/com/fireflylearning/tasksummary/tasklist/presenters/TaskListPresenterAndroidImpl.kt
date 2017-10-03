@@ -4,6 +4,7 @@ import android.support.annotation.VisibleForTesting
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.login.views.LoginView
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
@@ -20,8 +21,10 @@ import javax.inject.Inject
  * Created by Roll on 31/8/17.
  */
 @CustomScopes.ActivityScope
-open class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakReference<TaskListView>)
+open class TaskListPresenterAndroidImpl @Inject constructor(private var taskListView: TaskListView?)
     : TaskListPresenter, MyLivedataObserver {
+
+    private val mView: WeakReference<TaskListView> = WeakReference(taskListView!!)
 
     @Inject
     lateinit var log: LoggerHelper
@@ -38,8 +41,12 @@ open class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakRefer
     @Inject
     lateinit var persistence: PersistenceManager
 
+    init {
+        taskListView = null
+    }
+
     @VisibleForTesting
-    constructor(resources: ResourcesManager, log: LoggerHelper, mView: WeakReference<TaskListView>,
+    constructor(resources: ResourcesManager, log: LoggerHelper, mView: TaskListView,
                 network: NetworkManager, persistence: PersistenceManager, preferences: PreferencesManager) : this(mView) {
         this.resources = resources
         this.log = log
@@ -48,7 +55,6 @@ open class TaskListPresenterAndroidImpl @Inject constructor(val mView: WeakRefer
         this.preferences = preferences
 
     }
-
 
     override fun loadTasksFromNetwork() {
         mView.safe {

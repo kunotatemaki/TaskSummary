@@ -33,7 +33,7 @@ class ActivityDetails : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //dependency injection
-        (application as FireflyApp).mComponent.inject(this)
+        //(application as FireflyApp).mComponent.inject(this)
 
         //databinding
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_webview)

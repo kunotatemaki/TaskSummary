@@ -4,12 +4,14 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.text.TextUtils
 import android.widget.TextView
+import dagger.android.DaggerActivity
+import dagger.android.support.DaggerAppCompatActivity
 
 /**
  * Created by Roll on 31/8/17.
  */
 
-open class BaseActivity : AppCompatActivity(){
+open class BaseActivity : DaggerAppCompatActivity(){
 
 
 

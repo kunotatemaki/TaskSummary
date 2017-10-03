@@ -61,10 +61,6 @@ class TaskListActivity : BaseActivity(), TaskListView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //region DEPENDENCY INJECTION
-        (application as FireflyApp).mComponent.getTaskListSubcomponent(TaskListModule(this))
-                .inject(this)
-        //endregion
 
         //get token and host from intent
         ViewModelProviders.of(this).get(TaskListViewModel::class.java).token = intent.extras[FireflyConstants.SECRET_TOKEN] as String

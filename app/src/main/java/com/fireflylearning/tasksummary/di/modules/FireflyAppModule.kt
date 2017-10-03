@@ -1,5 +1,6 @@
 package com.fireflylearning.tasksummary.di.modules
 
+import android.app.Application
 import android.content.Context
 import com.fireflylearning.tasksummary.utils.logger.AndroidLoggerHelperImpl
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
@@ -21,15 +22,15 @@ import javax.inject.Singleton
  */
 @Module
 @Singleton
-class FireflyAppModule(private val application: FireflyApp) {
+class FireflyAppModule {
 
-    @Provides
-    fun providesFintonicApp() : FireflyApp {
+    /*@Provides
+    fun providesApplication(application: FireflyApp): FireflyApp{
         return application
-    }
+    }*/
 
     @Provides
-    fun providesContext(): Context{
+    fun providesContext(application: FireflyApp): Context{
         return application.applicationContext
     }
 
