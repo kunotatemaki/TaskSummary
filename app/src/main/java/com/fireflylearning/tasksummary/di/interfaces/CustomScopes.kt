@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.di.scopes
+package com.fireflylearning.tasksummary.di.interfaces
 
 import javax.inject.Scope
 

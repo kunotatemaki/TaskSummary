@@ -5,7 +5,7 @@ import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.OnLifecycleEvent
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.safe
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.views.TaskListView

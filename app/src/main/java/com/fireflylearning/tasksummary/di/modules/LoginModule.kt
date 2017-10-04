@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.di.modules
 
 
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleObserver
 import com.rukiasoft.fintonictest.sherodetails.lifecycleobservers.LoginLifecycleObserverAndroidImpl
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
@@ -9,8 +9,6 @@ import com.fireflylearning.tasksummary.login.presenters.LoginPresenterAndroidImp
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.login.views.LoginView
 import dagger.Module
-import dagger.Provides
-import java.lang.ref.WeakReference
 import dagger.Binds
 
 

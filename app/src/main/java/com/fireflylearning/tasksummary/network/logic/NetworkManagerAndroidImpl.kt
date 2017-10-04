@@ -132,7 +132,7 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
     }
 
     private fun configureEndpoint(host: String){
-        val myHost: String? = if(host.contains("https://")) {
+        val myHost: String = if(host.contains("https://")) {
             host
         }else{
             TextUtils.concat("https://", host).toString()
@@ -145,4 +145,3 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
     }
 }
 
-//todo probar lo de la rotación en el login para ver si vuelve a mostrar el modal

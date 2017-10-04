@@ -4,7 +4,7 @@ import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.OnLifecycleEvent
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleObserver
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
 import com.fireflylearning.tasksummary.login.views.LoginView

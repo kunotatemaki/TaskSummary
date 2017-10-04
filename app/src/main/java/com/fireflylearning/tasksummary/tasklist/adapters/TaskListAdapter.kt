@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityTaskListRowBinding
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.tasklist.viewholders.TaskListViewHolder

@@ -1,11 +1,9 @@
 package com.fireflylearning.tasksummary
 
-import android.app.Application
-import com.fireflylearning.tasksummary.di.FireflyAppComponent
-import com.fireflylearning.tasksummary.di.modules.FireflyAppModule
+import com.fireflylearning.tasksummary.di.components.FireflyAppComponent
 import com.fireflylearning.tasksummary.persistence.databases.FireflyDatabase
 import android.arch.persistence.room.Room
-import com.fireflylearning.tasksummary.di.DaggerFireflyAppComponent
+import com.fireflylearning.tasksummary.di.components.DaggerFireflyAppComponent
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication

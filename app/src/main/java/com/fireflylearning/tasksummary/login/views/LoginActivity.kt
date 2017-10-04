@@ -10,11 +10,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityLoginBinding
-import com.fireflylearning.tasksummary.di.modules.LoginModule
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleObserver
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
 import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel

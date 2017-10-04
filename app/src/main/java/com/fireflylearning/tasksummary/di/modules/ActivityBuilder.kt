@@ -1,8 +1,6 @@
-package com.fireflylearning.tasksummary.di
+package com.fireflylearning.tasksummary.di.modules
 
-import com.fireflylearning.tasksummary.di.modules.LoginModule
-import com.fireflylearning.tasksummary.di.modules.TaskListModule
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.splashscreen.SplashActivity
 import com.fireflylearning.tasksummary.taskdetails.ActivityDetails

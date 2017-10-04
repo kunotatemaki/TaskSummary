@@ -13,11 +13,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityMainBinding
-import com.fireflylearning.tasksummary.di.modules.TaskListModule
-import com.fireflylearning.tasksummary.di.scopes.CustomScopes
+import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
