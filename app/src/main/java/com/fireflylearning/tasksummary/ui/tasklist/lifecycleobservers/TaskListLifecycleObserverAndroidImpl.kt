@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.tasklist.lifecycleobservers
+package com.fireflylearning.tasksummary.ui.tasklist.lifecycleobservers
 
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleObserver
@@ -7,8 +7,8 @@ import android.arch.lifecycle.OnLifecycleEvent
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.safe
-import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
-import com.fireflylearning.tasksummary.tasklist.views.TaskListView
+import com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter
+import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListView
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver
 import java.lang.ref.WeakReference
 import javax.inject.Inject

@@ -1,36 +1,30 @@
-package com.fireflylearning.tasksummary.tasklist.views
+package com.fireflylearning.tasksummary.ui.tasklist.views
 
 import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.annotation.VisibleForTesting
-import android.support.design.widget.Snackbar
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
-import com.fireflylearning.tasksummary.tasklist.TaskListNavigationController
-import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
-import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
-import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
-import com.fireflylearning.tasksummary.tasklist.TaskListViewModel
+import com.fireflylearning.tasksummary.ui.common.ActivityViewModel
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListNavigationController
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListViewModel
+import com.fireflylearning.tasksummary.ui.tasklist.adapters.TaskListAdapter
+import com.fireflylearning.tasksummary.ui.tasklist.lifecycleobservers.TaskListLifecycleObserver
+import com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
-import com.fireflylearning.tasksummary.vo.Resource
 import javax.inject.Inject
 
 
@@ -59,7 +53,7 @@ class TaskListActivity : BaseActivity(), TaskListView {
     lateinit var preferences: PreferencesManager
 
 
-    private lateinit var taskViewModel: TaskListViewModel
+    private lateinit var activityViewModel: ActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -68,11 +62,21 @@ class TaskListActivity : BaseActivity(), TaskListView {
 
         setContentView(R.layout.activity_task_list)
 
+        activityViewModel = ViewModelProviders.of(this, viewModelFactory).get(ActivityViewModel::class.java)
 
         if(savedInstanceState == null){
             navigationController.navigateToListOfTasks(intent.extras[FireflyConstants.HOST] as String,
                     intent.extras[FireflyConstants.SECRET_TOKEN] as String)
         }
+
+        activityViewModel.getSessionStatus().observe(this, Observer<Boolean>{
+            status->
+            run {
+                if (status == false) {
+                    goToLogin()
+                }
+            }
+        })
 
     }
 
@@ -82,11 +86,14 @@ class TaskListActivity : BaseActivity(), TaskListView {
         return true
     }
 
+
+
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId){
             R.id.close_sesion -> {
                 log.d(this, "cerrar sesion")
-                presenter.closeSession()
+                activityViewModel.closeSession()
+
                 return true
             }
         }

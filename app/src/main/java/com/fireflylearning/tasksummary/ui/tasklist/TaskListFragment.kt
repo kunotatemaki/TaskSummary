@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.tasklist
+package com.fireflylearning.tasksummary.ui.tasklist
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
@@ -16,7 +16,7 @@ import android.view.ViewGroup
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.FragmentTaskListBinding
 import com.fireflylearning.tasksummary.persistence.entities.Task
-import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
+import com.fireflylearning.tasksummary.ui.tasklist.adapters.TaskListAdapter
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.vo.Resource
@@ -82,6 +82,10 @@ class TaskListFragment : DaggerFragment() {
         taskViewModel.setQuery(date = System.currentTimeMillis())
 
         return mBinding.root
+    }
+
+    fun setUpFragment(){
+
     }
 
     companion object {

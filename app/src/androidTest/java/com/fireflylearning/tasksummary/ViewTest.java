@@ -12,7 +12,7 @@ import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 
 import com.fireflylearning.tasksummary.persistence.entities.Task;
 import com.fireflylearning.tasksummary.taskdetails.ActivityDetails;
-import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity;
+import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity;
 import com.fireflylearning.tasksummary.utils.FireflyConstants;
 
 import org.junit.Rule;

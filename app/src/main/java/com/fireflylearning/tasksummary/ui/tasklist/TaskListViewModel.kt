@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.tasklist
+package com.fireflylearning.tasksummary.ui.tasklist
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
@@ -22,7 +22,6 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
     var showingEmpty: Boolean = false
     var host: String = ""
     var token: String = ""
-    private val sessionStatus: MutableLiveData<Boolean> = MutableLiveData()
     val tasks: CustomLiveData<MutableList<Task>> = TaskListLiveData()
     val logger: LoggerHelper = AndroidLoggerHelperImpl()
 
@@ -32,7 +31,6 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
 
     init {
         query.value = 0L
-        sessionStatus.value = true
         listOfTasks = query.switchMap  { date ->
             if (date == null || date == 0L) {
                 AbsentLiveData.create()
@@ -52,7 +50,5 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
         return listOfTasks
     }
 
-    fun getSessionStatus(): LiveData<Boolean>{
-        return sessionStatus
-    }
+
 }

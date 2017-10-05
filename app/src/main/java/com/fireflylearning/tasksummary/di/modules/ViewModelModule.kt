@@ -1,11 +1,13 @@
 package com.fireflylearning.tasksummary.di.modules
 
+import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.fireflylearning.tasksummary.di.interfaces.ViewModelKey
 import com.fireflylearning.tasksummary.fireflyviewmodel.FireflyViewModelFactory
 import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
-import com.fireflylearning.tasksummary.tasklist.TaskListViewModel
+import com.fireflylearning.tasksummary.ui.common.ActivityViewModel
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -26,6 +28,11 @@ internal abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(TaskListViewModel::class)
     internal abstract fun bindTaskListViewModel(taskListViewModel: TaskListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ActivityViewModel::class)
+    internal abstract fun bindActivityViewModel(activityViewModel: ActivityViewModel): ViewModel
 
     @Binds
     internal abstract fun bindViewModelFactory(factory: FireflyViewModelFactory): ViewModelProvider.Factory

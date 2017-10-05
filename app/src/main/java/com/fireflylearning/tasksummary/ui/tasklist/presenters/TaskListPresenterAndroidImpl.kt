@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.tasklist.presenters
+package com.fireflylearning.tasksummary.ui.tasklist.presenters
 
 import android.support.annotation.VisibleForTesting
 import com.fireflylearning.tasksummary.R
@@ -9,7 +9,7 @@ import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.safe
-import com.fireflylearning.tasksummary.tasklist.views.TaskListView
+import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListView
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.MyLivedataObserver

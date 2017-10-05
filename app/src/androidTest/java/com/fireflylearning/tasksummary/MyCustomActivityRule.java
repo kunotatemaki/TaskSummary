@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.support.test.rule.ActivityTestRule;
 
 import com.fireflylearning.tasksummary.persistence.entities.Task;
-import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity;
+import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity;
 
 import java.util.ArrayList;
 import java.util.Date;

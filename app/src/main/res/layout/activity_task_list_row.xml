@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
-        <import type="com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter"/>
+        <import type="com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter"/>
         <import type="com.fireflylearning.tasksummary.utils.TaskUtils"/>
         <import type="com.fireflylearning.tasksummary.utils.resources.ResourcesManager"/>
         <import type="com.fireflylearning.tasksummary.R"/>
@@ -14,7 +14,7 @@
             type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
         <variable
             name="presenter"
-            type="TaskListPresenter"/>
+            type="com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter"/>
         <variable
             name="taskUtils"
             type="TaskUtils"/>

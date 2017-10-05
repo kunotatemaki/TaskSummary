@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.login.views.LoginActivity
-import com.fireflylearning.tasksummary.tasklist.views.TaskListActivity
+import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
