@@ -4,7 +4,8 @@ import android.arch.lifecycle.LiveData
 import com.fireflylearning.tasksummary.AppExecutors
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.network.ApiResponse
-import com.fireflylearning.tasksummary.network.endpoints.FireflyService
+import com.fireflylearning.tasksummary.network.FireflyService
+import com.fireflylearning.tasksummary.network.FireflyServiceFactory
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.persistence.daos.TaskDao
 import com.fireflylearning.tasksummary.persistence.databases.FireflyDatabase
@@ -27,12 +28,14 @@ import javax.inject.Singleton
 
 @Singleton
 class TaskRepository @Inject
-constructor(private val appExecutors: AppExecutors, private val db: FireflyDatabase, private val taskDao: TaskDao,
-            private val fireflyService: FireflyService, private val resources: ResourcesManager) {
+constructor(private val appExecutors: AppExecutors, private val db: FireflyDatabase,
+            private val fireflyServiceFactory: FireflyServiceFactory, private val resources: ResourcesManager) {
+
+
 
     private val taskListRateLimit: RateLimiter<String> = RateLimiter(1, TimeUnit.MINUTES)
 
-    fun loadRepos(token: String): LiveData<Resource<List<Task>>> {
+    fun loadRepos(host: String, token: String): LiveData<Resource<List<Task>>> {
         return object : NetworkBoundResource<List<Task>, TaskServerResponse>(appExecutors) {
             override fun saveCallResult(item: TaskServerResponse) {
                 val list: MutableList<Task> = arrayListOf()
@@ -45,7 +48,7 @@ constructor(private val appExecutors: AppExecutors, private val db: FireflyDatab
                             Task(it)
                         }
 
-                taskDao.insertAll(*list.toTypedArray())
+                db.taskDao().insertAll(*list.toTypedArray())
             }
 
             override protected fun shouldFetch(data: List<Task>?): Boolean {
@@ -53,12 +56,12 @@ constructor(private val appExecutors: AppExecutors, private val db: FireflyDatab
             }
 
             override protected fun loadFromDb(): LiveData<List<Task>> {
-                return taskDao.getAllTasks()
+                return db.taskDao().getAllTasks()
             }
 
             override protected fun createCall(): LiveData<ApiResponse<TaskServerResponse>> {
                 val query = resources.getString(R.string.tasks_query)
-                return fireflyService.getAllTasks(FireflyConstants.DEVICE_ID, "secret1", query)
+                return fireflyServiceFactory.getFireflyService(host).getAllTasks(FireflyConstants.DEVICE_ID, token, query)
             }
 
             override protected fun onFetchFailed() {

@@ -1,11 +1,10 @@
 package com.fireflylearning.tasksummary.di.modules
 
-import android.app.Application
 import android.arch.persistence.room.Room
 import android.content.Context
-import android.text.TextUtils
 import com.fireflylearning.tasksummary.FireflyApp
-import com.fireflylearning.tasksummary.network.endpoints.FireflyService
+import com.fireflylearning.tasksummary.network.FireflyService
+import com.fireflylearning.tasksummary.network.FireflyServiceFactory
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
@@ -34,22 +33,6 @@ import javax.inject.Singleton
 @Module(includes = arrayOf(ViewModelModule::class))
 @Singleton
 class FireflyAppModule {
-
-    @Singleton
-    @Provides
-    fun provideFireflyService(): FireflyService {
-
-        //TODO mirar lo de añadir la url en tiempo de ejecución
-        //https//github.com/square/retrofit/issues/1404#issuecomment-207408548
-        //https://github.com/JessYanCoding/RetrofitUrlManager/blob/master/app/src/main/java/me/jessyan/retrofiturlmanager/demo/MainActivity.java
-
-        return Retrofit.Builder()
-                .baseUrl("https://appdev.tryfirefly.com")
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(LiveDataCallAdapterFactory())
-                .build()
-                .create<FireflyService>(FireflyService::class.java)
-    }
 
     @Singleton
     @Provides

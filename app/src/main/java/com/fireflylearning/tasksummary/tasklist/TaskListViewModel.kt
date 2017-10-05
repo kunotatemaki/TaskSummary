@@ -36,7 +36,7 @@ class TaskListViewModel @Inject constructor(val taskRepository: TaskRepository):
             if (search == null || search.trim { it <= ' ' }.isEmpty()) {
                 AbsentLiveData.create()
             } else {
-                taskRepository.loadRepos(token)
+                taskRepository.loadRepos(token = token, host = host)
             }
         }
     }

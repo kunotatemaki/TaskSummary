@@ -1,4 +1,4 @@
-package com.fireflylearning.tasksummary.network.endpoints
+package com.fireflylearning.tasksummary.network
 
 import android.arch.lifecycle.LiveData
 import com.fireflylearning.tasksummary.network.ApiResponse

@@ -4,7 +4,7 @@ import android.text.TextUtils
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
-import com.fireflylearning.tasksummary.network.endpoints.FireflyService
+import com.fireflylearning.tasksummary.network.FireflyService
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
