@@ -77,7 +77,7 @@ open class TaskListPresenterAndroidImpl @Inject constructor(private var taskList
         mView.safe {
             val myView = mView.get()!!
             myView.showLoader()
-            persistence.loadTasks(myView.getLiveTaks())
+            persistence.loadTasks()
 
         }
     }

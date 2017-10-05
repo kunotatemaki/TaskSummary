@@ -9,6 +9,7 @@ object FireflyConstants {
     val SECRET_TOKEN: String = "secret_token"
     val HOST: String = "host"
     val URL: String = "task_url"
+    val FETCHED_DATE: String = "fetched_date"
 
     enum class TokenError(val value: Int) {
         NO_OP (0),

@@ -12,6 +12,7 @@ import java.util.*
 
 /**
  * Created by Roll on 31/8/17.
+ * class for the db table Task
  */
 
 @Entity(tableName = "task", indices = arrayOf(Index(value = *arrayOf("id"), unique = true)))

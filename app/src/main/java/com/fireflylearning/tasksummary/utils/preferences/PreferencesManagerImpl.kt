@@ -36,4 +36,16 @@ class PreferencesManagerImpl @Inject constructor() : PreferencesManager {
     override fun deleteHost() {
         prefs.deleteVarFromSharedPreferences(FireflyConstants.HOST)
     }
+
+    override fun getFetchDate(): Long {
+        return prefs.getLongFromPreferences(FireflyConstants.FETCHED_DATE)
+    }
+
+    override fun setFetchDate(fetchDate: Long) {
+        prefs.setLongFromPreferences(FireflyConstants.FETCHED_DATE, fetchDate)
+    }
+
+    override fun deleteFetchDate() {
+        prefs.deleteVarFromSharedPreferences(FireflyConstants.FETCHED_DATE)
+    }
 }

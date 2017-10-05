@@ -3,8 +3,6 @@ package com.fireflylearning.tasksummary.di.modules
 import android.arch.persistence.room.Room
 import android.content.Context
 import com.fireflylearning.tasksummary.FireflyApp
-import com.fireflylearning.tasksummary.network.FireflyService
-import com.fireflylearning.tasksummary.network.FireflyServiceFactory
 import com.fireflylearning.tasksummary.network.logic.NetworkManager
 import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
@@ -12,7 +10,6 @@ import com.fireflylearning.tasksummary.persistence.PersistenceManagerImplAndroid
 import com.fireflylearning.tasksummary.persistence.daos.TaskDao
 import com.fireflylearning.tasksummary.persistence.databases.FireflyDatabase
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.fireflylearning.tasksummary.utils.LiveDataCallAdapterFactory
 import com.fireflylearning.tasksummary.utils.logger.AndroidLoggerHelperImpl
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
@@ -21,8 +18,6 @@ import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManagerAndroidImpl
 import dagger.Module
 import dagger.Provides
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 /**
@@ -76,7 +71,7 @@ class FireflyAppModule {
     }
 
     @Provides
-    fun providesPersistenceManager(persistence: PersistenceManagerImplAndroid): PersistenceManager{
+    fun providesPersistenceManager(persistence: PersistenceManagerImplAndroid): PersistenceManager {
         return persistence
     }
 }

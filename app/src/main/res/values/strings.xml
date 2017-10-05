@@ -33,4 +33,7 @@
     <string name="accept">Accept</string>
     <string name="remain_logged">Remain Logged</string>
     <string name="no_description">No description associated with this task</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

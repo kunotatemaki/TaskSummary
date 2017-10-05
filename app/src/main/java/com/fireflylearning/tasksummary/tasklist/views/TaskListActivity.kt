@@ -16,12 +16,12 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.databinding.ActivityMainBinding
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
+import com.fireflylearning.tasksummary.tasklist.TaskListNavigationController
 import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
@@ -38,13 +38,16 @@ import javax.inject.Inject
 class TaskListActivity : BaseActivity(), TaskListView {
 
     @Inject
+    lateinit var navigationController: TaskListNavigationController
+
+    @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var presenter: TaskListPresenter
 
-    @Inject
-    lateinit var observer: TaskListLifecycleObserver
+    /*@Inject
+    lateinit var observer: TaskListLifecycleObserver*/
 
     @Inject
     lateinit var log: LoggerHelper
@@ -55,47 +58,21 @@ class TaskListActivity : BaseActivity(), TaskListView {
     @Inject
     lateinit var preferences: PreferencesManager
 
-    private lateinit var mRecyclerView: RecyclerView
-
-    private lateinit var mBinding: ActivityMainBinding
-
 
     private lateinit var taskViewModel: TaskListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        taskViewModel = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java)
-        //get token and host from intent
-        taskViewModel.token = intent.extras[FireflyConstants.SECRET_TOKEN] as String
-        taskViewModel.host = intent.extras[FireflyConstants.HOST] as String
-
-
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
-        //region DATA BINDING
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        //endregion
 
-        mBinding.showMessage = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty
+        setContentView(R.layout.activity_task_list)
 
-        //set the mAdapter for the recycler view
-        mRecyclerView = mBinding.taskList
 
-        // use a linear layout manager
-        val mLayoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        mRecyclerView.layoutManager = mLayoutManager
-        mRecyclerView.adapter = adapter
-        //add a divider decorator
-        val dividerItemDecoration = DividerItemDecoration(mRecyclerView.context,
-                DividerItemDecoration.VERTICAL)
-        mRecyclerView.addItemDecoration(dividerItemDecoration)
-
-        taskViewModel.getResults().observe(this, Observer< Resource<List<Task>>> { _ ->
-            log.d(this, "holaaaa")
-        })
-
-        taskViewModel.setQuery(text = "hola")
+        if(savedInstanceState == null){
+            navigationController.navigateToListOfTasks(intent.extras[FireflyConstants.HOST] as String,
+                    intent.extras[FireflyConstants.SECRET_TOKEN] as String)
+        }
 
     }
 
@@ -136,23 +113,23 @@ class TaskListActivity : BaseActivity(), TaskListView {
 
     override fun hideEmptyList() {
         ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty = false
-        mBinding.errorMessage.visibility = View.INVISIBLE
+        //mBinding.errorMessage.visibility = View.INVISIBLE
     }
 
     override fun showEmptyList(message: String) {
         ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty = true
-        mBinding.errorMessage.visibility = View.VISIBLE
+        //mBinding.errorMessage.visibility = View.VISIBLE
 
     }
 
     override fun showLoader() {
         //hide error message because I'm gonna load data
         hideEmptyList()
-        mBinding.progressBar.visibility = View.VISIBLE
+        //mBinding.progressBar.visibility = View.VISIBLE
     }
 
     override fun hideLoader() {
-        mBinding.progressBar.visibility = View.INVISIBLE
+        //mBinding.progressBar.visibility = View.INVISIBLE
     }
 
     override fun showTaskDetails(url: String) {
@@ -162,7 +139,7 @@ class TaskListActivity : BaseActivity(), TaskListView {
     }
 
     override fun showMessage(message: String) {
-        Snackbar.make(mBinding.root, message, Snackbar.LENGTH_LONG).show()
+        //Snackbar.make(mBinding.root, message, Snackbar.LENGTH_LONG).show()
     }
 
     override fun getTokenFromChache(): String {

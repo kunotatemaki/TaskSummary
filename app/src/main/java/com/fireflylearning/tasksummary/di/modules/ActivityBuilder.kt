@@ -27,7 +27,7 @@ abstract class ActivityBuilder {
     abstract fun bindDetailsActivity(): ActivityDetails
 
     @CustomScopes.ActivityScope
-    @ContributesAndroidInjector(modules = arrayOf(TaskListModule::class))
+    @ContributesAndroidInjector(modules = arrayOf(TaskListModule::class, FragmentsProvider::class))
     abstract fun bindTaskListActivity(): TaskListActivity
 
 }

@@ -10,20 +10,18 @@ import java.util.concurrent.TimeUnit
  * Utility class that decides whether we should fetch some data or not.
  */
 
-class RateLimiter<in KEY>(timeout: Int, timeUnit: TimeUnit) {
-    private val timestamps = ArrayMap<KEY, Long>()
+class RateLimiter(timeout: Int, timeUnit: TimeUnit) {
+    //private val timestamps = ArrayMap<KEY, Long>()
     private val timeout: Long = timeUnit.toMillis(timeout.toLong())
 
     @Synchronized
-    fun shouldFetch(key: KEY): Boolean {
-        val lastFetched = timestamps[key]
+    fun shouldFetch(lastFetched: Long): Boolean {
+        //val lastFetched = timestamps[key]
         val now = now()
-        if (lastFetched == null) {
-            timestamps.put(key, now)
+        if (lastFetched == 0L) {
             return true
         }
         if (now - lastFetched > timeout) {
-            timestamps.put(key, now)
             return true
         }
         return false
@@ -33,8 +31,8 @@ class RateLimiter<in KEY>(timeout: Int, timeUnit: TimeUnit) {
         return SystemClock.uptimeMillis()
     }
 
-    @Synchronized
+    /*@Synchronized
     fun reset(key: KEY) {
         timestamps.remove(key)
-    }
+    }*/
 }

@@ -39,7 +39,9 @@ internal constructor(private val appExecutors: AppExecutors) {
     private fun fetchFromNetwork(dbSource: LiveData<ResultType>) {
         val apiResponse = createCall()
         // we re-attach dbSource as a new source, it will dispatch its latest value quickly
-        result.addSource(dbSource) { newData -> result.setValue(Resource.loading(newData)) }
+        result.addSource(dbSource) {
+            newData -> result.setValue(Resource.loading(newData))
+        }
         result.addSource<ApiResponse<RequestType>>(apiResponse) { response ->
             result.removeSource<ApiResponse<RequestType>>(apiResponse)
             result.removeSource(dbSource)
@@ -51,20 +53,23 @@ internal constructor(private val appExecutors: AppExecutors) {
                         // we specially request a new live data,
                         // otherwise we will get immediately last cached value,
                         // which may not be updated with latest results received from network.
-                        result.addSource(loadFromDb()
-                        ) { newData -> result.setValue(Resource.success(newData)) }
+                        result.addSource(loadFromDb()) {
+                            newData -> result.setValue(Resource.success(newData))
+                        }
                     }
                     )
                 })
             } else {
                 onFetchFailed()
                 result.addSource(dbSource
-                ) { newData -> result.setValue(Resource.error(response.errorMessage!!, newData)) }
+                ) {
+                    newData -> result.setValue(Resource.error(response.errorMessage!!, newData))
+                }
             }
         }
     }
 
-    open protected fun onFetchFailed() {}
+    protected abstract fun onFetchFailed()
 
     fun asLiveData(): LiveData<Resource<ResultType>> {
         return result
@@ -78,7 +83,7 @@ internal constructor(private val appExecutors: AppExecutors) {
     @WorkerThread
     protected abstract fun saveCallResult(item: RequestType)
 
-    @MainThread
+    @WorkerThread
     protected abstract fun shouldFetch(data: ResultType?): Boolean
 
     @MainThread

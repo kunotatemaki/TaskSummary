@@ -11,6 +11,7 @@ import android.arch.persistence.room.OnConflictStrategy.REPLACE
 
 /**
  * Created by Roll on 4/9/17.
+ * dao for task table
  */
 @Dao
 interface TaskDao {

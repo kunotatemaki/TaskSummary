@@ -12,4 +12,10 @@ interface PreferencesManager {
     fun setHost(host: String)
     fun deleteHost()
 
+    fun getFetchDate(): Long
+    fun setFetchDate(host: Long)
+    fun deleteFetchDate()
+
+
+
 }

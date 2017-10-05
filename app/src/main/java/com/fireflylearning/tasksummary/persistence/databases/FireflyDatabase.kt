@@ -9,10 +9,7 @@ import com.fireflylearning.tasksummary.persistence.utils.Converters
 
 /**
  * Created by Roll on 4/9/17.
- */
-
-/**
- * Created by Roll on 11/8/17.
+ * database interdace form Room
  */
 
 @Database(entities = arrayOf(Task::class), version = 1)
