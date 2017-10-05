@@ -3,6 +3,7 @@ package com.fireflylearning.tasksummary.ui.tasklist
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import android.arch.paging.PagedList
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.model.TaskListLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
@@ -27,7 +28,7 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
 
     private val query = MutableLiveData<Long>()
 
-    private val listOfTasks: LiveData<Resource<List<Task>>>
+    private val listOfTasks: LiveData<Resource<PagedList<Task>>>
 
     init {
         query.value = 0L
@@ -46,7 +47,7 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
         query.value = date
     }
 
-    fun getResults() : LiveData<Resource<List<Task>>>{
+    fun getResults() : LiveData<Resource<PagedList<Task>>>{
         return listOfTasks
     }
 

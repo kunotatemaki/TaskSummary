@@ -1,12 +1,14 @@
 package com.fireflylearning.tasksummary.repository
 
 import android.arch.lifecycle.LiveData
+import android.arch.paging.PagedList
 import android.os.SystemClock
 import com.fireflylearning.tasksummary.AppExecutors
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.network.ApiResponse
 import com.fireflylearning.tasksummary.network.FireflyServiceFactory
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
+import com.fireflylearning.tasksummary.persistence.PersistenceManager
 import com.fireflylearning.tasksummary.persistence.databases.FireflyDatabase
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.FireflyConstants
@@ -29,17 +31,17 @@ import javax.inject.Singleton
 @Singleton
 class TaskRepository @Inject
 constructor(private val appExecutors: AppExecutors,
-            private val db: FireflyDatabase,
+            private val persistenceManager: PersistenceManager,
             private val fireflyServiceFactory: FireflyServiceFactory,
             private val resources: ResourcesManager,
             private val preferencesManager: PreferencesManager) {
 
 
 
-    private val taskListRateLimit: RateLimiter = RateLimiter(10, TimeUnit.MINUTES)
+    private val taskListRateLimit: RateLimiter = RateLimiter(10, TimeUnit.HOURS)
 
-    fun loadTasks(host: String, token: String): LiveData<Resource<List<Task>>> {
-        return object : NetworkBoundResource<List<Task>, TaskServerResponse>(appExecutors) {
+    fun loadTasks(host: String, token: String): LiveData<Resource<PagedList<Task>>> {
+        return object : NetworkBoundResource<PagedList<Task>, TaskServerResponse>(appExecutors) {
             override fun saveCallResult(item: TaskServerResponse) {
                 val list: MutableList<Task> = arrayListOf()
                 //store the last fetch date
@@ -53,15 +55,15 @@ constructor(private val appExecutors: AppExecutors,
                             Task(it)
                         }
 
-                db.taskDao().insertAll(*list.toTypedArray())
+                persistenceManager.insertListOfTasks(list)
             }
 
-            override fun shouldFetch(data: List<Task>?): Boolean {
+            override fun shouldFetch(data: PagedList<Task>?): Boolean {
                 return data == null || data.isEmpty() || taskListRateLimit.shouldFetch(preferencesManager.getFetchDate())
             }
 
-            override fun loadFromDb(): LiveData<List<Task>> {
-                return db.taskDao().getAllTasks()
+            override fun loadFromDb(): LiveData<PagedList<Task>> {
+                return persistenceManager.loadTasks()
             }
 
             override fun createCall(): LiveData<ApiResponse<TaskServerResponse>> {

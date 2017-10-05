@@ -1,6 +1,7 @@
 package com.fireflylearning.tasksummary.persistence
 
 import android.arch.lifecycle.LiveData
+import android.arch.paging.PagedList
 import com.fireflylearning.tasksummary.persistence.entities.Task
 
 /**
@@ -13,6 +14,6 @@ interface PersistenceManager {
 
     fun insertListOfTasks(tasks: List<Task>)
 
-    fun loadTasks() : LiveData<List<Task>>
+    fun loadTasks() : LiveData<PagedList<Task>>
 
 }

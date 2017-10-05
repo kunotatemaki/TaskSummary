@@ -1,6 +1,7 @@
 package com.fireflylearning.tasksummary.persistence.daos
 
 import android.arch.lifecycle.LiveData
+import android.arch.paging.LivePagedListProvider
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
@@ -18,8 +19,8 @@ interface TaskDao {
     @Query("SELECT * FROM task")
     fun getAll(): List<Task>
 
-    @Query("SELECT * FROM task")
-    fun getAllTasks(): LiveData<List<Task>>
+    @Query("SELECT * FROM task ORDER BY id ASC")
+    fun getAllTasks(): LivePagedListProvider<Int, Task>
 
     @Insert(onConflict = REPLACE)
     fun insertAll(vararg tasks: Task)

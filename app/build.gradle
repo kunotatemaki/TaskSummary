@@ -68,6 +68,8 @@ dependencies {
     kapt "com.android.databinding:compiler:$rootProject.databindingVersion"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
 
+    //Room
+    implementation "android.arch.paging:runtime:$rootProject.paging"
     implementation "android.arch.persistence.room:runtime:$rootProject.roomVersion"
     kapt "android.arch.persistence.room:compiler:$rootProject.roomVersion"
 }

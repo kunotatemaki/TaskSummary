@@ -3,9 +3,9 @@ package com.fireflylearning.tasksummary.ui.tasklist
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
+import android.arch.paging.PagedList
 import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.os.SystemClock
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -75,8 +75,8 @@ class TaskListFragment : DaggerFragment() {
                 DividerItemDecoration.VERTICAL)
         mRecyclerView.addItemDecoration(dividerItemDecoration)
 
-        taskViewModel.getResults().observe(this, Observer<Resource<List<Task>>> { _ ->
-            log.d(this, "holaaaa")
+        taskViewModel.getResults().observe(this, Observer<Resource<PagedList<Task>>> { tasks ->
+            log.d(this, "holaaaa: " + tasks?.data?.size)
         })
 
         taskViewModel.setQuery(date = System.currentTimeMillis())
