@@ -1,5 +1,7 @@
 package com.fireflylearning.tasksummary
 
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.Transformations
 import java.lang.ref.WeakReference
 
 /**
@@ -15,3 +17,6 @@ fun <T> WeakReference<T>.safe(body : T.() -> Unit) {
     this.get()?.body()
 }
 
+
+fun <X, Y> LiveData<X>.switchMap(func: (X) -> LiveData<Y>)
+        = Transformations.switchMap(this, func)

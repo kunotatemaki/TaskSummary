@@ -9,7 +9,7 @@ import android.support.annotation.Nullable
  * A generic class that holds a value with its loading status.
  * @param <T>
  */
-class Resource<T>(@NonNull val status: Status, @Nullable val data: T?, @Nullable val message: String?) {
+class Resource<out T>(@NonNull val status: Status, @Nullable val data: T?, @Nullable val message: String?) {
 
     override fun equals(other: Any?): Boolean {
         if (this === other) {

@@ -10,6 +10,7 @@ import javax.inject.Singleton
 
 /**
  * Created by Roll on 3/9/17.
+ * Utilities for task class
  */
 @Singleton
 class TaskUtils @Inject constructor(){

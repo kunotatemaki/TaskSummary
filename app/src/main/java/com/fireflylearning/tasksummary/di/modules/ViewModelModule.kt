@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModelProvider
 import com.fireflylearning.tasksummary.di.interfaces.ViewModelKey
 import com.fireflylearning.tasksummary.fireflyviewmodel.FireflyViewModelFactory
 import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
-import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
+import com.fireflylearning.tasksummary.tasklist.TaskListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

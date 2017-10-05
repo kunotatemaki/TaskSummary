@@ -4,7 +4,7 @@ import android.text.TextUtils
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.persistence.entities.Task
-import com.fireflylearning.tasksummary.network.endpoints.FireflyEndpoints
+import com.fireflylearning.tasksummary.network.endpoints.FireflyService
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
@@ -42,7 +42,7 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
         configureEndpoint(host)
 
         retrofit?.let {
-            val fireflyEndpoints = retrofit!!.create(FireflyEndpoints::class.java)
+            val fireflyEndpoints = retrofit!!.create(FireflyService::class.java)
 
             //obtain query from reosurces file
             val query = resources.getString(R.string.tasks_query)
@@ -92,7 +92,7 @@ class NetworkManagerAndroidImpl @Inject constructor(): NetworkManager {
         configureEndpoint(host)
 
         retrofit?.let {
-            val fireflyEndpoints = retrofit!!.create(FireflyEndpoints::class.java)
+            val fireflyEndpoints = retrofit!!.create(FireflyService::class.java)
 
             val myCall: Call<ResponseBody> = fireflyEndpoints.login(FireflyConstants.DEVICE_ID,
                     token)

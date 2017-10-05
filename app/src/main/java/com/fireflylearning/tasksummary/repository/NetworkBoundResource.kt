@@ -24,7 +24,7 @@ internal constructor(private val appExecutors: AppExecutors) {
     private val result = MediatorLiveData<Resource<ResultType>>()
 
     init {
-        result.setValue(Resource.loading(null))
+        result.value = Resource.loading(null)
         val dbSource = loadFromDb()
         result.addSource(dbSource) { data ->
             result.removeSource(dbSource)
@@ -64,7 +64,7 @@ internal constructor(private val appExecutors: AppExecutors) {
         }
     }
 
-    protected fun onFetchFailed() {}
+    open protected fun onFetchFailed() {}
 
     fun asLiveData(): LiveData<Resource<ResultType>> {
         return result

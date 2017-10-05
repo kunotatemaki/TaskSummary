@@ -14,8 +14,9 @@ import java.util.*
  * Created by Roll on 31/8/17.
  */
 
-@Entity(tableName = "task", indices = arrayOf(Index(value = *arrayOf("name"), unique = true)))
+@Entity(tableName = "task", indices = arrayOf(Index(value = *arrayOf("id"), unique = true)))
 class Task constructor(@PrimaryKey
+                       @ColumnInfo(name = "id")
                        val id: Int?,
                        @ColumnInfo(name = "name")
                        val title: String?,

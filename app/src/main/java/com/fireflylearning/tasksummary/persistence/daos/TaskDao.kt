@@ -1,5 +1,6 @@
 package com.fireflylearning.tasksummary.persistence.daos
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Delete
 import android.arch.persistence.room.Insert
@@ -15,6 +16,9 @@ import android.arch.persistence.room.OnConflictStrategy.REPLACE
 interface TaskDao {
     @Query("SELECT * FROM task")
     fun getAll(): List<Task>
+
+    @Query("SELECT * FROM task")
+    fun getAllTasks(): LiveData<List<Task>>
 
     @Insert(onConflict = REPLACE)
     fun insertAll(vararg tasks: Task)

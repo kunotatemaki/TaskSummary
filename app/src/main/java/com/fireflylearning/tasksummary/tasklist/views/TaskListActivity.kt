@@ -1,6 +1,8 @@
 package com.fireflylearning.tasksummary.tasklist.views
 
 import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.databinding.DataBindingUtil
@@ -23,16 +25,20 @@ import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.tasklist.adapters.TaskListAdapter
 import com.fireflylearning.tasksummary.tasklist.lifecycleobservers.TaskListLifecycleObserver
 import com.fireflylearning.tasksummary.tasklist.presenters.TaskListPresenter
-import com.fireflylearning.tasksummary.tasklist.viewmodels.TaskListViewModel
+import com.fireflylearning.tasksummary.tasklist.TaskListViewModel
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
+import com.fireflylearning.tasksummary.vo.Resource
 import javax.inject.Inject
 
 
 @CustomScopes.ActivityScope
 class TaskListActivity : BaseActivity(), TaskListView {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var presenter: TaskListPresenter
@@ -54,15 +60,16 @@ class TaskListActivity : BaseActivity(), TaskListView {
     private lateinit var mBinding: ActivityMainBinding
 
 
-
+    private lateinit var taskViewModel: TaskListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
+        taskViewModel = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java)
         //get token and host from intent
-        ViewModelProviders.of(this).get(TaskListViewModel::class.java).token = intent.extras[FireflyConstants.SECRET_TOKEN] as String
-        ViewModelProviders.of(this).get(TaskListViewModel::class.java).host = intent.extras[FireflyConstants.HOST] as String
+        taskViewModel.token = intent.extras[FireflyConstants.SECRET_TOKEN] as String
+        taskViewModel.host = intent.extras[FireflyConstants.HOST] as String
 
 
         supportActionBar?.setDisplayHomeAsUpEnabled(false)
@@ -70,7 +77,7 @@ class TaskListActivity : BaseActivity(), TaskListView {
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         //endregion
 
-        mBinding.showMessage = ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty
+        mBinding.showMessage = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty
 
         //set the mAdapter for the recycler view
         mRecyclerView = mBinding.taskList
@@ -83,6 +90,12 @@ class TaskListActivity : BaseActivity(), TaskListView {
         val dividerItemDecoration = DividerItemDecoration(mRecyclerView.context,
                 DividerItemDecoration.VERTICAL)
         mRecyclerView.addItemDecoration(dividerItemDecoration)
+
+        taskViewModel.getResults().observe(this, Observer< Resource<List<Task>>> { _ ->
+            log.d(this, "holaaaa")
+        })
+
+        taskViewModel.setQuery(text = "hola")
 
     }
 
@@ -111,7 +124,7 @@ class TaskListActivity : BaseActivity(), TaskListView {
     }
 
     override fun getLiveTaks(): CustomLiveData<MutableList<Task>> {
-        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).tasks
+        return ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).tasks
     }
 
     override fun setTasksInView(tasks: List<Task>) {
@@ -122,12 +135,12 @@ class TaskListActivity : BaseActivity(), TaskListView {
     }
 
     override fun hideEmptyList() {
-        ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty = false
+        ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty = false
         mBinding.errorMessage.visibility = View.INVISIBLE
     }
 
     override fun showEmptyList(message: String) {
-        ViewModelProviders.of(this).get(TaskListViewModel::class.java).showingEmpty = true
+        ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty = true
         mBinding.errorMessage.visibility = View.VISIBLE
 
     }
@@ -153,11 +166,11 @@ class TaskListActivity : BaseActivity(), TaskListView {
     }
 
     override fun getTokenFromChache(): String {
-        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).token
+        return ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).token
     }
 
     override fun getHostFromChache(): String {
-        return ViewModelProviders.of(this).get(TaskListViewModel::class.java).host
+        return ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).host
     }
 
     override fun goToLogin() {
