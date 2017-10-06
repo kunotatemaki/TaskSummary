@@ -4,8 +4,10 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.arch.paging.PagedList
+import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
@@ -16,6 +18,7 @@ import android.view.ViewGroup
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.FragmentTaskListBinding
 import com.fireflylearning.tasksummary.persistence.entities.Task
+import com.fireflylearning.tasksummary.ui.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListAdapter.TaskClickCallback
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.TaskUtils
@@ -55,8 +58,8 @@ class TaskListFragment : DaggerFragment() {
 
         taskViewModel = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java)
         //get token and host from intent
-        taskViewModel.token = arguments.getString(FireflyConstants.SECRET_TOKEN)
-        taskViewModel.host = arguments.getString(FireflyConstants.HOST)
+        taskViewModel.setToken(arguments.getString(FireflyConstants.SECRET_TOKEN))
+        taskViewModel.setHost(arguments.getString(FireflyConstants.HOST))
 
     }
 
@@ -68,14 +71,10 @@ class TaskListFragment : DaggerFragment() {
 
         setUpFragment()
 
-
-
-
-
         return mBinding.root
     }
 
-    fun setUpFragment(){
+    private fun setUpFragment(){
         //get the recycler
         mRecyclerView = mBinding.taskList
 
@@ -94,7 +93,9 @@ class TaskListFragment : DaggerFragment() {
                 resourcesManager,
                 object : TaskClickCallback {
                     override fun onClick(task: Task?) {
-                        log.d(this, "clicked")
+                        task?.let {
+                            taskViewModel.taskClicked(task)
+                        }
                     }
                 }
         )
@@ -109,18 +110,25 @@ class TaskListFragment : DaggerFragment() {
             adapter.setList(tasks?.data)
         })
 
-        /*searchViewModel.getResults().observe(this, { result ->
-            binding.get().setSearchResource(result)
-            binding.get().setResultCount(if (result == null || result!!.data == null)
-                0
-            else
-                result!!.data.size())
-            adapter.get().replace(if (result == null) null else result!!.data)
-            binding.get().executePendingBindings()
-        })*/
+        taskViewModel.getTaskAction().observe(this, Observer<TaskAction<String>> { taskAction ->
+            when(taskAction?.taskDescription){
+                TaskAction.Companion.TaskDescription.DO_NOTHING-> return@Observer
+                TaskAction.Companion.TaskDescription.NO_INFO -> {
+                    Snackbar.make(mBinding.root, getString(R.string.no_description), Snackbar.LENGTH_LONG).show()
+                    taskViewModel.resetTaskAction()
+                }
+                TaskAction.Companion.TaskDescription.LAUNCH_DESCRIPTION -> {
+                    val intent = Intent(context, ActivityDetails::class.java)
+                    intent.putExtra(FireflyConstants.URL, taskAction.data)
+                    startActivity(intent)
+                    taskViewModel.resetTaskAction()
+                }
+            }
+        })
 
-        //TODO hacer que no lo pida siempre
-        taskViewModel.setQuery(date = System.currentTimeMillis())
+        if(taskViewModel.needToLoad()) {
+            taskViewModel.setQuery(date = System.currentTimeMillis())
+        }
 
     }
 

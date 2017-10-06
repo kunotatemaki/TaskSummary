@@ -1,17 +1,14 @@
-package com.fireflylearning.tasksummary.taskdetails
+package com.fireflylearning.tasksummary.ui.taskdetails
 
-import android.database.DatabaseUtils
 import android.databinding.DataBindingUtil
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import android.webkit.WebViewClient
-import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.databinding.ActivityWebviewBinding
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
@@ -32,8 +29,6 @@ class ActivityDetails : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //dependency injection
-        //(application as FireflyApp).mComponent.inject(this)
 
         //databinding
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_webview)

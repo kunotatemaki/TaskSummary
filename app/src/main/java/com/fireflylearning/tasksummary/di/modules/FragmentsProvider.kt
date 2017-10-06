@@ -1,11 +1,7 @@
 package com.fireflylearning.tasksummary.di.modules
 
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
-import com.fireflylearning.tasksummary.login.views.LoginActivity
-import com.fireflylearning.tasksummary.splashscreen.SplashActivity
-import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListFragment
-import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -17,7 +13,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class FragmentsProvider {
 
     @CustomScopes.FragmentScope
-    @ContributesAndroidInjector(modules = arrayOf(TaskListFragmentModule::class))
+    @ContributesAndroidInjector
     abstract fun provideTaskListFragmentFactory(): TaskListFragment
 
 

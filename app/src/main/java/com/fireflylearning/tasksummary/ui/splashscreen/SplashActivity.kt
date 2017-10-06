@@ -1,12 +1,10 @@
-package com.fireflylearning.tasksummary.splashscreen
+package com.fireflylearning.tasksummary.ui.splashscreen
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
-import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.login.views.LoginActivity
-import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
@@ -14,6 +12,7 @@ import javax.inject.Inject
 
 /**
  * Created by Roll on 1/9/17.
+ * Splash screen for the app
  */
 class SplashActivity : BaseActivity() {
 

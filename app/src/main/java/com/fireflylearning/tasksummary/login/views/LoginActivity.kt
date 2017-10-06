@@ -17,7 +17,7 @@ import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleOb
 import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
 import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
 import com.fireflylearning.tasksummary.model.CustomLiveData
-import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity

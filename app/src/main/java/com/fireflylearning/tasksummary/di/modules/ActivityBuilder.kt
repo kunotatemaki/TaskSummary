@@ -2,9 +2,9 @@ package com.fireflylearning.tasksummary.di.modules
 
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.login.views.LoginActivity
-import com.fireflylearning.tasksummary.splashscreen.SplashActivity
-import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
-import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
+import com.fireflylearning.tasksummary.ui.splashscreen.SplashActivity
+import com.fireflylearning.tasksummary.ui.taskdetails.ActivityDetails
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -27,7 +27,7 @@ abstract class ActivityBuilder {
     abstract fun bindDetailsActivity(): ActivityDetails
 
     @CustomScopes.ActivityScope
-    @ContributesAndroidInjector(modules = arrayOf(TaskListModule::class, FragmentsProvider::class))
+    @ContributesAndroidInjector(modules = arrayOf(FragmentsProvider::class))
     abstract fun bindTaskListActivity(): TaskListActivity
 
 }

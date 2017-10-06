@@ -12,9 +12,6 @@
             name="task"
             type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
         <variable
-            name="presenter"
-            type="com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter"/>
-        <variable
             name="taskUtils"
             type="TaskUtils"/>
         <variable
@@ -30,7 +27,6 @@
         android:paddingTop="@dimen/vertical_margin"
         android:paddingBottom="@dimen/vertical_margin"
         android:foreground="?selectableItemBackground"
-        android:onClick="@{()->presenter.taskClicked(task)}"
         >
 
         <TextView

@@ -9,7 +9,6 @@ import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.TaskListRowBinding
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.persistence.entities.Task
-import com.fireflylearning.tasksummary.ui.tasklist.viewholders.TaskListViewHolder
 import com.fireflylearning.tasksummary.utils.TaskUtils
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 

@@ -2,7 +2,6 @@ package com.fireflylearning.tasksummary.ui.tasklist
 
 import android.support.v4.app.FragmentManager
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
 import javax.inject.Inject
 
 /**

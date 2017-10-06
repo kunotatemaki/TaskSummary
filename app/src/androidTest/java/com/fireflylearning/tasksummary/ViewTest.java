@@ -10,8 +10,8 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 
-import com.fireflylearning.tasksummary.taskdetails.ActivityDetails;
-import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity;
+import com.fireflylearning.tasksummary.ui.taskdetails.ActivityDetails;
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

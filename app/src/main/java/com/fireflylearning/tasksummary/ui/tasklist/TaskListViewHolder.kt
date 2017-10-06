@@ -1,9 +1,8 @@
-package com.fireflylearning.tasksummary.ui.tasklist.viewholders
+package com.fireflylearning.tasksummary.ui.tasklist
 
 import android.support.v7.widget.RecyclerView
 import com.fireflylearning.tasksummary.databinding.TaskListRowBinding
 import com.fireflylearning.tasksummary.persistence.entities.Task
-import com.fireflylearning.tasksummary.ui.tasklist.TaskListAdapter
 import com.fireflylearning.tasksummary.utils.TaskUtils
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 
@@ -18,7 +17,7 @@ class TaskListViewHolder(private val binding: TaskListRowBinding): RecyclerView.
         binding.taskUtils = taskUtils
         binding.resources = resources
         binding.root.setOnClickListener { v ->
-            taskClickCallback.onClick(task)
+            taskClickCallback.onClick(binding.task)
         }
         binding.executePendingBindings()
     }
