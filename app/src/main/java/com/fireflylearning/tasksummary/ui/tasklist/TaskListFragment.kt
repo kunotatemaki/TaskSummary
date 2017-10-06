@@ -126,10 +126,10 @@ class TaskListFragment : DaggerFragment() {
             }
         })
 
-        if(taskViewModel.needToLoad()) {
+        /*if(taskViewModel.needToLoad()) {
             taskViewModel.setQuery(date = System.currentTimeMillis())
         }
-
+*/
     }
 
     companion object {

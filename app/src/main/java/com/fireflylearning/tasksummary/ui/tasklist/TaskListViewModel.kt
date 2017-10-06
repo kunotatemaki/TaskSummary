@@ -26,11 +26,11 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
 
     private val query = MutableLiveData<Long>()
 
-    private val listOfTasks: LiveData<Resource<PagedList<Task>>>
+    private var listOfTasks: LiveData<Resource<PagedList<Task>>>
 
     init {
-        query.value = 0L
         taskAction.value = TaskAction.reset()
+        query.value = System.currentTimeMillis()
         listOfTasks = query.switchMap  { date ->
             if (date == null || date == 0L) {
                 AbsentLiveData.create()
@@ -48,15 +48,12 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
         this.host = host
     }
 
-    fun setQuery(date: Long){
-        if(query.value == date)
-            return
-        query.value = date
+
+    fun refresh(){
+        query.value = System.currentTimeMillis()
     }
 
-    fun needToLoad(): Boolean{
-        return query.value == 0L
-    }
+
 
     fun getResults() : LiveData<Resource<PagedList<Task>>>{
         return listOfTasks
