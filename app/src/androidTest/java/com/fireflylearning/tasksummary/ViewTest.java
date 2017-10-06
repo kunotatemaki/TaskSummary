@@ -10,10 +10,8 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.runner.AndroidJUnit4;
 import android.support.test.runner.lifecycle.ActivityLifecycleMonitorRegistry;
 
-import com.fireflylearning.tasksummary.persistence.entities.Task;
 import com.fireflylearning.tasksummary.taskdetails.ActivityDetails;
 import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity;
-import com.fireflylearning.tasksummary.utils.FireflyConstants;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -54,7 +52,7 @@ public class ViewTest {
     @Test
     public void clickAddTaskButton_launchAddTaskActivity() {
         // Type text and then press the button.
-        Espresso.onView(ViewMatchers.withId(R.id.task_list)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
+        Espresso.onView(ViewMatchers.withId(R.id.taskList)).perform(RecyclerViewActions.actionOnItemAtPosition(0, click()));
         //Espresso.onView(ViewMatchers.withId(R.id.superhero_list_item)).perform(click());
         Activity activity = getActivityInstance();
         boolean b = (activity instanceof ActivityDetails);

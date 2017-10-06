@@ -18,7 +18,7 @@ import com.fireflylearning.tasksummary.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.ui.common.ActivityViewModel
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListNavigationController
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListViewModel
-import com.fireflylearning.tasksummary.ui.tasklist.adapters.TaskListAdapter
+import com.fireflylearning.tasksummary.ui.tasklist.TaskListAdapter
 import com.fireflylearning.tasksummary.ui.tasklist.lifecycleobservers.TaskListLifecycleObserver
 import com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter
 import com.fireflylearning.tasksummary.utils.FireflyConstants
@@ -46,8 +46,7 @@ class TaskListActivity : BaseActivity(), TaskListView {
     @Inject
     lateinit var log: LoggerHelper
 
-    @Inject
-    protected lateinit var adapter: TaskListAdapter
+
 
     @Inject
     lateinit var preferences: PreferencesManager
@@ -113,9 +112,9 @@ class TaskListActivity : BaseActivity(), TaskListView {
 
     override fun setTasksInView(tasks: List<Task>) {
         log.d(this, "show tasks in view")
-        adapter.tasks.clear()
+        /*adapter.tasks.clear()
         adapter.tasks.addAll(tasks)
-        adapter.notifyDataSetChanged()
+        adapter.notifyDataSetChanged()*/
     }
 
     override fun hideEmptyList() {

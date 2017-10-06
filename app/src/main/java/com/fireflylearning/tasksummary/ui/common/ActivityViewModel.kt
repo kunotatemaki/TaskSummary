@@ -3,7 +3,11 @@ package com.fireflylearning.tasksummary.ui.common
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import com.fireflylearning.tasksummary.AppExecutors
+import com.fireflylearning.tasksummary.persistence.PersistenceManager
+import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
+import java.util.*
 import javax.inject.Inject
 
 /**
@@ -14,6 +18,11 @@ class ActivityViewModel @Inject constructor(private val preferencesManager: Pref
 
     private val sessionStatus: MutableLiveData<Boolean> = MutableLiveData()
 
+    @Inject
+    lateinit var persistence:PersistenceManager
+
+    @Inject
+    lateinit var appExecutors: AppExecutors
     init {
         sessionStatus.value = true
     }
@@ -26,5 +35,6 @@ class ActivityViewModel @Inject constructor(private val preferencesManager: Pref
         preferencesManager.deleteSecretToken()
         preferencesManager.deleteHost()
         sessionStatus.value = false
+
     }
 }

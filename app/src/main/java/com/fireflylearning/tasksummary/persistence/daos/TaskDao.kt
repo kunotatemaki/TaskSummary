@@ -19,7 +19,7 @@ interface TaskDao {
     @Query("SELECT * FROM task")
     fun getAll(): List<Task>
 
-    @Query("SELECT * FROM task ORDER BY id ASC")
+    @Query("SELECT * FROM task ORDER BY [set] ASC")
     fun getAllTasks(): LivePagedListProvider<Int, Task>
 
     @Insert(onConflict = REPLACE)

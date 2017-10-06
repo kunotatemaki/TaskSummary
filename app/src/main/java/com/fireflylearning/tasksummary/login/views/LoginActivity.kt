@@ -21,7 +21,6 @@ import com.fireflylearning.tasksummary.ui.tasklist.views.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
-import com.fireflylearning.tasksummary.utils.ui.GlideBindingComponent
 import javax.inject.Inject
 
 
@@ -44,7 +43,7 @@ class LoginActivity : BaseActivity(), LoginView {
 
 
         //databinding
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_login, GlideBindingComponent())
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
         mBinding.presenter = presenter
 
