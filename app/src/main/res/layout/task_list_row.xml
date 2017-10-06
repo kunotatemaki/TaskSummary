@@ -4,7 +4,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <data>
         <import type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
-        <import type="com.fireflylearning.tasksummary.ui.tasklist.presenters.TaskListPresenter"/>
         <import type="com.fireflylearning.tasksummary.utils.TaskUtils"/>
         <import type="com.fireflylearning.tasksummary.utils.resources.ResourcesManager"/>
         <import type="com.fireflylearning.tasksummary.R"/>
@@ -48,8 +47,8 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/info_icon"
-            app:layout_constraintRight_toLeftOf="@id/info_icon"
+            app:layout_constraintEnd_toStartOf="@id/infoIcon"
+            app:layout_constraintRight_toLeftOf="@id/infoIcon"
             android:layout_marginStart="@dimen/horizontal_margin"
             android:layout_marginLeft="@dimen/horizontal_margin"
             android:layout_marginEnd="@dimen/horizontal_margin"
@@ -57,7 +56,7 @@
 
 
         <TextView
-            android:id="@+id/date_set"
+            android:id="@+id/dateSet"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="[Set Date/Time]"
@@ -73,13 +72,13 @@
             android:textSize="14sp" />
 
         <TextView
-            android:id="@+id/date_due"
+            android:id="@+id/dateDue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="[Due Date/Time]"
             android:textColor="@{(task.archived != null &amp;&amp; task.archived == true)? resources.getColor(R.color.colorFinished) : resources.getColor(R.color.colorNoFinished)}"
             android:text="@{task.due != null? resources.getString(R.string.due) + ` ` + taskUtils.getDateDue(task) : resources.getString(R.string.no_due)}"
-            app:layout_constraintTop_toBottomOf="@id/date_set"
+            app:layout_constraintTop_toBottomOf="@id/dateSet"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="@dimen/text_margin"
             android:layout_marginStart="@dimen/horizontal_margin"
@@ -99,19 +98,19 @@
             android:layout_marginStart="@dimen/horizontal_margin"
             android:text="@{taskUtils.getFlagsFromTask(task)}"
             android:textStyle="italic"
-            app:layout_constraintBaseline_toBaselineOf="@id/date_set"
+            app:layout_constraintBaseline_toBaselineOf="@id/dateSet"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintEnd_toEndOf="parent"
             android:gravity="end"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toRightOf="@id/date_set"
-            app:layout_constraintStart_toEndOf="@id/date_set"
+            app:layout_constraintLeft_toRightOf="@id/dateSet"
+            app:layout_constraintStart_toEndOf="@id/dateSet"
             tools:text="[Task Flags]" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/info_icon"
+            android:id="@+id/infoIcon"
             android:src="@drawable/ic_info_outline_black_24dp"
             android:tint="@{(task.archived != null &amp;&amp; task.archived == true)? resources.getColor(R.color.colorFinished) : resources.getColor(R.color.colorNoFinished)}"
             app:layout_constraintBaseline_toBaselineOf="@id/title"

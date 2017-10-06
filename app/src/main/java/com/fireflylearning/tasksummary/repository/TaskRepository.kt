@@ -1,6 +1,7 @@
 package com.fireflylearning.tasksummary.repository
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.PagedList
 import android.os.SystemClock
 import com.fireflylearning.tasksummary.AppExecutors
@@ -38,7 +39,7 @@ constructor(private val appExecutors: AppExecutors,
 
 
 
-    private val taskListRateLimit: RateLimiter = RateLimiter(10, TimeUnit.HOURS)
+    private val taskListRateLimit: RateLimiter = RateLimiter(10, TimeUnit.MILLISECONDS)
 
     fun loadTasks(host: String, token: String): LiveData<Resource<PagedList<Task>>> {
         return object : NetworkBoundResource<PagedList<Task>, TaskServerResponse>(appExecutors) {

@@ -6,13 +6,12 @@ import android.support.v7.recyclerview.extensions.DiffCallback
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.databinding.ActivityTaskListRowBinding
+import com.fireflylearning.tasksummary.databinding.TaskListRowBinding
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.ui.tasklist.viewholders.TaskListViewHolder
 import com.fireflylearning.tasksummary.utils.TaskUtils
 import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
-import javax.inject.Inject
 
 /**
  * Created by Roll on 31/8/17.
@@ -28,7 +27,7 @@ class TaskListAdapter constructor(private val taskUtils: TaskUtils,
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): TaskListViewHolder {
         val inflater = LayoutInflater.from(parent?.context)
-        val binding = DataBindingUtil.inflate<ActivityTaskListRowBinding>(inflater, R.layout.activity_task_list_row, parent,
+        val binding = DataBindingUtil.inflate<TaskListRowBinding>(inflater, R.layout.task_list_row, parent,
                 false)
 
         return TaskListViewHolder(binding)

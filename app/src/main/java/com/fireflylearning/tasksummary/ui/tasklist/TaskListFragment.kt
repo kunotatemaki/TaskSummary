@@ -10,7 +10,6 @@ import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -66,10 +65,6 @@ class TaskListFragment : DaggerFragment() {
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_task_list, container, false)
 
-        mBinding.showMessage = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java).showingEmpty
-
-
-
 
         setUpFragment()
 
@@ -109,6 +104,8 @@ class TaskListFragment : DaggerFragment() {
 
         taskViewModel.getResults().observe(this, Observer<Resource<PagedList<Task>>> { tasks ->
             log.d(this, "holaaaa: " + tasks?.data?.size)
+            mBinding.taskCount = tasks?.data?.size
+            mBinding.resource = tasks
             adapter.setList(tasks?.data)
         })
 
