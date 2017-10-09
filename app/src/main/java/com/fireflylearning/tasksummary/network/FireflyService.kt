@@ -25,7 +25,11 @@ interface FireflyService {
                  @Field("data") query: String) : LiveData<ApiResponse<TaskServerResponse>>
 
     @GET("login/api/checktoken")
+    fun loginOld(@Query("ffauth_device_id") deviceId: String,
+                 @Query("ffauth_secret") secret: String) : Call<ResponseBody>
+
+    @GET("login/api/checktoken")
     fun login(@Query("ffauth_device_id") deviceId: String,
-              @Query("ffauth_secret") secret: String) : Call<ResponseBody>
+                 @Query("ffauth_secret") secret: String) : LiveData<ApiResponse<ResponseBody>>
 
 }

@@ -1,11 +1,10 @@
 package com.fireflylearning.tasksummary.di.modules
 
-import android.arch.lifecycle.AndroidViewModel
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.fireflylearning.tasksummary.di.interfaces.ViewModelKey
 import com.fireflylearning.tasksummary.fireflyviewmodel.FireflyViewModelFactory
-import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
+import com.fireflylearning.tasksummary.ui.login.LoginViewModel
 import com.fireflylearning.tasksummary.ui.common.ActivityViewModel
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListViewModel
 import dagger.Binds

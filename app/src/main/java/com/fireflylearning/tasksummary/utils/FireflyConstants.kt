@@ -7,7 +7,7 @@ object FireflyConstants {
 
     val DEVICE_ID : String = "AndroidApp"
     val SECRET_TOKEN: String = "secret_token"
-    val HOST: String = "host"
+    val HOST: String = "host2"
     val URL: String = "task_url"
     val FETCHED_DATE: String = "fetched_date"
 

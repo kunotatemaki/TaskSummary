@@ -5,7 +5,7 @@ import android.support.annotation.Nullable
 
 /**
  * Created by Roll on 4/10/17.
- * A generic class that holds a value with its description status.
+ * A generic class that holds a value with its description status2.
  * @param <T>
  */
 class TaskAction<out T>(@NonNull val taskDescription: TaskDescription, @Nullable val data: T?, @Nullable val message: String?) {

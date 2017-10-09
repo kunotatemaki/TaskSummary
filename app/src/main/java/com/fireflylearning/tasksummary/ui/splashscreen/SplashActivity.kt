@@ -3,7 +3,7 @@ package com.fireflylearning.tasksummary.ui.splashscreen
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import com.fireflylearning.tasksummary.login.views.LoginActivity
+import com.fireflylearning.tasksummary.ui.login.LoginActivity
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager

@@ -10,7 +10,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
-import com.fireflylearning.tasksummary.login.views.LoginActivity
+import com.fireflylearning.tasksummary.ui.login.LoginActivity
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.ui.common.ActivityViewModel
 import com.fireflylearning.tasksummary.utils.FireflyConstants

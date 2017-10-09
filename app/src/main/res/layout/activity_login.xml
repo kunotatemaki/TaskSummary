@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <import type="com.fireflylearning.tasksummary.login.presenters.LoginPresenter"/>
+        <import type="com.fireflylearning.tasksummary.ui.login.LoginViewModel"/>
         <variable
-            name="presenter"
-            type="LoginPresenter"/>
+            name="viewModel"
+            type="com.fireflylearning.tasksummary.ui.login.LoginViewModel"/>
     </data>
     <ScrollView
-        android:id="@+id/login_form"
+        android:id="@+id/loginForm"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -27,7 +27,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:id="@+id/host_up"
+                android:id="@+id/hostUp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,14 +38,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_host"
-                    android:text="@string/base_host" />
+                    android:text="@{viewModel.host.value.data}" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/token_up"
-                app:layout_constraintTop_toBottomOf="@id/host_up"
+                android:id="@+id/tokenUp"
+                app:layout_constraintTop_toBottomOf="@id/hostUp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -53,51 +53,53 @@
 
                 <EditText
                     android:id="@+id/token"
+                    android:inputType="textPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:imeActionId="@integer/ime_action"
                     android:imeActionLabel="@string/action_sign_in"
                     android:imeOptions="actionUnspecified"
-                    android:hint="@string/prompt_token" />
+                    android:hint="@string/prompt_token"
+                    android:text="@{viewModel.token.value.data}"/>
             </android.support.design.widget.TextInputLayout>
 
             <Button
-                android:id="@+id/sign_in_button"
+                android:id="@+id/signInButton"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/vertical_margin"
                 android:text="@string/action_sign_in"
-                android:onClick="@{()->presenter.attemptLogin(host.getText().toString(), token.getText().toString())}"
+                android:onClick="@{()->viewModel.attemptLogin(host.getText().toString(), token.getText().toString(), storeCredentials.isChecked())}"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/token_up"
+                app:layout_constraintTop_toBottomOf="@id/tokenUp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
             <ProgressBar
-                android:id="@+id/login_progress"
+                android:id="@+id/loginProgress"
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginBottom="8dp"
-                app:layout_constraintTop_toTopOf="@id/sign_in_button"
-                app:layout_constraintBottom_toBottomOf="@id/sign_in_button"
-                app:layout_constraintLeft_toLeftOf="@id/sign_in_button"
-                app:layout_constraintStart_toStartOf="@id/sign_in_button"
-                app:layout_constraintEnd_toEndOf="@id/sign_in_button"
-                app:layout_constraintRight_toRightOf="@id/sign_in_button"
+                app:layout_constraintTop_toTopOf="@id/signInButton"
+                app:layout_constraintBottom_toBottomOf="@id/signInButton"
+                app:layout_constraintLeft_toLeftOf="@id/signInButton"
+                app:layout_constraintStart_toStartOf="@id/signInButton"
+                app:layout_constraintEnd_toEndOf="@id/signInButton"
+                app:layout_constraintRight_toRightOf="@id/signInButton"
                 android:visibility="gone" />
 
         <CheckBox
-            android:id="@+id/store_credentials"
+            android:id="@+id/storeCredentials"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:text="remember data"
             android:text="@string/remain_logged"
             android:layout_marginTop="@dimen/vertical_margin"
-            app:layout_constraintTop_toBottomOf="@id/sign_in_button"
+            app:layout_constraintTop_toBottomOf="@id/signInButton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -6,7 +6,7 @@ import android.support.annotation.Nullable
 
 /**
  * Created by Roll on 4/10/17.
- * A generic class that holds a value with its loading status.
+ * A generic class that holds a value with its loading status2.
  * @param <T>
  */
 class Resource<out T>(@NonNull val status: Status, @Nullable val data: T?, @Nullable val message: String?) {
@@ -39,7 +39,7 @@ class Resource<out T>(@NonNull val status: Status, @Nullable val data: T?, @Null
 
     override fun toString(): String {
         return "Resource{" +
-                "status=" + status +
+                "status2=" + status +
                 ", message='" + message + '\'' +
                 ", data=" + data +
                 '}'

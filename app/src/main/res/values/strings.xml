@@ -28,7 +28,8 @@
     <string name="close_session">Close Session</string>
 
 
-    <string name="base_host" translatable="false">appdev.tryfirefly.com</string>
+    <!--<string name="base_host" translatable="false">appdev.tryfirefly.com</string>-->
+    <string name="base_host" translatable="false">10.0.2.2:8080/mobsf-dynamic/rest/services/</string>
     <string name="details_url" translatable="false">https://&lt;host&gt;/login/api/getsession?ffauth_device_id=&lt;deviceId&gt;&amp;ffauth_secret=&lt;secret&gt;&amp;Prelogin=/&lt;url from api&gt;</string>
     <string name="accept">Accept</string>
     <string name="remain_logged">Remain Logged</string>

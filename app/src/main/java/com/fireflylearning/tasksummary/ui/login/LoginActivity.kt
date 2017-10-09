@@ -1,71 +1,82 @@
-package com.fireflylearning.tasksummary.login.views
+package com.fireflylearning.tasksummary.ui.login
 
 import android.app.AlertDialog
-import android.arch.lifecycle.LifecycleObserver
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.widget.EditText
 import android.widget.TextView
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityLoginBinding
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
-import com.fireflylearning.tasksummary.login.lifecycleobservers.LoginLifecycleObserver
-import com.fireflylearning.tasksummary.login.presenters.LoginPresenter
-import com.fireflylearning.tasksummary.login.viewmodels.LoginViewModel
-import com.fireflylearning.tasksummary.model.CustomLiveData
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
+import com.fireflylearning.tasksummary.vo.Status
 import javax.inject.Inject
 
 
 @CustomScopes.ActivityScope
-class LoginActivity : BaseActivity(), LoginView {
+class LoginActivity : BaseActivity() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
     lateinit var log: LoggerHelper
 
-    @Inject
-    lateinit var presenter: LoginPresenter
-
-    @Inject
-    lateinit var observer: LoginLifecycleObserver
-
     lateinit var mBinding: ActivityLoginBinding
+
+    lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(LoginViewModel::class.java)
         //databinding
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
 
-        mBinding.presenter = presenter
+        mBinding.viewModel = viewModel
 
         mBinding.token.setOnEditorActionListener(TextView.OnEditorActionListener { _, id, _ ->
             if (id == resources.getInteger(R.integer.ime_action)) {
-                presenter.attemptLogin(mBinding.host.text.toString(), mBinding.token.text.toString())
+                viewModel.attemptLogin(mBinding.host.text.toString(), mBinding.token.text.toString(),
+                        mBinding.storeCredentials.isChecked)
                 return@OnEditorActionListener true
             }
             false
         })
 
+        viewModel.getHost().observe(this, Observer{ host ->
+            if(!host?.valid!!){
+                mBinding.host.error = host.message
+            }
+        })
+
+        viewModel.getToken().observe(this,  Observer{token ->
+            if(!token!!.valid) {
+                mBinding.token.error = token.message
+            }
+        })
+
+        viewModel.getResponse().observe(this, Observer{response ->
+            when(response?.status){
+                Status.SUCCESS -> goToTaskListView()
+                Status.ERROR -> showErrorFromResponse(response.message!!)
+                Status.LOADING -> showProgressBar()
+                null -> return@Observer
+            }
+
+        })
+
     }
 
-
-    // region LOGIN VIEW
-    override fun addLifecycleObserver(observer: LoginLifecycleObserver) {
-        if(observer is LifecycleObserver){
-            lifecycle.addObserver(observer)
-        }
-    }
-
-    override fun showErrorInHost(state: Boolean) {
+    /*override fun showErrorInHost(state: Boolean) {
         when(state){
             true -> showErrorInTextField(mBinding.host)
             false -> removeErrorInTextField(mBinding.host)
@@ -87,17 +98,18 @@ class LoginActivity : BaseActivity(), LoginView {
 
     private fun removeErrorInTextField(text: EditText){
         text.error = null
-    }
+    }*/
 
-    override fun goToTaskListView() {
+    private fun goToTaskListView() {
         val intent = Intent(this, TaskListActivity::class.java)
-        intent.putExtra(FireflyConstants.HOST, ViewModelProviders.of(this).get(LoginViewModel::class.java).host)
-        intent.putExtra(FireflyConstants.SECRET_TOKEN, ViewModelProviders.of(this).get(LoginViewModel::class.java).token)
+        intent.putExtra(FireflyConstants.HOST, ViewModelProviders.of(this).get(LoginViewModel::class.java).getHost().value?.data)
+        intent.putExtra(FireflyConstants.SECRET_TOKEN, ViewModelProviders.of(this).get(LoginViewModel::class.java).getToken().value?.data)
         startActivity(intent)
         finish()
     }
 
-    override fun showErrorFromResponse(error: FireflyConstants.TokenError) {
+    private fun showErrorFromResponse(error: String) {
+        hideProgressBar()
         val dialog = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert)
         } else {
@@ -106,12 +118,7 @@ class LoginActivity : BaseActivity(), LoginView {
         dialog.setCancelable(true)
         dialog.setTitle(R.string.title_error)
 
-        val message: String = when (error) {
-            FireflyConstants.TokenError.NETWORK_ERROR -> resources.getString(R.string.error_internet_connection)
-            FireflyConstants.TokenError.HOST_ERROR -> resources.getString(R.string.error_invalid_host)
-            FireflyConstants.TokenError.INVALID_TOKEN -> resources.getString(R.string.error_invalid_token)
-            else -> ""
-        }
+        val message: String = error
 
         dialog.setMessage(message)
 
@@ -119,12 +126,12 @@ class LoginActivity : BaseActivity(), LoginView {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
             dialog.setOnDismissListener {
                 log.d(this, "cerrado")
-                getLiveStatus().setLivedataValue(FireflyConstants.TokenError.NO_OP)
+                viewModel.resetResponse()
             }
         }else{
             dialog.create().setOnDismissListener{
                 log.d(this, "cerrado")
-                getLiveStatus().setLivedataValue(FireflyConstants.TokenError.NO_OP)
+                viewModel.resetResponse()
             }
         }
 
@@ -133,41 +140,17 @@ class LoginActivity : BaseActivity(), LoginView {
 
     }
 
-    override fun getLiveStatus(): CustomLiveData<FireflyConstants.TokenError> {
-        return ViewModelProviders.of(this).get(LoginViewModel::class.java).status
-    }
-
-    override fun showProgressBar() {
+    private fun showProgressBar() {
         mBinding.signInButton.visibility = View.INVISIBLE
         mBinding.loginProgress.visibility = View.VISIBLE
     }
 
-    override fun hideProgressBar() {
+    private fun hideProgressBar() {
         mBinding.signInButton.visibility = View.VISIBLE
         mBinding.loginProgress.visibility = View.GONE
     }
 
-    override fun storeTokenInChache(token: String) {
-        ViewModelProviders.of(this).get(LoginViewModel::class.java).token = token
-    }
 
-    override fun storeHostInChache(host: String) {
-        ViewModelProviders.of(this).get(LoginViewModel::class.java).host = host
-    }
-
-    override fun storeCredentials(): Boolean {
-        return mBinding.storeCredentials.isChecked
-    }
-
-    override fun getTokenFromChache(): String {
-        return ViewModelProviders.of(this).get(LoginViewModel::class.java).token
-    }
-
-    override fun getHostFromChache(): String {
-        return ViewModelProviders.of(this).get(LoginViewModel::class.java).host
-    }
 
     //endregion
 }
-
-//todo hacer lo del texeditor

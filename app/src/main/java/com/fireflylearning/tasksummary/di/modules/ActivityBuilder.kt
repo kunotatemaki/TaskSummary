@@ -1,7 +1,7 @@
 package com.fireflylearning.tasksummary.di.modules
 
 import com.fireflylearning.tasksummary.di.interfaces.CustomScopes
-import com.fireflylearning.tasksummary.login.views.LoginActivity
+import com.fireflylearning.tasksummary.ui.login.LoginActivity
 import com.fireflylearning.tasksummary.ui.splashscreen.SplashActivity
 import com.fireflylearning.tasksummary.ui.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListActivity
@@ -19,7 +19,7 @@ abstract class ActivityBuilder {
     abstract fun bindSplashActivity(): SplashActivity
 
     @CustomScopes.ActivityScope
-    @ContributesAndroidInjector(modules = arrayOf(LoginModule::class))
+    @ContributesAndroidInjector
     abstract fun bindLoginActivity(): LoginActivity
 
     @CustomScopes.ActivityScope

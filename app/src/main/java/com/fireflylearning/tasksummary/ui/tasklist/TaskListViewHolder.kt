@@ -16,7 +16,7 @@ class TaskListViewHolder(private val binding: TaskListRowBinding): RecyclerView.
         binding.task = task
         binding.taskUtils = taskUtils
         binding.resources = resources
-        binding.root.setOnClickListener { v ->
+        binding.root.setOnClickListener {
             taskClickCallback.onClick(binding.task)
         }
         binding.executePendingBindings()

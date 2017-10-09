@@ -57,7 +57,7 @@ class TaskListFragment : DaggerFragment() {
         super.onCreate(savedInstanceState)
 
         taskViewModel = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java)
-        //get token and host from intent
+        //get token2 and host2 from intent
         taskViewModel.setToken(arguments.getString(FireflyConstants.SECRET_TOKEN))
         taskViewModel.setHost(arguments.getString(FireflyConstants.HOST))
 

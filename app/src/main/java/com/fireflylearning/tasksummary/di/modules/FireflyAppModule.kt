@@ -3,8 +3,6 @@ package com.fireflylearning.tasksummary.di.modules
 import android.arch.persistence.room.Room
 import android.content.Context
 import com.fireflylearning.tasksummary.FireflyApp
-import com.fireflylearning.tasksummary.network.logic.NetworkManager
-import com.fireflylearning.tasksummary.network.logic.NetworkManagerAndroidImpl
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
 import com.fireflylearning.tasksummary.persistence.PersistenceManagerImplAndroid
 import com.fireflylearning.tasksummary.persistence.daos.TaskDao
@@ -48,11 +46,6 @@ class FireflyAppModule {
     @Provides
     fun providesContext(application: FireflyApp): Context{
         return application.applicationContext
-    }
-
-    @Provides
-    fun providesNetworkManager(network: NetworkManagerAndroidImpl): NetworkManager {
-        return network
     }
 
     @Provides

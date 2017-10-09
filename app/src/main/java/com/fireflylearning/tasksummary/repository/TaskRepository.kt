@@ -39,7 +39,7 @@ constructor(private val appExecutors: AppExecutors,
 
 
 
-    private val taskListRateLimit: RateLimiter = RateLimiter(10, TimeUnit.MILLISECONDS)
+    private val taskListRateLimit: RateLimiter = RateLimiter(10, TimeUnit.MINUTES)
 
     fun loadTasks(host: String, token: String): LiveData<Resource<PagedList<Task>>> {
         return object : NetworkBoundResource<PagedList<Task>, TaskServerResponse>(appExecutors) {
@@ -69,7 +69,7 @@ constructor(private val appExecutors: AppExecutors,
 
             override fun createCall(): LiveData<ApiResponse<TaskServerResponse>> {
                 val query = resources.getString(R.string.tasks_query)
-                return fireflyServiceFactory.getFireflyService(host).getAllTasks(FireflyConstants.DEVICE_ID, token, query)
+                return fireflyServiceFactory.getFireflyService(host, true).getAllTasks(FireflyConstants.DEVICE_ID, token, query)
             }
 
             override fun onFetchFailed() {

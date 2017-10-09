@@ -39,7 +39,7 @@ public class ViewTest {
                     Context targetContext = InstrumentationRegistry.getInstrumentation()
                             .getTargetContext();
                     Intent result = new Intent(targetContext, TaskListActivity.class);
-                    result.putExtra("host", "host");
+                    result.putExtra("host2", "host2");
                     result.putExtra("secret_token", "secret_token");
 
                     return result;

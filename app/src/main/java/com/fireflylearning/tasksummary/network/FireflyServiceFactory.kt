@@ -14,24 +14,29 @@ import javax.inject.Singleton
 @Singleton
 class FireflyServiceFactory @Inject constructor() {
 
-    private var host: String? = null
     private lateinit var fireflyService: FireflyService
 
-    fun getFireflyService(host: String): FireflyService{
-        val myHost: String = if(host.contains("https://")) {
+    fun getFireflyService(host: String, withAdapter: Boolean): FireflyService{
+        val myHost: String = if(host.contains("http://")) {
             host
         }else{
-            TextUtils.concat("https://", host).toString()
+            TextUtils.concat("http://", host).toString()
         }
-        if(this.host == null || this.host != myHost){
-            this.host = myHost
-            fireflyService = Retrofit.Builder()
-                    .baseUrl(this.host!!)
+        fireflyService = if(withAdapter) {
+            Retrofit.Builder()
+                    .baseUrl(myHost)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(LiveDataCallAdapterFactory())
                     .build()
                     .create<FireflyService>(FireflyService::class.java)
-        }
+        }else{
+            Retrofit.Builder()
+                    .baseUrl(myHost)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build()
+                    .create<FireflyService>(FireflyService::class.java)
+            }
+
         return fireflyService
     }
 

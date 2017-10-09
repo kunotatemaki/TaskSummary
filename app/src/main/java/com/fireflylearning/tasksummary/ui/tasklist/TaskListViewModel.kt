@@ -69,7 +69,7 @@ class TaskListViewModel @Inject constructor(private val taskRepository: TaskRepo
             taskAction.value = TaskAction.noInfo(resourcesManager.getString(R.string.no_description))
         }else{
             var url = resourcesManager.getString(R.string.details_url)
-            url = url.replace("<host>", host)
+            url = url.replace("<host2>", host)
             url = url.replace("<deviceId>", FireflyConstants.DEVICE_ID)
             url = url.replace("<secret>", token)
             url = url.replace("<url from api>", task.descriptionPageUrl)
