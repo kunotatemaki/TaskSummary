@@ -3,6 +3,7 @@ package com.fireflylearning.tasksummary.di.components
 import com.fireflylearning.tasksummary.FireflyApp
 import com.fireflylearning.tasksummary.di.modules.ActivityBuilder
 import com.fireflylearning.tasksummary.di.modules.FireflyAppModule
+import com.rukiasoft.utilslibrary.di.UtilsModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -15,6 +16,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = arrayOf(AndroidSupportInjectionModule::class,
         FireflyAppModule::class,
+        UtilsModule::class,
         ActivityBuilder::class))
 interface FireflyAppComponent : AndroidInjector<FireflyApp>{
     @Component.Builder

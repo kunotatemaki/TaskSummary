@@ -8,12 +8,8 @@ import com.fireflylearning.tasksummary.persistence.PersistenceManagerImplAndroid
 import com.fireflylearning.tasksummary.persistence.daos.TaskDao
 import com.fireflylearning.tasksummary.persistence.databases.FireflyDatabase
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.fireflylearning.tasksummary.utils.logger.AndroidLoggerHelperImpl
-import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManagerImpl
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManagerAndroidImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -46,16 +42,6 @@ class FireflyAppModule {
     @Provides
     fun providesContext(application: FireflyApp): Context{
         return application.applicationContext
-    }
-
-    @Provides
-    fun providesLogHelper(logger: AndroidLoggerHelperImpl): LoggerHelper {
-        return logger
-    }
-
-    @Provides
-    fun providesResourcesManager(resources: ResourcesManagerAndroidImpl): ResourcesManager {
-        return resources
     }
 
     @Provides

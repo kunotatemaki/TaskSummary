@@ -5,17 +5,15 @@ import android.arch.lifecycle.MutableLiveData
 import android.support.annotation.MainThread
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.network.FireflyServiceFactory
-import com.fireflylearning.tasksummary.utils.AbsentLiveData
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.vo.Resource
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
-
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 /**
  * Created by Roll on 4/10/17.
  * A generic class that can provide a login response from the network.

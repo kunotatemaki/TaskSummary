@@ -5,7 +5,7 @@
     <data>
         <import type="com.fireflylearning.tasksummary.persistence.entities.Task"/>
         <import type="com.fireflylearning.tasksummary.utils.TaskUtils"/>
-        <import type="com.fireflylearning.tasksummary.utils.resources.ResourcesManager"/>
+        <import type="com.rukiasoft.utilslibrary.resources.ResourcesManager"/>
         <import type="com.fireflylearning.tasksummary.R"/>
         <import type="android.view.View"/>
         <variable

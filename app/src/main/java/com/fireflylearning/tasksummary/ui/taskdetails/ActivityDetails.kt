@@ -6,12 +6,12 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.webkit.WebView
-import com.fireflylearning.tasksummary.R
-import com.fireflylearning.tasksummary.utils.ui.BaseActivity
 import android.webkit.WebViewClient
+import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.databinding.ActivityWebviewBinding
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
+import com.fireflylearning.tasksummary.utils.ui.BaseActivity
+import com.rukiasoft.utilslibrary.logger.LoggerHelper
 import javax.inject.Inject
 
 

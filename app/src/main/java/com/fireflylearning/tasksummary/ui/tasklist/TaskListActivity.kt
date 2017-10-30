@@ -14,9 +14,9 @@ import com.fireflylearning.tasksummary.ui.login.LoginActivity
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.ui.common.ActivityViewModel
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
 import com.fireflylearning.tasksummary.utils.ui.BaseActivity
+import com.rukiasoft.utilslibrary.logger.LoggerHelper
 import javax.inject.Inject
 
 

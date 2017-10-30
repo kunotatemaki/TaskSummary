@@ -22,9 +22,9 @@ import com.fireflylearning.tasksummary.ui.taskdetails.ActivityDetails
 import com.fireflylearning.tasksummary.ui.tasklist.TaskListAdapter.TaskClickCallback
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.TaskUtils
-import com.fireflylearning.tasksummary.utils.logger.LoggerHelper
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 import com.fireflylearning.tasksummary.vo.Resource
+import com.rukiasoft.utilslibrary.logger.LoggerHelper
 import dagger.android.support.DaggerFragment
 import javax.inject.Inject
 

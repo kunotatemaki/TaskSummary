@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView
 import com.fireflylearning.tasksummary.databinding.TaskListRowBinding
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.TaskUtils
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 
 /**
  * Created by Roll on 31/8/17.

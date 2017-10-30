@@ -6,10 +6,9 @@ import android.arch.lifecycle.ViewModel
 import android.text.TextUtils
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.repository.NetworkLogin
-import com.fireflylearning.tasksummary.utils.AbsentLiveData
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.vo.CheckField
 import com.fireflylearning.tasksummary.vo.Resource
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 import javax.inject.Inject
 
 /**

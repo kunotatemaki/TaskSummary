@@ -2,9 +2,9 @@ package com.fireflylearning.tasksummary.utils
 
 import com.fireflylearning.tasksummary.R
 import com.fireflylearning.tasksummary.persistence.entities.Task
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 import java.text.SimpleDateFormat
-import java.util.ArrayList
+import java.util.*
 import javax.inject.Inject
 import javax.inject.Singleton
 

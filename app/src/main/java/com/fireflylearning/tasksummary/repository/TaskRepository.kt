@@ -1,7 +1,6 @@
 package com.fireflylearning.tasksummary.repository
 
 import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
 import android.arch.paging.PagedList
 import android.os.SystemClock
 import com.fireflylearning.tasksummary.AppExecutors
@@ -10,13 +9,12 @@ import com.fireflylearning.tasksummary.network.ApiResponse
 import com.fireflylearning.tasksummary.network.FireflyServiceFactory
 import com.fireflylearning.tasksummary.network.model.TaskServerResponse
 import com.fireflylearning.tasksummary.persistence.PersistenceManager
-import com.fireflylearning.tasksummary.persistence.databases.FireflyDatabase
 import com.fireflylearning.tasksummary.persistence.entities.Task
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import com.fireflylearning.tasksummary.utils.RateLimiter
 import com.fireflylearning.tasksummary.utils.preferences.PreferencesManager
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
 import com.fireflylearning.tasksummary.vo.Resource
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton

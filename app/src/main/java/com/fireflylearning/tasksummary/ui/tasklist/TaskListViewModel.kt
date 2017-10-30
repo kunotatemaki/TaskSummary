@@ -10,7 +10,7 @@ import com.fireflylearning.tasksummary.repository.TaskRepository
 import com.fireflylearning.tasksummary.switchMap
 import com.fireflylearning.tasksummary.utils.AbsentLiveData
 import com.fireflylearning.tasksummary.utils.FireflyConstants
-import com.fireflylearning.tasksummary.utils.resources.ResourcesManager
+import com.rukiasoft.utilslibrary.resources.ResourcesManager
 import com.fireflylearning.tasksummary.vo.Resource
 import javax.inject.Inject
 
