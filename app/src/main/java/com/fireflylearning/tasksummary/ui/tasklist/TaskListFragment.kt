@@ -58,13 +58,13 @@ class TaskListFragment : DaggerFragment() {
 
         taskViewModel = ViewModelProviders.of(this, viewModelFactory).get(TaskListViewModel::class.java)
         //get token2 and host2 from intent
-        taskViewModel.setToken(arguments.getString(FireflyConstants.SECRET_TOKEN))
-        taskViewModel.setHost(arguments.getString(FireflyConstants.HOST))
+        taskViewModel.setToken(arguments!!.getString(FireflyConstants.SECRET_TOKEN))
+        taskViewModel.setHost(arguments!!.getString(FireflyConstants.HOST))
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return super.onCreateView(inflater, container, savedInstanceState)
         // Inflate the layout for this fragment
         mBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_task_list, container, false)
 
@@ -73,6 +73,8 @@ class TaskListFragment : DaggerFragment() {
 
         return mBinding.root
     }
+
+
 
     private fun setUpFragment(){
         //get the recycler

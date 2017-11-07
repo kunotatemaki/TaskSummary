@@ -7,12 +7,12 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.0'
     defaultConfig {
         applicationId "com.fireflylearning.tasksummary"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -41,7 +41,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-    implementation 'com.android.support:support-v4:26.1.0'
+    implementation 'com.android.support:support-v4:27.0.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
@@ -62,8 +62,8 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.0.0-RC1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0-RC1'
     testImplementation 'org.mockito:mockito-core:2.8.47'
-    compile "android.arch.lifecycle:runtime:$rootProject.archVersion"
-    compile "android.arch.lifecycle:extensions:$rootProject.roomVersion"
+    implementation "android.arch.lifecycle:runtime:$rootProject.archVersion"
+    implementation "android.arch.lifecycle:extensions:$rootProject.roomVersion"
     implementation 'com.google.code.gson:gson:2.8.1'
     kapt "com.android.databinding:compiler:$rootProject.databindingVersion"
     implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
