@@ -22,7 +22,6 @@ allprojects {
 }
 
 task clean(type: Delete) {
-    println "***********"
     delete rootProject.buildDir
 }
 
@@ -35,7 +34,7 @@ ext {
     buildToolsVersion = '26.0.1'
 
     // App dependencies
-    supportLibraryVersion = '26.1.0'
+    supportLibraryVersion = '27.0.1'
     archVersion = '1.0.3'
     roomVersion = '1.0.0-alpha9-1'
     databindingVersion = '3.0.0-beta6'
