@@ -27,11 +27,11 @@ class ApiResponse<T> {
             if (!matcher.find() || matcher.groupCount() != 1) {
                 return null
             }
-            try {
-                return Integer.parseInt(matcher.group(1))
+            return try {
+                Integer.parseInt(matcher.group(1))
             } catch (ex: NumberFormatException) {
                 //Timber.w("cannot parse next page from %s", next)
-                return null
+                null
             }
 
         }

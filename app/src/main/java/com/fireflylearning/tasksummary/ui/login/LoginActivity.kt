@@ -30,9 +30,9 @@ class LoginActivity : BaseActivity() {
     @Inject
     lateinit var log: LoggerHelper
 
-    lateinit var mBinding: ActivityLoginBinding
+    private lateinit var mBinding: ActivityLoginBinding
 
-    lateinit var viewModel: LoginViewModel
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

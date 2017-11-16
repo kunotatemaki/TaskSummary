@@ -22,6 +22,7 @@ allprojects {
 }
 
 task clean(type: Delete) {
+    println "***********"
     delete rootProject.buildDir
 }
 
@@ -35,7 +36,7 @@ ext {
 
     // App dependencies
     supportLibraryVersion = '26.1.0'
-    archVersion = '1.0.0'
+    archVersion = '1.0.3'
     roomVersion = '1.0.0-alpha9-1'
     databindingVersion = '3.0.0-beta6'
     guavaVersion = '18.0'
@@ -48,5 +49,7 @@ ext {
     espressoVersion = '3.0.0'
     daggerVersion = '2.11'
     dexmakerVersion = '1.2'
-    paging = '1.0.0-alpha2'
+    paging = '1.0.0-alpha3'
+    playServicesAuth = '11.4.2'
+    glide = '4.1.1'
 }
