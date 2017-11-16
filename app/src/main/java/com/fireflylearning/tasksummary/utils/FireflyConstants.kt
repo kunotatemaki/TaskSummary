@@ -25,5 +25,6 @@ object FireflyConstants {
     }
 
     val DATABASE_NAME: String = "firefly-database"
+    val KEYSTORE_ALIAS: String = "firefly-key"
 
 }

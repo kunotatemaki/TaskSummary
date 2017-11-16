@@ -1,5 +1,7 @@
 package com.fireflylearning.tasksummary.utils.preferences
 
+import android.content.Context
+import com.fireflylearning.tasksummary.security.Encryption
 import com.fireflylearning.tasksummary.utils.FireflyConstants
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -13,8 +15,12 @@ class PreferencesManagerImpl @Inject constructor() : PreferencesManager {
     @Inject
     lateinit var prefs: AndroidPreferences
 
+    @Inject
+    lateinit var context: Context
+
     override fun setSecretToken(token: String) {
-        prefs.setStringFromPreferences(FireflyConstants.SECRET_TOKEN, token)
+        prefs.setStringFromPreferences(FireflyConstants.SECRET_TOKEN,
+                Encryption.encryptString(context, token, FireflyConstants.KEYSTORE_ALIAS))
     }
 
     override fun deleteSecretToken() {
@@ -22,7 +28,9 @@ class PreferencesManagerImpl @Inject constructor() : PreferencesManager {
     }
 
     override fun getSecretToken(): String {
-        return prefs.getStringFromPreferences(FireflyConstants.SECRET_TOKEN)
+        val token = prefs.getStringFromPreferences(FireflyConstants.SECRET_TOKEN)
+        return Encryption.decryptString(token, FireflyConstants.KEYSTORE_ALIAS)
+
     }
 
     override fun getHost(): String {
